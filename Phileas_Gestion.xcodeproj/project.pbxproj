@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A0CA9681AE64B6C0070DF31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9671AE64B6C0070DF31 /* main.m */; };
+		7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */; };
+		7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */; };
+		7A0CA9711AE64B6C0070DF31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9701AE64B6C0070DF31 /* ViewController.m */; };
+		7A0CA9741AE64B6C0070DF31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9721AE64B6C0070DF31 /* Main.storyboard */; };
+		7A0CA9761AE64B6C0070DF31 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9751AE64B6C0070DF31 /* Images.xcassets */; };
+		7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */; };
+		7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A0CA97F1AE64B6C0070DF31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A0CA95A1AE64B6C0070DF31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A0CA9611AE64B6C0070DF31;
+			remoteInfo = Phileas_Gestion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A0CA9621AE64B6C0070DF31 /* Phileas_Gestion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phileas_Gestion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0CA9661AE64B6C0070DF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A0CA9671AE64B6C0070DF31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A0CA9691AE64B6C0070DF31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7A0CA96D1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Phileas_Gestion.xcdatamodel; sourceTree = "<group>"; };
+		7A0CA96F1AE64B6C0070DF31 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7A0CA9701AE64B6C0070DF31 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7A0CA9731AE64B6C0070DF31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A0CA9751AE64B6C0070DF31 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7A0CA9781AE64B6C0070DF31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7A0CA97E1AE64B6C0070DF31 /* Phileas_GestionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Phileas_GestionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0CA9831AE64B6C0070DF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phileas_GestionTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A0CA95F1AE64B6C0070DF31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A0CA97B1AE64B6C0070DF31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A0CA9591AE64B6C0070DF31 = {
+			isa = PBXGroup;
+			children = (
+				7A0CA9641AE64B6C0070DF31 /* Phileas_Gestion */,
+				7A0CA9811AE64B6C0070DF31 /* Phileas_GestionTests */,
+				7A0CA9631AE64B6C0070DF31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A0CA9631AE64B6C0070DF31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CA9621AE64B6C0070DF31 /* Phileas_Gestion.app */,
+				7A0CA97E1AE64B6C0070DF31 /* Phileas_GestionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A0CA9641AE64B6C0070DF31 /* Phileas_Gestion */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CA9691AE64B6C0070DF31 /* AppDelegate.h */,
+				7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */,
+				7A0CA96F1AE64B6C0070DF31 /* ViewController.h */,
+				7A0CA9701AE64B6C0070DF31 /* ViewController.m */,
+				7A0CA9721AE64B6C0070DF31 /* Main.storyboard */,
+				7A0CA9751AE64B6C0070DF31 /* Images.xcassets */,
+				7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */,
+				7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */,
+				7A0CA9651AE64B6C0070DF31 /* Supporting Files */,
+			);
+			path = Phileas_Gestion;
+			sourceTree = "<group>";
+		};
+		7A0CA9651AE64B6C0070DF31 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CA9661AE64B6C0070DF31 /* Info.plist */,
+				7A0CA9671AE64B6C0070DF31 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A0CA9811AE64B6C0070DF31 /* Phileas_GestionTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */,
+				7A0CA9821AE64B6C0070DF31 /* Supporting Files */,
+			);
+			path = Phileas_GestionTests;
+			sourceTree = "<group>";
+		};
+		7A0CA9821AE64B6C0070DF31 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CA9831AE64B6C0070DF31 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A0CA9611AE64B6C0070DF31 /* Phileas_Gestion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A0CA9881AE64B6C0070DF31 /* Build configuration list for PBXNativeTarget "Phileas_Gestion" */;
+			buildPhases = (
+				7A0CA95E1AE64B6C0070DF31 /* Sources */,
+				7A0CA95F1AE64B6C0070DF31 /* Frameworks */,
+				7A0CA9601AE64B6C0070DF31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Phileas_Gestion;
+			productName = Phileas_Gestion;
+			productReference = 7A0CA9621AE64B6C0070DF31 /* Phileas_Gestion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A0CA97D1AE64B6C0070DF31 /* Phileas_GestionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A0CA98B1AE64B6C0070DF31 /* Build configuration list for PBXNativeTarget "Phileas_GestionTests" */;
+			buildPhases = (
+				7A0CA97A1AE64B6C0070DF31 /* Sources */,
+				7A0CA97B1AE64B6C0070DF31 /* Frameworks */,
+				7A0CA97C1AE64B6C0070DF31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A0CA9801AE64B6C0070DF31 /* PBXTargetDependency */,
+			);
+			name = Phileas_GestionTests;
+			productName = Phileas_GestionTests;
+			productReference = 7A0CA97E1AE64B6C0070DF31 /* Phileas_GestionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A0CA95A1AE64B6C0070DF31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Florent&Romain";
+				TargetAttributes = {
+					7A0CA9611AE64B6C0070DF31 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					7A0CA97D1AE64B6C0070DF31 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 7A0CA9611AE64B6C0070DF31;
+					};
+				};
+			};
+			buildConfigurationList = 7A0CA95D1AE64B6C0070DF31 /* Build configuration list for PBXProject "Phileas_Gestion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A0CA9591AE64B6C0070DF31;
+			productRefGroup = 7A0CA9631AE64B6C0070DF31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A0CA9611AE64B6C0070DF31 /* Phileas_Gestion */,
+				7A0CA97D1AE64B6C0070DF31 /* Phileas_GestionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A0CA9601AE64B6C0070DF31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0CA9741AE64B6C0070DF31 /* Main.storyboard in Resources */,
+				7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */,
+				7A0CA9761AE64B6C0070DF31 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A0CA97C1AE64B6C0070DF31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A0CA95E1AE64B6C0070DF31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */,
+				7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */,
+				7A0CA9711AE64B6C0070DF31 /* ViewController.m in Sources */,
+				7A0CA9681AE64B6C0070DF31 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A0CA97A1AE64B6C0070DF31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A0CA9801AE64B6C0070DF31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A0CA9611AE64B6C0070DF31 /* Phileas_Gestion */;
+			targetProxy = 7A0CA97F1AE64B6C0070DF31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A0CA9721AE64B6C0070DF31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A0CA9731AE64B6C0070DF31 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A0CA9781AE64B6C0070DF31 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A0CA9861AE64B6C0070DF31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7A0CA9871AE64B6C0070DF31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A0CA9891AE64B6C0070DF31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Phileas_Gestion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7A0CA98A1AE64B6C0070DF31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Phileas_Gestion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7A0CA98C1AE64B6C0070DF31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Phileas_GestionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Phileas_Gestion.app/Phileas_Gestion";
+			};
+			name = Debug;
+		};
+		7A0CA98D1AE64B6C0070DF31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Phileas_GestionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Phileas_Gestion.app/Phileas_Gestion";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A0CA95D1AE64B6C0070DF31 /* Build configuration list for PBXProject "Phileas_Gestion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0CA9861AE64B6C0070DF31 /* Debug */,
+				7A0CA9871AE64B6C0070DF31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A0CA9881AE64B6C0070DF31 /* Build configuration list for PBXNativeTarget "Phileas_Gestion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0CA9891AE64B6C0070DF31 /* Debug */,
+				7A0CA98A1AE64B6C0070DF31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7A0CA98B1AE64B6C0070DF31 /* Build configuration list for PBXNativeTarget "Phileas_GestionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0CA98C1AE64B6C0070DF31 /* Debug */,
+				7A0CA98D1AE64B6C0070DF31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A0CA96D1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodel */,
+			);
+			currentVersion = 7A0CA96D1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodel */;
+			path = Phileas_Gestion.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7A0CA95A1AE64B6C0070DF31 /* Project object */;
+}
