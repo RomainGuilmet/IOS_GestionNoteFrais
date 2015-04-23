@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Frais" representedClassName="Frais" syncable="YES">
+        <attribute name="commentaire" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="localisation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="montant" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="typeFrais" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Type" inverseName="fraisType" inverseEntity="Type" syncable="YES"/>
+    </entity>
+    <entity name="Type" representedClassName="Type" syncable="YES">
+        <attribute name="lib" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fraisType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Frais" inverseName="typeFrais" inverseEntity="Frais" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Frais" positionX="4581" positionY="-904" width="128" height="135"/>
+        <element name="Type" positionX="4768" positionY="-844" width="128" height="75"/>
+    </elements>
 </model>

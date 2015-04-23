@@ -10,4 +10,6 @@
 
 @interface Type (DataModel)
 
+- (void) initWithName:(NSString*)lib andContext:(NSManagedObjectContext*)context;
+
 @end

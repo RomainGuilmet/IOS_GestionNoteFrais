@@ -10,11 +10,16 @@
 		7A0CA9681AE64B6C0070DF31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9671AE64B6C0070DF31 /* main.m */; };
 		7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */; };
 		7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */; };
-		7A0CA9711AE64B6C0070DF31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9701AE64B6C0070DF31 /* ViewController.m */; };
 		7A0CA9741AE64B6C0070DF31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9721AE64B6C0070DF31 /* Main.storyboard */; };
 		7A0CA9761AE64B6C0070DF31 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9751AE64B6C0070DF31 /* Images.xcassets */; };
 		7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */; };
 		7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */; };
+		7A0CA9911AE657CD0070DF31 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */; };
+		7A0CA9921AE657CD0070DF31 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */; };
+		7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A629D1AE7D33400929463 /* Type+DataModel.m */; };
+		7A6A62A11AE7D3DD00929463 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A62A01AE7D3DD00929463 /* Type.m */; };
+		7A6A62A41AE7D3DD00929463 /* Frais.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A62A31AE7D3DD00929463 /* Frais.m */; };
+		7A6A62AB1AE7E96000929463 /* Frais+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A62AA1AE7E96000929463 /* Frais+DataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +39,22 @@
 		7A0CA9691AE64B6C0070DF31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7A0CA96D1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Phileas_Gestion.xcdatamodel; sourceTree = "<group>"; };
-		7A0CA96F1AE64B6C0070DF31 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7A0CA9701AE64B6C0070DF31 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7A0CA9731AE64B6C0070DF31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A0CA9751AE64B6C0070DF31 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A0CA9781AE64B6C0070DF31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7A0CA97E1AE64B6C0070DF31 /* Phileas_GestionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Phileas_GestionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CA9831AE64B6C0070DF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phileas_GestionTests.m; sourceTree = "<group>"; };
+		7A0CA98F1AE657CD0070DF31 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		7A6A629C1AE7D33400929463 /* Type+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Type+DataModel.h"; sourceTree = "<group>"; };
+		7A6A629D1AE7D33400929463 /* Type+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Type+DataModel.m"; sourceTree = "<group>"; };
+		7A6A629F1AE7D3DD00929463 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		7A6A62A01AE7D3DD00929463 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
+		7A6A62A21AE7D3DD00929463 /* Frais.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frais.h; sourceTree = "<group>"; };
+		7A6A62A31AE7D3DD00929463 /* Frais.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frais.m; sourceTree = "<group>"; };
+		7A6A62A91AE7E96000929463 /* Frais+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Frais+DataModel.h"; sourceTree = "<group>"; };
+		7A6A62AA1AE7E96000929463 /* Frais+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Frais+DataModel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +98,10 @@
 			children = (
 				7A0CA9691AE64B6C0070DF31 /* AppDelegate.h */,
 				7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */,
-				7A0CA96F1AE64B6C0070DF31 /* ViewController.h */,
-				7A0CA9701AE64B6C0070DF31 /* ViewController.m */,
 				7A0CA9721AE64B6C0070DF31 /* Main.storyboard */,
+				7A50BA141AE7C8210037F47C /* ModelData */,
+				7A50BA131AE7C8180037F47C /* CoreData */,
+				7A50BA121AE7C8000037F47C /* ViewController */,
 				7A0CA9751AE64B6C0070DF31 /* Images.xcassets */,
 				7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */,
 				7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */,
@@ -120,6 +134,37 @@
 				7A0CA9831AE64B6C0070DF31 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A50BA121AE7C8000037F47C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CA98F1AE657CD0070DF31 /* HomeTableViewController.h */,
+				7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		7A50BA131AE7C8180037F47C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7A6A62A21AE7D3DD00929463 /* Frais.h */,
+				7A6A62A31AE7D3DD00929463 /* Frais.m */,
+				7A6A629F1AE7D3DD00929463 /* Type.h */,
+				7A6A62A01AE7D3DD00929463 /* Type.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		7A50BA141AE7C8210037F47C /* ModelData */ = {
+			isa = PBXGroup;
+			children = (
+				7A6A629C1AE7D33400929463 /* Type+DataModel.h */,
+				7A6A629D1AE7D33400929463 /* Type+DataModel.m */,
+				7A6A62A91AE7E96000929463 /* Frais+DataModel.h */,
+				7A6A62AA1AE7E96000929463 /* Frais+DataModel.m */,
+			);
+			name = ModelData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +268,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */,
+				7A6A62A41AE7D3DD00929463 /* Frais.m in Sources */,
+				7A0CA9911AE657CD0070DF31 /* HomeTableViewController.m in Sources */,
 				7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */,
-				7A0CA9711AE64B6C0070DF31 /* ViewController.m in Sources */,
 				7A0CA9681AE64B6C0070DF31 /* main.m in Sources */,
+				7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */,
+				7A6A62A11AE7D3DD00929463 /* Type.m in Sources */,
+				7A6A62AB1AE7E96000929463 /* Frais+DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0CA9921AE657CD0070DF31 /* HomeTableViewController.m in Sources */,
 				7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,7 +401,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Phileas_Gestion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -361,7 +413,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Phileas_Gestion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -420,6 +474,7 @@
 				7A0CA98A1AE64B6C0070DF31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A0CA98B1AE64B6C0070DF31 /* Build configuration list for PBXNativeTarget "Phileas_GestionTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +483,7 @@
 				7A0CA98D1AE64B6C0070DF31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

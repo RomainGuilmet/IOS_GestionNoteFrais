@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "Type+DataModel.h"
 
-@interface HomeTableViewController : UITableViewController
+@interface HomeTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
 
+@property (weak, nonatomic) AppDelegate* appDelegate;
+@property (strong, nonatomic) NSArray* resultat;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLbl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *localisationLbl;
+@property (weak, nonatomic) IBOutlet UILabel *JustificatifLbl;
+@property (weak, nonatomic) IBOutlet UIButton *typeF;
+@property (weak, nonatomic) IBOutlet UITextField *montantTextField;
+@property (weak, nonatomic) IBOutlet UITextField *comTextField;
+
+- (IBAction)ChangerType:(id)sender;
+- (IBAction)Envoyer:(id)sender;
+- (IBAction)Saisir:(id)sender;
 @end

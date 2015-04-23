@@ -10,4 +10,20 @@
 
 @implementation Type (DataModel)
 
+- (void) initWithName:(NSString*)lib andContext:(NSManagedObjectContext*)context
+{
+    NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Type" inManagedObjectContext:context];
+    NSFetchRequest *requete = [[NSFetchRequest alloc] init];
+    [requete setEntity:entiteDesc];
+    NSPredicate *predicat = [NSPredicate predicateWithFormat:@"(lib LIKE[c] %@)", lib];
+    [requete setPredicate:predicat];
+    NSError *erreur;
+    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
+    if([resultat count] == 0){
+        Type *nouveauType = [[Type alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
+        [nouveauType setValue:lib forKey:@"lib"];
+    }
+
+}
+
 @end
