@@ -14,12 +14,12 @@
 		7A0CA9761AE64B6C0070DF31 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9751AE64B6C0070DF31 /* Images.xcassets */; };
 		7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */; };
 		7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */; };
-		7A0CA9911AE657CD0070DF31 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */; };
-		7A0CA9921AE657CD0070DF31 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */; };
 		7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A629D1AE7D33400929463 /* Type+DataModel.m */; };
 		7A6A62A11AE7D3DD00929463 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A62A01AE7D3DD00929463 /* Type.m */; };
 		7A6A62A41AE7D3DD00929463 /* Frais.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A62A31AE7D3DD00929463 /* Frais.m */; };
 		7A6A62AB1AE7E96000929463 /* Frais+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6A62AA1AE7E96000929463 /* Frais+DataModel.m */; };
+		7AC3A2BE1AE9128F002CB541 /* HistoriqueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3A2BD1AE9128F002CB541 /* HistoriqueTableViewController.m */; };
+		7AC3A2C11AE91371002CB541 /* FraisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3A2C01AE91371002CB541 /* FraisTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +45,6 @@
 		7A0CA97E1AE64B6C0070DF31 /* Phileas_GestionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Phileas_GestionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CA9831AE64B6C0070DF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phileas_GestionTests.m; sourceTree = "<group>"; };
-		7A0CA98F1AE657CD0070DF31 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
-		7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		7A6A629C1AE7D33400929463 /* Type+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Type+DataModel.h"; sourceTree = "<group>"; };
 		7A6A629D1AE7D33400929463 /* Type+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Type+DataModel.m"; sourceTree = "<group>"; };
 		7A6A629F1AE7D3DD00929463 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
@@ -55,6 +53,10 @@
 		7A6A62A31AE7D3DD00929463 /* Frais.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frais.m; sourceTree = "<group>"; };
 		7A6A62A91AE7E96000929463 /* Frais+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Frais+DataModel.h"; sourceTree = "<group>"; };
 		7A6A62AA1AE7E96000929463 /* Frais+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Frais+DataModel.m"; sourceTree = "<group>"; };
+		7AC3A2BC1AE9128F002CB541 /* HistoriqueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoriqueTableViewController.h; sourceTree = "<group>"; };
+		7AC3A2BD1AE9128F002CB541 /* HistoriqueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoriqueTableViewController.m; sourceTree = "<group>"; };
+		7AC3A2BF1AE91371002CB541 /* FraisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FraisTableViewController.h; sourceTree = "<group>"; };
+		7AC3A2C01AE91371002CB541 /* FraisTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FraisTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +141,10 @@
 		7A50BA121AE7C8000037F47C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7A0CA98F1AE657CD0070DF31 /* HomeTableViewController.h */,
-				7A0CA9901AE657CD0070DF31 /* HomeTableViewController.m */,
+				7AC3A2BF1AE91371002CB541 /* FraisTableViewController.h */,
+				7AC3A2C01AE91371002CB541 /* FraisTableViewController.m */,
+				7AC3A2BC1AE9128F002CB541 /* HistoriqueTableViewController.h */,
+				7AC3A2BD1AE9128F002CB541 /* HistoriqueTableViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -267,12 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC3A2BE1AE9128F002CB541 /* HistoriqueTableViewController.m in Sources */,
 				7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */,
 				7A6A62A41AE7D3DD00929463 /* Frais.m in Sources */,
-				7A0CA9911AE657CD0070DF31 /* HomeTableViewController.m in Sources */,
 				7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */,
 				7A0CA9681AE64B6C0070DF31 /* main.m in Sources */,
 				7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */,
+				7AC3A2C11AE91371002CB541 /* FraisTableViewController.m in Sources */,
 				7A6A62A11AE7D3DD00929463 /* Type.m in Sources */,
 				7A6A62AB1AE7E96000929463 /* Frais+DataModel.m in Sources */,
 			);
@@ -282,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0CA9921AE657CD0070DF31 /* HomeTableViewController.m in Sources */,
 				7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
