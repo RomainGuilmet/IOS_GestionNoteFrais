@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "Frais+DataModel.h"
 
 @interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 

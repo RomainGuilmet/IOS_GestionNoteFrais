@@ -75,15 +75,6 @@
 }
 
 - (IBAction)changerType:(id)sender {
-}
-
-- (IBAction)saisir:(id)sender {
-}
-
-- (IBAction)envoyer:(id)sender {
-}
-
-- (IBAction)changerType:(id)sender {
     NSString *cancelTitle = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? @"Cancel" : nil;;
     UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Type de frais" delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:nil];
     
