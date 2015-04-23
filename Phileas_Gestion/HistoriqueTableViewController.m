@@ -96,6 +96,27 @@
     }
 }
 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        NSError *erreur = nil;
+        if(![context save:&erreur]){
+            NSLog(@"Impossible de sauvegarder ! %@ %@", erreur, [erreur localizedDescription]);
+        }
+    }
+}
+
 #pragma mark - Helper methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {

@@ -7,6 +7,7 @@
 //
 
 #import "Frais.h"
+#import "Type+DataModel.h"
 
 @interface Frais (DataModel)
 

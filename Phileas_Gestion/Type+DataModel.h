@@ -12,4 +12,6 @@
 
 - (void) initWithName:(NSString*)lib andContext:(NSManagedObjectContext*)context;
 
++ (Type*) selectTypeFrais:(NSString*)lib andContext:(NSManagedObjectContext*)context;
+
 @end

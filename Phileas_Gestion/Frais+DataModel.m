@@ -18,9 +18,21 @@
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Frais" inManagedObjectContext:context];
     Frais *nouveauFrais = [[Frais alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
-    /*[nouveauFrais setValue:date forKey:@"date"];
+    [nouveauFrais setValue:date forKey:@"date"];
     [nouveauFrais setValue:loc forKey:@"localisation"];
-    [nouveauFrais setValue:type forKey:@"typeFrais"];*/
+    Type* typeFrais = [Type selectTypeFrais:type andContext:context];
+    [nouveauFrais setValue:typeFrais forKey:@"typeFrais"];
+    [nouveauFrais setValue:img forKey:@"image"];
+    if(montant != nil)
+    {
+        [nouveauFrais setValue:montant forKey:@"montant"];
+    }
+    else
+    {
+        [nouveauFrais setValue:0 forKey:@"montant"];
+    }
+    
+    [nouveauFrais setValue:com forKey:@"commentaire"];
     return nouveauFrais;
 
 }

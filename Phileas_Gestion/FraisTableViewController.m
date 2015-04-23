@@ -93,6 +93,8 @@
  Envoyer le frais au serveur
  */
 - (IBAction)envoyer:(id)sender {
+    
+    //Afficher une pop-up le frais a été envoyé au serveur
 }
 
 /*
@@ -100,25 +102,33 @@
  */
 - (IBAction)saisir:(id)sender {
     NSString * commentaire = self.comTextField.text;
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/mm/yyyy"];
     NSDate *date = [[NSDate alloc] init];
     date = [dateFormatter dateFromString:self.dateLbl.text];
+    
     NSData * image;
     NSString * localisation;
-    NSString * montant = self.montantTextField.text;
+    
+    NSString * champMontant = self.montantTextField.text;
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *montant = [numberFormatter numberFromString:champMontant];
+    
     NSString *typeFrais = self.typeF.titleLabel.text;
     
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
     
     Frais* nouveauFrais = [[Frais alloc] initWithDate:(NSDate*)date localisation:(NSString*)localisation type:(Type *)typeFrais image:(NSData*)image montant:(NSNumber*)montant commentaire:(NSString*)commentaire andContext:(NSManagedObjectContext*)context];
 
-    
     NSError *erreur = nil;
     if(![context save:&erreur]){
-        NSLog(@"Impossible de sauvegarder le jeu ! %@ %@", erreur, [erreur localizedDescription]);
+        NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
     }
-    [self.navigationController popViewControllerAnimated:YES];
+
+    //Afficher une pop-up brouillons sauver en local
 }
 @end
 

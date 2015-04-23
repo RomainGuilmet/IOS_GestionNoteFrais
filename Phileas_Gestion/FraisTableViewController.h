@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Type+DataModel.h"
+#import "Frais+DataModel.h"
 
 @interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
 
