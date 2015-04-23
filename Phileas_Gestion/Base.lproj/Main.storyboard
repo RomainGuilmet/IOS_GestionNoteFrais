@@ -322,10 +322,10 @@
         <scene sceneID="a60-aX-kPy">
             <objects>
                 <tableViewController id="r3A-OY-rQf" customClass="HistoriqueTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ft2-hR-BBs">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ft2-hR-BBs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="cellule" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellule" textLabel="u01-8i-e9e" style="IBUITableViewCellStyleDefault" id="xtx-bw-6eV">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -340,6 +340,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QjB-Ui-bxh" kind="show" id="fIs-Ba-bQm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -358,4 +361,7 @@
         <image name="histo" width="30" height="30"/>
         <image name="home-2" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fIs-Ba-bQm"/>
+    </inferredMetricsTieBreakers>
 </document>
