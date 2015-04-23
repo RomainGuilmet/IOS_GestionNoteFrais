@@ -11,7 +11,7 @@
 #import "Type+DataModel.h"
 #import "Frais+DataModel.h"
 
-@interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
+@interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (strong, nonatomic) NSArray* resultat;
@@ -21,12 +21,15 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UILabel *dateLbl;
 @property (weak, nonatomic) IBOutlet UILabel *localisationLbl;
-@property (weak, nonatomic) IBOutlet UILabel *justificatifLbl;
 @property (weak, nonatomic) IBOutlet UIButton *typeF;
+@property (weak, nonatomic) IBOutlet UIButton *justificatif;
 @property (weak, nonatomic) IBOutlet UITextField *montantTextField;
-@property (weak, nonatomic) IBOutlet UITextField *comTextField;
+@property (weak, nonatomic) IBOutlet UITextView *comTextArea;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIButton *saisirButton;
 
 - (IBAction)changerType:(id)sender;
+- (IBAction)choisirImage:(id)sender;
 - (IBAction)saisir:(id)sender;
 - (IBAction)envoyer:(id)sender;
 

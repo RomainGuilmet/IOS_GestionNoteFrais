@@ -23,7 +23,7 @@
     Type* typeFrais = [Type selectTypeFrais:type andContext:context];
     [nouveauFrais setValue:typeFrais forKey:@"typeFrais"];
     [nouveauFrais setValue:img forKey:@"image"];
-    if(montant != nil)
+    if(montant != NULL)
     {
         [nouveauFrais setValue:montant forKey:@"montant"];
     }
