@@ -1,14 +1,14 @@
 //
-//  HomeTableViewController.m
+//  FraisTableViewController.m
 //  Phileas_Gestion
 //
-//  Created by Romain on 21/04/2015.
+//  Created by Romain on 23/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
-#import "HomeTableViewController.h"
+#import "FraisTableViewController.h"
 
-@implementation HomeTableViewController 
+@implementation FraisTableViewController
 
 @synthesize resultat;
 
@@ -75,14 +75,14 @@
 }
 
 /*
-Envoyer le frais au serveur
-*/
+ Envoyer le frais au serveur
+ */
 - (IBAction)Envoyer:(id)sender {
 }
 
 /*
-Sauvegarder le frais en local
-*/
+ Sauvegarder le frais en local
+ */
 - (IBAction)Saisir:(id)sender {
     NSString * commentaire = self.comTextField.text;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -95,3 +95,4 @@ Sauvegarder le frais en local
     NSString *typeFrais = self.typeF.titleLabel.text;
 }
 @end
+

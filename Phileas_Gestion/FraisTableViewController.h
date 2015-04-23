@@ -1,8 +1,8 @@
 //
-//  HomeTableViewController.h
+//  FraisTableViewController.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 21/04/2015.
+//  Created by Romain on 23/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "Type+DataModel.h"
 
-@interface HomeTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
+@interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (strong, nonatomic) NSArray* resultat;
