@@ -11,8 +11,8 @@
 
 @interface Frais (DataModel)
 
-- (Frais *) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(Type *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context;
+- (void) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context;
 
-- (void) updateFrais:(NSDate*)date localisation:(NSString*)loc type:(Type *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context;
+- (void) updateFrais:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Frais+DataModel.h"
+#import "FraisTableViewController.h"
 
 @interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
@@ -16,5 +17,6 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSIndexPath *selectedFactions;
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
 @end

@@ -14,7 +14,7 @@
  Penser à vérifier les champs et à rechercher le type grâce à la string
 */
 
-- (Frais *) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
+- (void) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Frais" inManagedObjectContext:context];
     Frais *nouveauFrais = [[Frais alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
@@ -33,16 +33,25 @@
     }
     
     [nouveauFrais setValue:com forKey:@"commentaire"];
-    return nouveauFrais;
-
 }
 
-- (void) updateFrais:(NSDate*)date localisation:(NSString*)loc type:(Type *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
+- (void) updateFrais:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
 {
-    /*
-    [self setValue:cat forKey:@"categorie"];
-    [self setValue:theme forKey:@"theme"];
-    */
+    [self setValue:date forKey:@"date"];
+    [self setValue:loc forKey:@"localisation"];
+    Type* typeFrais = [Type selectTypeFrais:type andContext:context];
+    [self setValue:typeFrais forKey:@"typeFrais"];
+    [self setValue:img forKey:@"image"];
+    if(montant != nil)
+    {
+        [self setValue:montant forKey:@"montant"];
+    }
+    else
+    {
+        [self setValue:0 forKey:@"montant"];
+    }
+    
+    [self setValue:com forKey:@"commentaire"];
 }
 
 @end

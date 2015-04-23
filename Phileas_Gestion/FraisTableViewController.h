@@ -16,9 +16,12 @@
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (strong, nonatomic) NSArray* resultat;
 
+@property (weak, nonatomic) Frais* fraisChoisi;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UILabel *dateLbl;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *localisationLbl;
-@property (weak, nonatomic) IBOutlet UILabel *JustificatifLbl;
+@property (weak, nonatomic) IBOutlet UILabel *localisationLbl;
+@property (weak, nonatomic) IBOutlet UILabel *justificatifLbl;
 @property (weak, nonatomic) IBOutlet UIButton *typeF;
 @property (weak, nonatomic) IBOutlet UITextField *montantTextField;
 @property (weak, nonatomic) IBOutlet UITextField *comTextField;

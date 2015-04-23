@@ -10,7 +10,7 @@
 
 @implementation FraisTableViewController
 
-@synthesize resultat;
+@synthesize fraisChoisi;
 
 - (void)creationTypesFrais
 {
@@ -61,6 +61,33 @@
     [self creationTypesFrais];
     
     [self chargementListeTypesFrais];
+    
+    if(self.fraisChoisi)
+    {
+        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+        [dateformate setDateFormat:@"dd//mm//yyyy"]; // Date formater
+        NSString *date = [dateformate stringFromDate:fraisChoisi.date];
+        [self.dateLbl setText:date];
+        [self.localisationLbl setText:fraisChoisi.localisation];
+        [self.typeF setTitle:fraisChoisi.typeFrais.lib forState:UIControlStateNormal];
+        //[self.justificatifLbl setText:fraisChoisi.image]; Trouver le moyen d'afficher l'image en miniature ou sinon écrire : justificatif fourni
+        NSString *montantTexte = [NSString stringWithFormat:@"%@", fraisChoisi.montant];
+        [self.montantTextField setText:montantTexte];
+        [self.comTextField setText:fraisChoisi.commentaire];
+        
+    }
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    if(self.fraisChoisi)
+    {
+        self.navBar.title = @"Modifier un frais";
+    }
+    else
+    {
+        self.navBar.title = @"Ajouter un frais";
+    }
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -121,14 +148,21 @@
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
     
-    Frais* nouveauFrais = [[Frais alloc] initWithDate:(NSDate*)date localisation:(NSString*)localisation type:(Type *)typeFrais image:(NSData*)image montant:(NSNumber*)montant commentaire:(NSString*)commentaire andContext:(NSManagedObjectContext*)context];
-
+    if(self.fraisChoisi)
+    {
+        [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+    }
+    else
+    {
+        [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+    }
+    
     NSError *erreur = nil;
     if(![context save:&erreur]){
         NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
     }
 
-    //Afficher une pop-up brouillons sauver en local
+    //Afficher une pop-up brouillon sauver en local
 }
 @end
 

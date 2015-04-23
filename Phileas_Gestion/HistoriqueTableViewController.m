@@ -38,6 +38,8 @@
     [super viewDidLoad];
     
     [self chargementListeFrais];
+    
+    self.navBar.title = @"Brouillons en cours";
 }
 
 #pragma mark - Table view data source
@@ -126,8 +128,17 @@
     NSDateFormatter *dateformater=[[NSDateFormatter alloc]init];
     [dateformater setDateFormat:@"dd/mm/yyyy"];
     NSString *date = [dateformater stringFromDate:frais.date];
-    [cell.textLabel setText:frais.commentaire];
+    NSString *texte = [NSString stringWithFormat:@"%@ - %@", frais.commentaire, frais.typeFrais.lib];
+    [cell.textLabel setText:texte];
 }
-    
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"modifierFrais"]){
+        Frais *fraisChoisi = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        FraisTableViewController *controllerDestination = segue.destinationViewController;
+        controllerDestination.fraisChoisi = fraisChoisi;
+    }
+}
 
 @end
