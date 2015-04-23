@@ -22,7 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *montantTextField;
 @property (weak, nonatomic) IBOutlet UITextField *comTextField;
 
-- (IBAction)ChangerType:(id)sender;
-- (IBAction)Envoyer:(id)sender;
-- (IBAction)Saisir:(id)sender;
+- (IBAction)changerType:(id)sender;
+- (IBAction)saisir:(id)sender;
+- (IBAction)envoyer:(id)sender;
+
 @end

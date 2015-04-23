@@ -12,10 +12,8 @@
 
 @synthesize resultat;
 
-- (void)viewDidLoad
+- (void)creationTypesFrais
 {
-    [super viewDidLoad];
-    
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
     NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
@@ -36,16 +34,33 @@
     if(![context save:&erreur]){
         NSLog(@"Impossible de sauvegarder ! %@ %@", erreur, [erreur localizedDescription]);
     }
+}
+
+- (void)chargementListeTypesFrais
+{
+    
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
     
     // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
     // Configure the request's entity, and optionally its predicate.
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:YES]]];
     
-    NSError *erreur2 = nil;
-    self.resultat = [context executeFetchRequest:requete error:&erreur2];
+    NSError *erreur = nil;
+    self.resultat = [context executeFetchRequest:requete error:&erreur];
     if([self.resultat count] == 0)
         NSLog(@"vide");
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self creationTypesFrais];
+    
+    [self chargementListeTypesFrais];
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -59,7 +74,16 @@
     [self viewWillAppear:true];
 }
 
-- (IBAction)ChangerType:(id)sender {
+- (IBAction)changerType:(id)sender {
+}
+
+- (IBAction)saisir:(id)sender {
+}
+
+- (IBAction)envoyer:(id)sender {
+}
+
+- (IBAction)changerType:(id)sender {
     NSString *cancelTitle = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? @"Cancel" : nil;;
     UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:@"Type de frais" delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:nil];
     
@@ -77,13 +101,13 @@
 /*
  Envoyer le frais au serveur
  */
-- (IBAction)Envoyer:(id)sender {
+- (IBAction)envoyer:(id)sender {
 }
 
 /*
  Sauvegarder le frais en local
  */
-- (IBAction)Saisir:(id)sender {
+- (IBAction)saisir:(id)sender {
     NSString * commentaire = self.comTextField.text;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/mm/yyyy"];
