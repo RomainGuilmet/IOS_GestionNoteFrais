@@ -105,7 +105,7 @@
     NSDateFormatter *dateformater=[[NSDateFormatter alloc]init];
     [dateformater setDateFormat:@"dd/mm/yyyy"];
     NSString *date = [dateformater stringFromDate:frais.date];
-    [cell.textLabel setText:date];
+    [cell.textLabel setText:frais.commentaire];
 }
     
 

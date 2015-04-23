@@ -106,8 +106,19 @@
     date = [dateFormatter dateFromString:self.dateLbl.text];
     NSData * image;
     NSString * localisation;
-    NSNumber * montant = self.montantTextField.text;
+    NSString * montant = self.montantTextField.text;
     NSString *typeFrais = self.typeF.titleLabel.text;
+    
+    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
+    
+    Frais* nouveauFrais = [[Frais alloc] initWithDate:(NSDate*)date localisation:(NSString*)localisation type:(Type *)typeFrais image:(NSData*)image montant:(NSNumber*)montant commentaire:(NSString*)commentaire andContext:(NSManagedObjectContext*)context];
+
+    
+    NSError *erreur = nil;
+    if(![context save:&erreur]){
+        NSLog(@"Impossible de sauvegarder le jeu ! %@ %@", erreur, [erreur localizedDescription]);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
 
