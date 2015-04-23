@@ -217,7 +217,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="hBr-4O-TnP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="hBr-4O-TnP">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hBr-4O-TnP" id="Vse-mf-96J">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -278,7 +278,7 @@
             </objects>
             <point key="canvasLocation" x="-507" y="334"/>
         </scene>
-        <!--Règlages-->
+        <!--View Controller-->
         <scene sceneID="vqc-3z-f49">
             <objects>
                 <viewController id="Mw9-DG-k0h" sceneMemberID="viewController">
@@ -291,7 +291,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Règlages" id="FG9-L7-yMv"/>
                     <navigationItem key="navigationItem" id="vgz-tB-u17"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayn-hg-tvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -315,7 +314,7 @@
             </objects>
             <point key="canvasLocation" x="-1263" y="2614"/>
         </scene>
-        <!--Notifications-->
+        <!--Table View Controller-->
         <scene sceneID="Rwf-eX-Dgn">
             <objects>
                 <tableViewController id="fKt-4a-jBu" sceneMemberID="viewController">
@@ -336,7 +335,6 @@
                             <outlet property="delegate" destination="fKt-4a-jBu" id="nt8-77-ZPE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Notifications" id="SoV-c7-U0R"/>
                     <navigationItem key="navigationItem" id="EQh-hh-kUJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISp-iE-COE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,7 +358,7 @@
             </objects>
             <point key="canvasLocation" x="-1263" y="334"/>
         </scene>
-        <!--Historique-->
+        <!--Historique Table View Controller-->
         <scene sceneID="a60-aX-kPy">
             <objects>
                 <tableViewController id="r3A-OY-rQf" customClass="HistoriqueTableViewController" sceneMemberID="viewController">
@@ -392,7 +390,6 @@
                             <outlet property="delegate" destination="r3A-OY-rQf" id="f6e-T1-4cM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Historique" image="histo" id="xqV-zb-dbP"/>
                     <navigationItem key="navigationItem" id="VLY-jZ-bth"/>
                     <connections>
                         <outlet property="navBar" destination="VLY-jZ-bth" id="EaO-54-xDw"/>
@@ -404,7 +401,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="histo" width="30" height="30"/>
         <image name="home-2" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
