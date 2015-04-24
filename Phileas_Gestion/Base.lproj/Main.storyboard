@@ -68,6 +68,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.59999999999999964" height="1"/>
+                        <color key="separatorColor" red="0.050825812480000003" green="0.51174916599999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="7Lj-dr-Awh">
                                 <cells>
@@ -131,6 +133,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="changerType:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="5ay-eH-IaU"/>
+                                                        <segue destination="v2A-bd-299" kind="show" id="aMd-jG-gcB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -277,6 +280,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlu-ei-M65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-507" y="334"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="sjK-Ef-nb6">
+            <objects>
+                <tableViewController id="v2A-bd-299" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3SY-ND-2lK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aeY-2a-zSb">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aeY-2a-zSb" id="7A0-Sb-yAk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="v2A-bd-299" id="eVE-I1-BYa"/>
+                            <outlet property="delegate" destination="v2A-bd-299" id="gmk-uD-5zK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVD-BQ-oeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="334"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vqc-3z-f49">
