@@ -46,7 +46,7 @@
     // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
     // Configure the request's entity, and optionally its predicate.
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:YES]]];
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:NO]]];
     
     NSError *erreur = nil;
     self.resultat = [context executeFetchRequest:requete error:&erreur];
@@ -83,6 +83,12 @@
         [dateformater setDateFormat:@"dd/MM/yyyy"]; // Date formater
         NSString *date = [dateformater stringFromDate:dateActuelle];
         [self.dateTexte setText:date];
+        [self.localisationLbl setText:@"Localisation"];
+        [self.typeF setTitle:@"Type" forState:UIControlStateNormal];
+        self.image.image =  [UIImage imageWithData:nil];
+        [self.montantTextField setText:@""];
+        [self.comTextArea setText:@""];
+        
     }
     
     self.pickerViewDate = [[UIDatePicker alloc] init];
@@ -105,71 +111,66 @@
 }
 
 - (IBAction)changerType:(id)sender {
-    UIActionSheet *actionsheetType = [[UIActionSheet alloc] initWithTitle:@"Sélectionner un type de frais" delegate:self cancelButtonTitle:@"Annuler" destructiveButtonTitle:nil otherButtonTitles:nil];
+    UIAlertView *alerteType = [[UIAlertView alloc] initWithTitle:@"Sélectionner un type de frais" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil];
+    
     
     for(int i=0; i<[self.resultat count]; i++)
     {
         Type *typeTemp = [self.resultat objectAtIndex:i];
-        [actionsheetType addButtonWithTitle:[NSString stringWithFormat:@"%@", typeTemp.lib]];
+        [alerteType addButtonWithTitle:[NSString stringWithFormat:@"%@", typeTemp.lib]];
     }
     
-    [actionsheetType showInView:self.view];
+    [alerteType setTag:1];
     
-    actionsheetType.tag = 100;
+    [alerteType show];
 }
 
 - (IBAction)choisirImage:(id)sender {
-    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"Sélectionner une image depuis :" delegate:self cancelButtonTitle:@"Annuler" destructiveButtonTitle:nil otherButtonTitles:@"Librairie d'images",@"Appareil Photo", nil];
+    UIAlertView *alerteImage = [[UIAlertView alloc]  initWithTitle:@"Sélectionner une image depuis :" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:@"Librairie d'images",@"Appareil Photo", nil];
     
-    [action showInView:self.view];
-    /*
-    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    [alerteImage setTag:2];
     
-    // Don't forget to add UIImagePickerControllerDelegate in your .h
-    picker.delegate = self;
-    
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    //picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    [self presentModalViewController:picker animated:YES];*/
+    [alerteImage show];
 }
 
-#pragma mark - ActionSheet delegates
--(void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if([[actionSheet buttonTitleAtIndex:buttonIndex]  isEqual: @"Appareil Photo"]) {
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            UIImagePickerController *pickerView =[[UIImagePickerController alloc]init];
-            pickerView.allowsEditing = YES;
-            pickerView.delegate = self;
-            pickerView.sourceType = UIImagePickerControllerSourceTypeCamera;
-            [self presentModalViewController:pickerView animated:true];
+#pragma mark - alertView delegates
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == 1)
+    {
+        if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
+            [self.typeF setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
         }
-        
-    }else if([[actionSheet buttonTitleAtIndex:buttonIndex]  isEqual: @"Librairie d'images"]) {
-        
-        UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
-        pickerView.allowsEditing = YES;
-        pickerView.delegate = self;
-        pickerView.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        [self presentModalViewController:pickerView animated:YES];
-        
     }
     
-    else if([[actionSheet buttonTitleAtIndex:buttonIndex]  isEqual: @"Indemnités kilométriques"]){
-            // Ouvrir la page d'indemnités géographiques
+    if(alertView.tag == 2)
+    {
+        if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Appareil Photo"]) {
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                UIImagePickerController *pickerView =[[UIImagePickerController alloc]init];
+                pickerView.allowsEditing = YES;
+                pickerView.delegate = self;
+                pickerView.sourceType = UIImagePickerControllerSourceTypeCamera;
+                [self presentViewController:pickerView animated:YES completion:nil];
+            }
+            
+        }else if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Librairie d'images"]) {
+            
+            UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
+            pickerView.allowsEditing = YES;
+            pickerView.delegate = self;
+            pickerView.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            [self presentViewController:pickerView animated:YES completion:nil];
+            
+        }
     }
-    else if(![[actionSheet buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
-        [self.typeF setTitle:[actionSheet buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
-    }
-        
-    [self viewWillAppear:true];
 }
 
 #pragma mark - PickerDelegates
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-    [self dismissModalViewControllerAnimated:true];
+    [self dismissViewControllerAnimated:true completion:nil];
     
     UIImage * img = [info valueForKey:UIImagePickerControllerEditedImage];
     
@@ -224,6 +225,7 @@
         NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
     }
 
+    [self reload];
     //Afficher une pop-up brouillon sauver en local
 }
 
@@ -232,6 +234,17 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy"];
     self.dateTexte.text = [formatter stringFromDate:sender.date];
+}
+
+-(void) reload{
+    [self viewDidLoad];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nouveau brouillon"
+                                                    message:@"Votre brouillon vient d'être sauvegarder en local."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
