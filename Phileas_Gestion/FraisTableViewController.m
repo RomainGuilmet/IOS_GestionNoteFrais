@@ -70,7 +70,7 @@
         [self.dateTexte setText:date];
         [self.localisationLbl setText:fraisChoisi.localisation];
         [self.typeF setTitle:fraisChoisi.typeFrais.lib forState:UIControlStateNormal];
-        //[self.justificatif setTitle:fraisChoisi.image forState:UIControlStateNormal]; Trouver le moyen d'afficher l'image en miniature ou sinon écrire : justificatif fourni
+        self.image.image =  [UIImage imageWithData:[self.fraisChoisi valueForKey:@"image"]];
         NSString *montantTexte = [NSString stringWithFormat:@"%@", fraisChoisi.montant];
         [self.montantTextField setText:montantTexte];
         [self.comTextArea setText:fraisChoisi.commentaire];
@@ -80,7 +80,7 @@
     {
         NSDate *dateActuelle = [NSDate date];
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
-        [dateformater setDateFormat:@"dd//MM//yyyy"]; // Date formater
+        [dateformater setDateFormat:@"dd/MM/yyyy"]; // Date formater
         NSString *date = [dateformater stringFromDate:dateActuelle];
         [self.dateTexte setText:date];
     }
@@ -197,7 +197,7 @@
     NSDate *date = [[NSDate alloc] init];
     date = [dateFormatter dateFromString:self.dateTexte.text];
     
-    NSData * image;
+    NSData * image = UIImagePNGRepresentation(self.image.image);
     NSString * localisation;
     
     NSString * champMontant = self.montantTextField.text;
