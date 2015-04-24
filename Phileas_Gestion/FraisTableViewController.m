@@ -64,10 +64,10 @@
     
     if(self.fraisChoisi)
     {
-        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-        [dateformate setDateFormat:@"dd//mm//yyyy"]; // Date formater
-        NSString *date = [dateformate stringFromDate:fraisChoisi.date];
-        [self.dateLbl setText:date];
+        NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
+        [dateformater setDateFormat:@"dd//MM//yyyy"]; // Date formater
+        NSString *date = [dateformater stringFromDate:fraisChoisi.date];
+        [self.dateTexte setText:date];
         [self.localisationLbl setText:fraisChoisi.localisation];
         [self.typeF setTitle:fraisChoisi.typeFrais.lib forState:UIControlStateNormal];
         //[self.justificatif setTitle:fraisChoisi.image forState:UIControlStateNormal]; Trouver le moyen d'afficher l'image en miniature ou sinon écrire : justificatif fourni
@@ -76,6 +76,19 @@
         [self.comTextArea setText:fraisChoisi.commentaire];
         
     }
+    else
+    {
+        NSDate *dateActuelle = [NSDate date];
+        NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
+        [dateformater setDateFormat:@"dd//MM//yyyy"]; // Date formater
+        NSString *date = [dateformater stringFromDate:dateActuelle];
+        [self.dateTexte setText:date];
+    }
+    
+    self.pickerViewDate = [[UIDatePicker alloc] init];
+    self.pickerViewDate.datePickerMode = UIDatePickerModeDate;
+    [self.pickerViewDate addTarget:self action:@selector(changementDeDate:) forControlEvents:UIControlEventValueChanged];
+    [self.dateTexte setInputView:self.pickerViewDate];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -124,7 +137,6 @@
 #pragma mark - ActionSheet delegates
 -(void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if([[actionSheet buttonTitleAtIndex:buttonIndex]  isEqual: @"Appareil Photo"]) {
-        
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             UIImagePickerController *pickerView =[[UIImagePickerController alloc]init];
             pickerView.allowsEditing = YES;
@@ -181,9 +193,9 @@
     NSString * commentaire = self.comTextArea.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd/mm/yyyy"];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     NSDate *date = [[NSDate alloc] init];
-    date = [dateFormatter dateFromString:self.dateLbl.text];
+    date = [dateFormatter dateFromString:self.dateTexte.text];
     
     NSData * image;
     NSString * localisation;
@@ -214,5 +226,13 @@
 
     //Afficher une pop-up brouillon sauver en local
 }
+
+-(void)changementDeDate:(UIDatePicker *)sender
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    self.dateTexte.text = [formatter stringFromDate:sender.date];
+}
+
 @end
 

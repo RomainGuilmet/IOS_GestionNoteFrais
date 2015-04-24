@@ -126,9 +126,9 @@
     Frais *frais = [self.fetchedResultsController objectAtIndexPath:indexPath];
     // Update Cell
     NSDateFormatter *dateformater=[[NSDateFormatter alloc]init];
-    [dateformater setDateFormat:@"dd/mm/yyyy"];
+    [dateformater setDateFormat:@"dd/MM/yyyy"];
     NSString *date = [dateformater stringFromDate:frais.date];
-    NSString *texte = [NSString stringWithFormat:@"%@ - %@", frais.commentaire, frais.typeFrais.lib];
+    NSString *texte = [NSString stringWithFormat:@"%@ - %@", date, frais.typeFrais.lib];
     [cell.textLabel setText:texte];
 }
 

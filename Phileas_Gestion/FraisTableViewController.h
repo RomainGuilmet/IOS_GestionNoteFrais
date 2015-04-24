@@ -19,7 +19,8 @@
 @property (weak, nonatomic) Frais* fraisChoisi;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
-@property (weak, nonatomic) IBOutlet UILabel *dateLbl;
+
+@property (weak, nonatomic) IBOutlet UITextField *dateTexte;
 @property (weak, nonatomic) IBOutlet UILabel *localisationLbl;
 @property (weak, nonatomic) IBOutlet UIButton *typeF;
 @property (weak, nonatomic) IBOutlet UIButton *justificatif;
@@ -28,9 +29,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *saisirButton;
 
+@property (strong, nonatomic) UIDatePicker *pickerViewDate;
+@property (strong, nonatomic) NSDate *dateToChoose;
+
 - (IBAction)changerType:(id)sender;
 - (IBAction)choisirImage:(id)sender;
 - (IBAction)saisir:(id)sender;
 - (IBAction)envoyer:(id)sender;
+
+
 
 @end

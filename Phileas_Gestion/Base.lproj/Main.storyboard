@@ -64,11 +64,10 @@
         <scene sceneID="su0-ni-W2J">
             <objects>
                 <tableViewController id="QjB-Ui-bxh" customClass="FraisTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HM1-01-hCT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="-4" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HM1-01-hCT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <rect key="contentStretch" x="0.0" y="0.0" width="0.59999999999999964" height="1"/>
                         <color key="separatorColor" red="0.050825812480000003" green="0.51174916599999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="7Lj-dr-Awh">
@@ -84,12 +83,11 @@
                                                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56A-xf-2sd">
-                                                    <rect key="frame" x="67" y="11" width="525" height="21"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyW-X3-ZJM">
+                                                    <rect key="frame" x="67" y="7" width="525" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -133,7 +131,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="changerType:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="5ay-eH-IaU"/>
-                                                        <segue destination="v2A-bd-299" kind="show" id="aMd-jG-gcB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -267,7 +264,7 @@
                     <navigationItem key="navigationItem" id="HhS-7h-fI8"/>
                     <connections>
                         <outlet property="comTextArea" destination="0ig-Gp-eNm" id="kDA-Ib-DrN"/>
-                        <outlet property="dateLbl" destination="56A-xf-2sd" id="80o-Tm-mSD"/>
+                        <outlet property="dateTexte" destination="oyW-X3-ZJM" id="0LS-WS-cE0"/>
                         <outlet property="image" destination="Rew-FY-D1c" id="vcx-Ej-fZy"/>
                         <outlet property="justificatif" destination="yH7-rV-YLP" id="X5p-zw-Sel"/>
                         <outlet property="localisationLbl" destination="K8H-wt-tsP" id="uMt-1y-UWP"/>
