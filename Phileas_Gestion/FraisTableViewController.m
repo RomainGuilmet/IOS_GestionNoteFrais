@@ -65,7 +65,7 @@
     if(self.fraisChoisi)
     {
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
-        [dateformater setDateFormat:@"dd//MM//yyyy"]; // Date formater
+        [dateformater setDateFormat:@"dd/MM/yyyy"]; // Date formater
         NSString *date = [dateformater stringFromDate:fraisChoisi.date];
         [self.dateTexte setText:date];
         [self.localisationLbl setText:fraisChoisi.localisation];
@@ -225,8 +225,23 @@
         NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
     }
 
-    [self reload];
-    //Afficher une pop-up brouillon sauver en local
+    UIAlertView *alert;
+    if(self.fraisChoisi)
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"Modification enregistrée" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
+        
+        [alert show];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"Brouillon enregistré" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        
+        [self viewDidLoad];
+    }
 }
 
 -(void)changementDeDate:(UIDatePicker *)sender
@@ -234,17 +249,6 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy"];
     self.dateTexte.text = [formatter stringFromDate:sender.date];
-}
-
--(void) reload{
-    [self viewDidLoad];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nouveau brouillon"
-                                                    message:@"Votre brouillon vient d'être sauvegarder en local."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
 }
 
 @end
