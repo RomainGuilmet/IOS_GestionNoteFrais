@@ -99,7 +99,16 @@
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         self.locationManager.distanceFilter = 10.0f;
         [self.locationManager startUpdatingLocation];
-        NSString *localisation = [NSString stringWithFormat:@"%@", self.locationManager.location];
+        NSString *localisation;
+        if(self.locationManager.location == NULL)
+        {
+            localisation = @"Impossible de vous localiser";
+        }
+        else
+        {
+            localisation = [NSString stringWithFormat:@"%@", self.locationManager.location];
+        }
+        
         [self.localisationLbl setText:localisation];
     }
     
