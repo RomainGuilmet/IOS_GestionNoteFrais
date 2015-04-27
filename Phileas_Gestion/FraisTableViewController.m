@@ -91,6 +91,18 @@
         
     }
     
+    //Localisation à tester sur un appareil.
+    self.locationManager = [[CLLocationManager alloc] init];
+    if ([CLLocationManager locationServicesEnabled])
+    {
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.locationManager.distanceFilter = 10.0f;
+        [self.locationManager startUpdatingLocation];
+        NSString *localisation = [NSString stringWithFormat:@"%@", self.locationManager.location];
+        [self.localisationLbl setText:localisation];
+    }
+    
     self.pickerViewDate = [[UIDatePicker alloc] init];
     self.pickerViewDate.datePickerMode = UIDatePickerModeDate;
     [self.pickerViewDate addTarget:self action:@selector(changementDeDate:) forControlEvents:UIControlEventValueChanged];
@@ -140,6 +152,11 @@
     {
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.typeF setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
+            
+            if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Indemnités kilométriques"]){
+                IndemnitesTableViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"indemnites"];
+                [self.navigationController pushViewController:viewController animated:YES];
+            }
         }
     }
     

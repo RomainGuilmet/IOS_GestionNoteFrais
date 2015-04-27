@@ -10,10 +10,13 @@
 #import "AppDelegate.h"
 #import "Type+DataModel.h"
 #import "Frais+DataModel.h"
+#import "IndemnitesTableViewController.h"
 
-@interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
+
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
+@property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) NSArray* resultat;
 
 @property (weak, nonatomic) Frais* fraisChoisi;
@@ -36,7 +39,5 @@
 - (IBAction)choisirImage:(id)sender;
 - (IBAction)saisir:(id)sender;
 - (IBAction)envoyer:(id)sender;
-
-
 
 @end
