@@ -10,15 +10,17 @@
 #import <MapKit/MapKit.h>
 #import "MapTableViewController.h"
 
-@interface IndemnitesTableViewController : UITableViewController
+@interface IndemnitesTableViewController : UITableViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *departCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *arriveeCell;
 @property (weak, nonatomic) IBOutlet UITextField *distanceTextField;
 @property (weak, nonatomic) IBOutlet UITextField *montantTextField;
+@property (weak, nonatomic) IBOutlet MKMapView *carte;
 
 @property (strong, nonatomic) NSMutableArray *depart;
 @property (strong, nonatomic) NSMutableArray *arrivee;
+@property (strong, nonatomic) MKPolyline *line;
 
 @end
 

@@ -60,8 +60,11 @@
                 MKRoute *route = directionsResponse.routes[0];
                 CLLocationDistance distance = route.distance;
                 distance = distance/1000;
-                NSString *distanceString = [NSString stringWithFormat:@"%f", distance];
+                NSString *distanceString = [NSString stringWithFormat:@"%f km", distance];
                 [self.distanceTextField setText:distanceString];
+            
+                [self.carte setDelegate:self];
+                [self plotRouteOnMap:route];
             }
         }];
     }
@@ -83,6 +86,25 @@
          [controllerDestination setLieu:arrivee];
      }
  }
- 
 
+#pragma mark - Utility Methods
+- (void)plotRouteOnMap:(MKRoute *)route
+{
+    if(self.line) {
+        [self.carte removeOverlay:self.line];
+    }
+    self.line = route.polyline;
+    [self.carte addOverlay:self.line];
+    
+}
+
+#pragma mark - MKMapViewDelegate methods
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.lineWidth = 4.0;
+    return  renderer;
+}
+ 
 @end

@@ -286,6 +286,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="yeA-R4-3HX">
+                            <rect key="frame" x="0.0" y="322" width="600" height="233"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
                         <sections>
                             <tableViewSection headerTitle="Trajet" id="phi-dS-Bev">
                                 <cells>
@@ -367,6 +371,7 @@
                     </tableView>
                     <connections>
                         <outlet property="arriveeCell" destination="r5a-12-sU0" id="uJq-Qr-YDL"/>
+                        <outlet property="carte" destination="yeA-R4-3HX" id="ApY-kt-2VA"/>
                         <outlet property="departCell" destination="HRG-Rb-GW2" id="tGu-ur-UrA"/>
                         <outlet property="distanceTextField" destination="Nae-8D-sRS" id="x7j-45-9wT"/>
                         <outlet property="montantTextField" destination="Vxf-jU-6SI" id="hw7-4P-KBD"/>
