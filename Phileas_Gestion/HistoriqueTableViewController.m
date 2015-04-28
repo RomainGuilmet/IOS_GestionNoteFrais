@@ -17,7 +17,7 @@
     // fetchedResultController initialization
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Frais"];
     // Configure the request's entity, and optionally its predicate.
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:fetchRequest
                                      managedObjectContext:self.appDelegate.managedObjectContext
