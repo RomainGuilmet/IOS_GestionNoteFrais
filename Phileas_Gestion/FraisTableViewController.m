@@ -25,6 +25,9 @@
     
     [self chargementListeTypesFrais];
     
+    self.montant = [[NSMutableString alloc] init];
+    [self.montant setString:@"0"];
+    
     if(self.fraisChoisi)
     {
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
@@ -92,6 +95,11 @@
     {
         self.navBar.title = @"Ajouter un frais";
     }
+
+    if(![self.montant isEqualToString:@"0"])
+    {
+        [self.montantTextField setText:self.montant];
+    }
 }
 
 #pragma mark - alertView delegates
@@ -103,8 +111,9 @@
             [self.typeF setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
             
             if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Indemnités kilométriques"]){
-                IndemnitesTableViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"indemnites"];
-                [self.navigationController pushViewController:viewController animated:YES];
+                IndemnitesTableViewController* controllerDestination = [self.storyboard instantiateViewControllerWithIdentifier:@"indemnites"];
+                [controllerDestination setMontant:self.montant];
+                [self.navigationController pushViewController:controllerDestination animated:YES];
             }
         }
     }

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) NSArray* resultat;
+@property (strong, nonatomic) NSMutableString* montant;
 
 @property (weak, nonatomic) Frais* fraisChoisi;
 

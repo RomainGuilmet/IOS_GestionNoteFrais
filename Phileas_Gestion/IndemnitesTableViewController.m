@@ -24,6 +24,7 @@
     
     depart = [[NSMutableArray alloc]init];
     arrivee = [[NSMutableArray alloc]init];
+    [self.cvButton setTitle:@"Choisir un nombre de CV" forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,10 +47,7 @@
     if([self.depart count] > 0 && [self.arrivee count] > 0)
     {
         [self calculDistance];
-        if(![self.cvButton.titleLabel.text isEqual:@"Choisir un nombre de CV"])
-        {
-            [self calculMontant];
-        }
+        
     }    
 }
 
@@ -134,11 +132,16 @@
             {
                 distance = distance * 2;
             }
-            NSString *distanceString = [NSString stringWithFormat:@"%f km", distance];
+            NSString *distanceString = [NSString stringWithFormat:@"%.0f km", distance];
             [self.distanceTextField setText:distanceString];
             /*
              [self.carte setDelegate:self];
              [self plotRouteOnMap:route];*/
+            
+            if(![self.cvButton.titleLabel.text isEqual:@"Choisir un nombre de CV"])
+            {
+                [self calculMontant];
+            }
         }
     }];
 }
@@ -161,8 +164,9 @@
         montant = distance*[ba.haute doubleValue];
     }
     
-    NSString *montantTexte = [NSString stringWithFormat:@"%f", montant];
+    NSString *montantTexte = [NSString stringWithFormat:@"%.2f euros", montant];
     [self.montantTextField setText:montantTexte];
+    [self.montant setString:[NSString stringWithFormat:@"%.2f", montant]];
 }
 
 #pragma mark - actions
@@ -181,6 +185,10 @@
     [alerteType show];
 }
 
+- (IBAction)changementTypeTrajet:(id)sender {
+    [self viewWillAppear:true];
+}
+
 #pragma mark - alertView delegates
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -188,7 +196,7 @@
     {
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.cvButton setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
-            //[self reloadInputViews];
+            [self viewWillAppear:true];
         }
     }
 }

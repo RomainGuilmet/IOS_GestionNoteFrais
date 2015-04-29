@@ -286,10 +286,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="yeA-R4-3HX">
-                            <rect key="frame" x="0.0" y="322" width="600" height="233"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </mapView>
                         <sections>
                             <tableViewSection headerTitle="Trajet" id="phi-dS-Bev">
                                 <cells>
@@ -380,6 +376,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Gh-gT-bcQ">
                                                     <rect key="frame" x="105" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="changementTypeTrajet:" destination="ypl-ux-hvO" eventType="valueChanged" id="xt6-UV-LaS"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
