@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Type+DataModel.h"
 #import "Frais+DataModel.h"
+#import "BaremeAuto+DataModel.h"
 #import "IndemnitesTableViewController.h"
 
 @interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>

@@ -10,29 +10,6 @@
 
 @implementation HistoriqueTableViewController
 
-- (void) chargementListeFrais
-{
-    // appDelegate initialization
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    // fetchedResultController initialization
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Frais"];
-    // Configure the request's entity, and optionally its predicate.
-    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
-    self.fetchedResultsController = [[NSFetchedResultsController alloc]
-                                     initWithFetchRequest:fetchRequest
-                                     managedObjectContext:self.appDelegate.managedObjectContext
-                                     sectionNameKeyPath:nil
-                                     cacheName:nil];
-    // Configure Fetched Results Controller
-    [self.fetchedResultsController setDelegate:self];
-    NSError *error;
-    [self.fetchedResultsController performFetch:&error];
-    if (error) {
-        NSLog(@"Unable to perform fetch.");
-        NSLog(@"%@, %@", error, error.localizedDescription);
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -138,6 +115,31 @@
         Frais *fraisChoisi = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
         FraisTableViewController *controllerDestination = segue.destinationViewController;
         controllerDestination.fraisChoisi = fraisChoisi;
+    }
+}
+
+#pragma mark - methods
+
+- (void) chargementListeFrais
+{
+    // appDelegate initialization
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    // fetchedResultController initialization
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Frais"];
+    // Configure the request's entity, and optionally its predicate.
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc]
+                                     initWithFetchRequest:fetchRequest
+                                     managedObjectContext:self.appDelegate.managedObjectContext
+                                     sectionNameKeyPath:nil
+                                     cacheName:nil];
+    // Configure Fetched Results Controller
+    [self.fetchedResultsController setDelegate:self];
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        NSLog(@"Unable to perform fetch.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
     }
 }
 

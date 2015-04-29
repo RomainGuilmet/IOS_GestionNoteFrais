@@ -12,53 +12,12 @@
 
 @synthesize fraisChoisi;
 
-- (void)creationTypesFrais
-{
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
-    [[Type alloc] initWithName:@"Avion" andContext:context];
-    [[Type alloc] initWithName:@"Train" andContext:context];
-    [[Type alloc] initWithName:@"Carburant" andContext:context];
-    [[Type alloc] initWithName:@"Hotel" andContext:context];
-    [[Type alloc] initWithName:@"Repas" andContext:context];
-    [[Type alloc] initWithName:@"Indemnités kilométriques" andContext:context];
-    [[Type alloc] initWithName:@"Location de véhicule" andContext:context];
-    [[Type alloc] initWithName:@"Péage" andContext:context];
-    [[Type alloc] initWithName:@"Parking" andContext:context];
-    [[Type alloc] initWithName:@"Taxi ou bus" andContext:context];
-    [[Type alloc] initWithName:@"Fournitures" andContext:context];
-    
-    NSError *erreur = nil;
-    if(![context save:&erreur]){
-        NSLog(@"Impossible de sauvegarder ! %@ %@", erreur, [erreur localizedDescription]);
-    }
-}
-
-- (void)chargementListeTypesFrais
-{
-    
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
-    // fetchedResultController initialization
-    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
-    // Configure the request's entity, and optionally its predicate.
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:NO]]];
-    
-    NSError *erreur = nil;
-    self.resultat = [context executeFetchRequest:requete error:&erreur];
-    if([self.resultat count] == 0)
-        NSLog(@"vide");
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self creationTypesFrais];
+    [self creationBaremesAuto];
     
     [self chargementListeTypesFrais];
     
@@ -131,29 +90,6 @@
     }
 }
 
-- (IBAction)changerType:(id)sender {
-    UIAlertView *alerteType = [[UIAlertView alloc] initWithTitle:@"Sélectionner un type de frais" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil];
-    
-    
-    for(int i=0; i<[self.resultat count]; i++)
-    {
-        Type *typeTemp = [self.resultat objectAtIndex:i];
-        [alerteType addButtonWithTitle:[NSString stringWithFormat:@"%@", typeTemp.lib]];
-    }
-    
-    [alerteType setTag:1];
-    
-    [alerteType show];
-}
-
-- (IBAction)choisirImage:(id)sender {
-    UIAlertView *alerteImage = [[UIAlertView alloc]  initWithTitle:@"Sélectionner une image depuis :" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:@"Librairie d'images",@"Appareil Photo", nil];
-    
-    [alerteImage setTag:2];
-    
-    [alerteImage show];
-}
-
 #pragma mark - alertView delegates
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -204,7 +140,84 @@
     
 }
 
+#pragma mark - methods
+/**
+ * Cette fonction sert à créer les différents types de frais possibles et à les stocker sur l'appareil.
+ * Les types de frais sont créés uniquement s'il n'existe pas déjà sur l'appareil. Donc au premier lancement de l'application.
+ **/
+- (void)creationTypesFrais
+{
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
+    
+    [[Type alloc] initWithName:@"Avion" andContext:context];
+    [[Type alloc] initWithName:@"Train" andContext:context];
+    [[Type alloc] initWithName:@"Carburant" andContext:context];
+    [[Type alloc] initWithName:@"Hotel" andContext:context];
+    [[Type alloc] initWithName:@"Repas" andContext:context];
+    [[Type alloc] initWithName:@"Indemnités kilométriques" andContext:context];
+    [[Type alloc] initWithName:@"Location de véhicule" andContext:context];
+    [[Type alloc] initWithName:@"Péage" andContext:context];
+    [[Type alloc] initWithName:@"Parking" andContext:context];
+    [[Type alloc] initWithName:@"Taxi ou bus" andContext:context];
+    [[Type alloc] initWithName:@"Fournitures" andContext:context];
+    
+    NSError *erreur = nil;
+    if(![context save:&erreur]){
+        NSLog(@"Impossible de sauvegarder les différents types de frais ! %@ %@", erreur, [erreur localizedDescription]);
+    }
+}
 
+/**
+ * Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l'appareil.
+ * Les barèmes kilométriques sont créés uniquement s'il n'existe pas déjà sur l'appareil. Donc au premier lancement de l'application.
+ * Il sera nécéssaire de modifier les différents chiffres chaque année.
+ **/
+- (void)creationBaremesAuto
+{
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
+    
+    [[BaremeAuto alloc] initWithName:@"3 CV et moins" trancheBasse:[NSNumber numberWithDouble:0.41] trancheMoyenne:[NSNumber numberWithDouble:0.245] trancheHaute:[NSNumber numberWithDouble:0.285] fixe:[NSNumber numberWithDouble:824] andContext:context];
+    [[BaremeAuto alloc] initWithName:@"4 CV" trancheBasse:[NSNumber numberWithDouble:0.493] trancheMoyenne:[NSNumber numberWithDouble:0.27] trancheHaute:[NSNumber numberWithDouble:0.332] fixe:[NSNumber numberWithDouble:1082] andContext:context];
+    [[BaremeAuto alloc] initWithName:@"5 CV" trancheBasse:[NSNumber numberWithDouble:0.543] trancheMoyenne:[NSNumber numberWithDouble:0.305] trancheHaute:[NSNumber numberWithDouble:0.364] fixe:[NSNumber numberWithDouble:1188] andContext:context];
+    [[BaremeAuto alloc] initWithName:@"6 CV" trancheBasse:[NSNumber numberWithDouble:0.568] trancheMoyenne:[NSNumber numberWithDouble:0.32] trancheHaute:[NSNumber numberWithDouble:0.382] fixe:[NSNumber numberWithDouble:1244] andContext:context];
+    [[BaremeAuto alloc] initWithName:@"7 CV et plus" trancheBasse:[NSNumber numberWithDouble:0.595] trancheMoyenne:[NSNumber numberWithDouble:0.337] trancheHaute:[NSNumber numberWithDouble:0.401] fixe:[NSNumber numberWithDouble:1288] andContext:context];
+    
+    NSError *erreur = nil;
+    if(![context save:&erreur]){
+        NSLog(@"Impossible de sauvegarder les différents barèmes kilométriques ! %@ %@", erreur, [erreur localizedDescription]);
+    }
+}
+
+- (void)chargementListeTypesFrais
+{
+    
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
+    
+    // fetchedResultController initialization
+    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
+    // Configure the request's entity, and optionally its predicate.
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:NO]]];
+    
+    NSError *erreur = nil;
+    self.resultat = [context executeFetchRequest:requete error:&erreur];
+    if([self.resultat count] == 0)
+        NSLog(@"vide");
+}
+
+-(void)changementDeDate:(UIDatePicker *)sender
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    self.dateTexte.text = [formatter stringFromDate:sender.date];
+}
+
+#pragma mark - actions
 /*
  Envoyer le frais au serveur
  */
@@ -270,12 +283,29 @@
     }
 }
 
--(void)changementDeDate:(UIDatePicker *)sender
-{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy"];
-    self.dateTexte.text = [formatter stringFromDate:sender.date];
+- (IBAction)changerType:(id)sender {
+    UIAlertView *alerteType = [[UIAlertView alloc] initWithTitle:@"Sélectionner un type de frais" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil];
+    
+    
+    for(int i=0; i<[self.resultat count]; i++)
+    {
+        Type *typeTemp = [self.resultat objectAtIndex:i];
+        [alerteType addButtonWithTitle:[NSString stringWithFormat:@"%@", typeTemp.lib]];
+    }
+    
+    [alerteType setTag:1];
+    
+    [alerteType show];
 }
+
+- (IBAction)choisirImage:(id)sender {
+    UIAlertView *alerteImage = [[UIAlertView alloc]  initWithTitle:@"Sélectionner une image depuis :" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:@"Librairie d'images",@"Appareil Photo", nil];
+    
+    [alerteImage setTag:2];
+    
+    [alerteImage show];
+}
+
 
 @end
 
