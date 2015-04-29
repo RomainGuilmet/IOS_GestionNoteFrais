@@ -286,6 +286,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+<<<<<<< Updated upstream
+=======
+                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="yeA-R4-3HX">
+                            <rect key="frame" x="0.0" y="322" width="600" height="233"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
+>>>>>>> Stashed changes
                         <sections>
                             <tableViewSection headerTitle="Trajet" id="phi-dS-Bev">
                                 <cells>
@@ -590,10 +597,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="histo" width="32" height="32"/>
         <image name="home-2" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+<<<<<<< Updated upstream
         <segue reference="fIs-Ba-bQm"/>
         <segue reference="UCJ-Np-QYC"/>
+=======
+        <segue reference="7TU-Ed-Ken"/>
+        <segue reference="Oo4-7h-Xrg"/>
+>>>>>>> Stashed changes
     </inferredMetricsTieBreakers>
 </document>
