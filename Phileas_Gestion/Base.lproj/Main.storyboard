@@ -30,7 +30,7 @@
         <scene sceneID="yZD-Mg-Sml">
             <objects>
                 <navigationController id="5rg-28-EIS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Historique" id="3p2-U5-762"/>
+                    <tabBarItem key="tabBarItem" title="Historique" image="histo" id="3p2-U5-762"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8OU-eO-Llh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -47,7 +47,7 @@
         <scene sceneID="SbM-Re-9s0">
             <objects>
                 <navigationController id="7Yp-Bk-htb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" id="WKr-75-knA"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="msg" id="WKr-75-knA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ozX-Q8-JMa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -286,13 +286,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-<<<<<<< Updated upstream
-=======
                         <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="yeA-R4-3HX">
                             <rect key="frame" x="0.0" y="322" width="600" height="233"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
->>>>>>> Stashed changes
                         <sections>
                             <tableViewSection headerTitle="Trajet" id="phi-dS-Bev">
                                 <cells>
@@ -497,7 +494,7 @@
         <scene sceneID="5pS-P9-Pep">
             <objects>
                 <navigationController id="v7W-QA-YYD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Règlages" id="pYD-wJ-14e"/>
+                    <tabBarItem key="tabBarItem" title="Règlages" image="reglages" id="pYD-wJ-14e"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HCz-N7-lVB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -541,7 +538,7 @@
         <scene sceneID="d1H-aG-kP5">
             <objects>
                 <navigationController id="Z8j-Ym-QSp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="NouveauFrais" image="home-2" id="xd6-p9-LNM"/>
+                    <tabBarItem key="tabBarItem" title="NouveauFrais" image="note" id="xd6-p9-LNM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ig8-pU-U9A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -598,15 +595,12 @@
     </scenes>
     <resources>
         <image name="histo" width="32" height="32"/>
-        <image name="home-2" width="32" height="32"/>
+        <image name="msg" width="32" height="32"/>
+        <image name="note" width="32" height="32"/>
+        <image name="reglages" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< Updated upstream
-        <segue reference="fIs-Ba-bQm"/>
-        <segue reference="UCJ-Np-QYC"/>
-=======
-        <segue reference="7TU-Ed-Ken"/>
         <segue reference="Oo4-7h-Xrg"/>
->>>>>>> Stashed changes
+        <segue reference="7TU-Ed-Ken"/>
     </inferredMetricsTieBreakers>
 </document>
