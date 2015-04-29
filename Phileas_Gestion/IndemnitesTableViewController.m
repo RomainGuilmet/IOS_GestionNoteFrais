@@ -12,9 +12,14 @@
 
 @synthesize depart;
 @synthesize arrivee;
+@synthesize context;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    context = self.appDelegate.managedObjectContext;
+    
     [self chargementListeBaremes];
     
     depart = [[NSMutableArray alloc]init];
@@ -41,7 +46,11 @@
     if([self.depart count] > 0 && [self.arrivee count] > 0)
     {
         [self calculDistance];
-    }
+        if(![self.cvButton.titleLabel.text isEqual:@"Choisir un nombre de CV"])
+        {
+            [self calculMontant];
+        }
+    }    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,11 +95,6 @@
 #pragma mark - methods
 - (void)chargementListeBaremes
 {
-    
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
     // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"BaremeAuto"];
     // Configure the request's entity, and optionally its predicate.
@@ -126,6 +130,10 @@
             MKRoute *route = directionsResponse.routes[0];
             CLLocationDistance distance = route.distance;
             distance = distance/1000;
+            if([self.arSwitch isOn])
+            {
+                distance = distance * 2;
+            }
             NSString *distanceString = [NSString stringWithFormat:@"%f km", distance];
             [self.distanceTextField setText:distanceString];
             /*
@@ -137,6 +145,24 @@
 
 - (void) calculMontant
 {
+    NSString* cylindre = self.cvButton.titleLabel.text;
+    BaremeAuto* ba = [BaremeAuto selectBaremeAuto:cylindre andContext:context];
+    double distance = [self.distanceTextField.text doubleValue];
+    double montant;
+    if(distance <=5000)
+    {
+        montant = distance*[ba.basse doubleValue];
+    }
+    else if (distance>5000 && distance<=20000)
+    {
+        montant = distance*[ba.moyenne doubleValue]+[ba.fixe doubleValue];;
+    }
+    else{
+        montant = distance*[ba.haute doubleValue];
+    }
+    
+    NSString *montantTexte = [NSString stringWithFormat:@"%f", montant];
+    [self.montantTextField setText:montantTexte];
 }
 
 #pragma mark - actions
@@ -162,7 +188,7 @@
     {
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.cvButton setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
-            [self reloadInputViews];
+            //[self reloadInputViews];
         }
     }
 }

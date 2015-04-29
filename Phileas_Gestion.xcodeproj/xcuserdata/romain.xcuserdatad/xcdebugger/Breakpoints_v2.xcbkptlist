@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phileas_Gestion/FraisTableViewController.m"
-            timestampString = "452005015.51612"
+            timestampString = "452008858.126605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phileas_Gestion/FraisTableViewController.m"
-            timestampString = "452005015.51612"
+            timestampString = "452008858.126605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-saisir:"
             landmarkType = "5">
          </BreakpointContent>

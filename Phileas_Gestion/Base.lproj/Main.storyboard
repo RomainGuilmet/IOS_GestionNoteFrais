@@ -418,6 +418,7 @@
                         <outlet property="cvButton" destination="Wv0-tc-E8s" id="u05-YH-NIl"/>
                         <outlet property="departCell" destination="HRG-Rb-GW2" id="tGu-ur-UrA"/>
                         <outlet property="distanceTextField" destination="Nae-8D-sRS" id="x7j-45-9wT"/>
+                        <outlet property="montantTextField" destination="KRU-Cg-Ybz" id="ctr-dJ-xrO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCC-NY-GoE" userLabel="First Responder" sceneMemberID="firstResponder"/>

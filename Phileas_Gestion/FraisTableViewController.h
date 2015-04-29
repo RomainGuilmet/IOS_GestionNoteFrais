@@ -17,6 +17,7 @@
 
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
+@property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) NSArray* resultat;
 

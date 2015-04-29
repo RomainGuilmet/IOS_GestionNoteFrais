@@ -15,6 +15,7 @@
 @interface IndemnitesTableViewController : UITableViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
+@property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSArray* resultat;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *departCell;
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) NSMutableArray *depart;
 @property (strong, nonatomic) NSMutableArray *arrivee;
 @property (strong, nonatomic) MKPolyline *line;
+@property double distance;
 
 - (IBAction)choisirPuissance:(id)sender;
 

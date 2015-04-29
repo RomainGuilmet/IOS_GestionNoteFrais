@@ -11,10 +11,14 @@
 @implementation FraisTableViewController
 
 @synthesize fraisChoisi;
+@synthesize context;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    context = self.appDelegate.managedObjectContext;
     
     [self creationTypesFrais];
     [self creationBaremesAuto];
@@ -147,10 +151,6 @@
  **/
 - (void)creationTypesFrais
 {
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
     [[Type alloc] initWithName:@"Avion" andContext:context];
     [[Type alloc] initWithName:@"Train" andContext:context];
     [[Type alloc] initWithName:@"Carburant" andContext:context];
@@ -176,10 +176,6 @@
  **/
 - (void)creationBaremesAuto
 {
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
     [[BaremeAuto alloc] initWithName:@"3 CV et moins" trancheBasse:[NSNumber numberWithDouble:0.41] trancheMoyenne:[NSNumber numberWithDouble:0.245] trancheHaute:[NSNumber numberWithDouble:0.285] fixe:[NSNumber numberWithDouble:824] andContext:context];
     [[BaremeAuto alloc] initWithName:@"4 CV" trancheBasse:[NSNumber numberWithDouble:0.493] trancheMoyenne:[NSNumber numberWithDouble:0.27] trancheHaute:[NSNumber numberWithDouble:0.332] fixe:[NSNumber numberWithDouble:1082] andContext:context];
     [[BaremeAuto alloc] initWithName:@"5 CV" trancheBasse:[NSNumber numberWithDouble:0.543] trancheMoyenne:[NSNumber numberWithDouble:0.305] trancheHaute:[NSNumber numberWithDouble:0.364] fixe:[NSNumber numberWithDouble:1188] andContext:context];
@@ -246,10 +242,7 @@
     NSNumber *montant = [numberFormatter numberFromString:champMontant];
     
     NSString *typeFrais = self.typeF.titleLabel.text;
-    
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
+        
     if(self.fraisChoisi)
     {
         [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
