@@ -1,5 +1,5 @@
 //
-//  Type.h
+//  User.h
 //  Phileas_Gestion
 //
 //  Created by Florent on 30/04/2015.
@@ -11,9 +11,10 @@
 
 @class Frais;
 
-@interface Type : NSManagedObject
+@interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * lib;
-@property (nonatomic, retain) Frais *fraisType;
+@property (nonatomic, retain) NSString * pseudo;
+@property (nonatomic, retain) NSString * mdp;
+@property (nonatomic, retain) Frais *fraisUser;
 
 @end

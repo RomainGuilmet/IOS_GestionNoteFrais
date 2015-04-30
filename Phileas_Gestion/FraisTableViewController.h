@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Type+DataModel.h"
 #import "Frais+DataModel.h"
+#import "IndemniteK+DataModel.h"
 #import "BaremeAuto+DataModel.h"
 #import "IndemnitesTableViewController.h"
 
@@ -21,8 +22,9 @@
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) NSArray* resultat;
 @property (strong, nonatomic) NSMutableString* montant;
+@property (strong, nonatomic) IndemniteK* indemniteK;
 
-@property (weak, nonatomic) Frais* fraisChoisi;
+@property (strong, nonatomic) Frais* fraisChoisi;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
@@ -31,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *typeF;
 @property (weak, nonatomic) IBOutlet UIButton *justificatif;
 @property (weak, nonatomic) IBOutlet UITextField *montantTextField;
+@property (strong, nonatomic) IBOutlet UIButton *modifierIndemnite;
+
 @property (weak, nonatomic) IBOutlet UITextView *comTextArea;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton *saisirButton;

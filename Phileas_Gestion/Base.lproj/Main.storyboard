@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cXG-Qk-XJe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -116,14 +118,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Ge-63-hpu" id="ERt-gZ-NPl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type de frais :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-Mk-kVJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type de frais :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-Mk-kVJ">
                                                     <rect key="frame" x="8" y="12" width="106" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="106" id="sXy-AD-rh5"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ny-dH-b3H">
-                                                    <rect key="frame" x="122" y="5" width="470" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ny-dH-b3H">
+                                                    <rect key="frame" x="122" y="5" width="416" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Choisir un type">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -133,7 +138,34 @@
                                                         <action selector="changerType:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="5ay-eH-IaU"/>
                                                     </connections>
                                                 </button>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpC-2O-yAx">
+                                                    <rect key="frame" x="546" y="7" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="46" id="Fr9-V2-k86"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="Modifier">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="ypl-ux-hvO" kind="show" identifier="modifierIndemnite" id="D5j-ye-MpF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Ny-dH-b3H" firstAttribute="leading" secondItem="kRU-Mk-kVJ" secondAttribute="trailing" constant="8" symbolic="YES" id="8f8-3i-qCd"/>
+                                                <constraint firstItem="kpC-2O-yAx" firstAttribute="top" secondItem="ERt-gZ-NPl" secondAttribute="topMargin" constant="-1" id="HNQ-Lb-HCa"/>
+                                                <constraint firstItem="3Ny-dH-b3H" firstAttribute="top" secondItem="ERt-gZ-NPl" secondAttribute="topMargin" constant="-3" id="J2t-N7-1gc"/>
+                                                <constraint firstItem="kpC-2O-yAx" firstAttribute="leading" secondItem="3Ny-dH-b3H" secondAttribute="trailing" constant="8" id="OjM-py-UaI"/>
+                                                <constraint firstItem="kRU-Mk-kVJ" firstAttribute="top" secondItem="ERt-gZ-NPl" secondAttribute="topMargin" constant="4" id="eT6-dX-I2v"/>
+                                                <constraint firstItem="kRU-Mk-kVJ" firstAttribute="leading" secondItem="ERt-gZ-NPl" secondAttribute="leadingMargin" id="fxJ-D7-ewi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kpC-2O-yAx" secondAttribute="trailing" id="lLX-SE-Kh9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kRU-Mk-kVJ" secondAttribute="bottom" constant="2" id="pg4-Zd-tG9"/>
+                                                <constraint firstItem="3Ny-dH-b3H" firstAttribute="baseline" secondItem="kRU-Mk-kVJ" secondAttribute="firstBaseline" id="q1f-1o-6FF"/>
+                                                <constraint firstItem="kRU-Mk-kVJ" firstAttribute="firstBaseline" secondItem="3Ny-dH-b3H" secondAttribute="firstBaseline" id="s60-mr-Lcg"/>
+                                                <constraint firstItem="3Ny-dH-b3H" firstAttribute="bottom" secondItem="ERt-gZ-NPl" secondAttribute="bottomMargin" id="vvI-on-GAo"/>
+                                                <constraint firstItem="kpC-2O-yAx" firstAttribute="centerY" secondItem="kRU-Mk-kVJ" secondAttribute="centerY" id="y45-ii-ins"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="vsi-6A-ZOs">
@@ -268,6 +300,7 @@
                         <outlet property="image" destination="Rew-FY-D1c" id="vcx-Ej-fZy"/>
                         <outlet property="justificatif" destination="yH7-rV-YLP" id="X5p-zw-Sel"/>
                         <outlet property="localisationLbl" destination="K8H-wt-tsP" id="uMt-1y-UWP"/>
+                        <outlet property="modifierIndemnite" destination="kpC-2O-yAx" id="fLA-Ru-VCi"/>
                         <outlet property="montantTextField" destination="Cqs-0A-6ae" id="4mH-z2-etD"/>
                         <outlet property="navBar" destination="HhS-7h-fI8" id="c4w-kI-XhQ"/>
                         <outlet property="saisirButton" destination="0Oj-Y9-UC3" id="GcV-b8-b6D"/>

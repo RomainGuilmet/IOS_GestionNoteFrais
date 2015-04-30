@@ -13,6 +13,8 @@
 @synthesize depart;
 @synthesize arrivee;
 @synthesize context;
+@synthesize ba;
+@synthesize indemniteK;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,9 +27,70 @@
     depart = [[NSMutableArray alloc]init];
     arrivee = [[NSMutableArray alloc]init];
     [self.cvButton setTitle:@"Choisir un nombre de CV" forState:UIControlStateNormal];
+    
+    if(indemniteK.villeDepart){
+        if([indemniteK.allezRetour isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            [self.arSwitch setOn:TRUE];
+        }
+        [self.cvButton setTitle:indemniteK.cylindree.cylindre forState:UIControlStateNormal];
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        NSString *villeD = indemniteK.villeDepart;
+        NSLog(@"%@",villeD);
+        
+        [geocoder
+         geocodeAddressString:villeD
+         completionHandler:^(NSArray *placemarks,
+                             NSError *error) {
+             
+             if (error) {
+                 NSLog(@"Geocode failed with error: %@", error);
+                 return;
+             }
+             
+             if (placemarks && placemarks.count > 0)
+             {
+                 MKPlacemark *placemark = placemarks[0];
+                 
+                 MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+                 if([depart count]>0)
+                 {
+                     [depart removeObjectAtIndex:0];
+                 }
+                 [depart addObject:mapItem];
+             }
+         }];
+        
+        CLGeocoder *geocoder2 = [[CLGeocoder alloc] init];
+        NSString *villeA = indemniteK.villeArrivee;
+        NSLog(@"%@",villeA);
+        [geocoder2
+         geocodeAddressString:villeA
+         completionHandler:^(NSArray *placemarks,
+                             NSError *error) {
+             
+             if (error) {
+                 NSLog(@"Geocode failed with error: %@", error);
+                 return;
+             }
+             
+             if (placemarks && placemarks.count > 0)
+             {
+                 MKPlacemark *placemark = placemarks[0];
+                 
+                 MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+                 if([arrivee count]>0)
+                 {
+                     [arrivee removeObjectAtIndex:0];
+                 }
+                 [arrivee addObject:mapItem];
+             }
+         }];
+    }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     if([depart count] == 1)
     {
         if(![((MKMapItem *)[depart objectAtIndex:0]).name isEqual:@"Unknown Location"])
@@ -49,6 +112,27 @@
         [self calculDistance];
         
     }    
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    if (ba) {
+        NSNumber *ar = [NSNumber numberWithInt:0];
+        if([self.arSwitch isOn])
+        {
+            ar= [NSNumber numberWithInt:1];
+        }
+        
+        /*if(fraisChoisi)
+        {
+            [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+        }*/
+        [indemniteK updateIndemniteK:((MKMapItem *)[depart objectAtIndex:0]).name villeArrivee:((MKMapItem *)[arrivee objectAtIndex:0]).name allezR:ar baremeAuto:ba];
+        
+        NSError *erreur = nil;
+        if(![context save:&erreur]){
+            NSLog(@"Impossible de sauvegarder l'indemnite ! %@ %@", erreur, [erreur localizedDescription]);
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -149,7 +233,7 @@
 - (void) calculMontant
 {
     NSString* cylindre = self.cvButton.titleLabel.text;
-    BaremeAuto* ba = [BaremeAuto selectBaremeAuto:cylindre andContext:context];
+    ba = [BaremeAuto selectBaremeAuto:cylindre andContext:context];
     double distance = [self.distanceTextField.text doubleValue];
     double montant;
     if(distance <=5000)
@@ -186,7 +270,7 @@
 }
 
 - (IBAction)changementTypeTrajet:(id)sender {
-    [self viewWillAppear:true];
+    [self viewDidAppear:true];
 }
 
 #pragma mark - alertView delegates
@@ -196,7 +280,7 @@
     {
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.cvButton setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
-            [self viewWillAppear:true];
+            [self viewDidAppear:true];
         }
     }
 }

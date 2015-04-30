@@ -58,7 +58,7 @@
         }
         
         results = response;
-        
+
         [self.searchDisplayController.searchResultsTableView reloadData];
     }];
 }

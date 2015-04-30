@@ -6,6 +6,7 @@
         <attribute name="fixe" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="haute" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="moyenne" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="indemnitesBareme" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IndemniteK" inverseName="cylindree" inverseEntity="IndemniteK" syncable="YES"/>
     </entity>
     <entity name="Frais" representedClassName="Frais" syncable="YES">
         <attribute name="commentaire" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,15 +14,31 @@
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="localisation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="montant" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="indemniteKFrais" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IndemniteK" inverseName="fraisIndemniteK" inverseEntity="IndemniteK" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="fraisUser" inverseEntity="User" syncable="YES"/>
         <relationship name="typeFrais" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Type" inverseName="fraisType" inverseEntity="Type" syncable="YES"/>
+    </entity>
+    <entity name="IndemniteK" representedClassName="IndemniteK" syncable="YES">
+        <attribute name="allezRetour" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="villeArrivee" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="villeDepart" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cylindree" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BaremeAuto" inverseName="indemnitesBareme" inverseEntity="BaremeAuto" syncable="YES"/>
+        <relationship name="fraisIndemniteK" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Frais" inverseName="indemniteKFrais" inverseEntity="Frais" syncable="YES"/>
     </entity>
     <entity name="Type" representedClassName="Type" syncable="YES">
         <attribute name="lib" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="fraisType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Frais" inverseName="typeFrais" inverseEntity="Frais" syncable="YES"/>
     </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="mdp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pseudo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fraisUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Frais" inverseName="owner" inverseEntity="Frais" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Frais" positionX="4581" positionY="-904" width="128" height="135"/>
+        <element name="BaremeAuto" positionX="4372" positionY="-1096" width="128" height="133"/>
+        <element name="Frais" positionX="4590" positionY="-886" width="128" height="163"/>
         <element name="Type" positionX="4768" positionY="-844" width="128" height="75"/>
-        <element name="BaremeAuto" positionX="4581" positionY="-1086" width="128" height="118"/>
+        <element name="IndemniteK" positionX="4365" positionY="-882" width="128" height="118"/>
+        <element name="User" positionX="4579" positionY="-1107" width="128" height="88"/>
     </elements>
 </model>

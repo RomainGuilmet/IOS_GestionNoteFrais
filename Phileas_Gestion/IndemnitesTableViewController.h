@@ -11,6 +11,7 @@
 #import "MapTableViewController.h"
 #import "AppDelegate.h"
 #import "BaremeAuto+DataModel.h"
+#import "IndemniteK+DataModel.h"
 
 @interface IndemnitesTableViewController : UITableViewController <MKMapViewDelegate>
 
@@ -18,6 +19,9 @@
 @property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSArray* resultat;
 @property (strong, nonatomic) NSMutableString *montant;
+@property (strong, nonatomic) IndemniteK* indemniteK;
+@property (strong, nonatomic) BaremeAuto* ba;
+
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *departCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *arriveeCell;

@@ -14,7 +14,7 @@
  Penser à vérifier les champs et à rechercher le type grâce à la string
 */
 
-- (void) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
+- (Frais*) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Frais" inManagedObjectContext:context];
     Frais *nouveauFrais = [[Frais alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
@@ -33,6 +33,8 @@
     }
     
     [nouveauFrais setValue:com forKey:@"commentaire"];
+    
+    return nouveauFrais;
 }
 
 - (void) updateFrais:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
@@ -52,6 +54,11 @@
     }
     
     [self setValue:com forKey:@"commentaire"];
+}
+
+- (void) addIndemniteK:(IndemniteK*)indemnite
+{
+    [self setValue:indemnite forKey:@"indemniteKFrais"];
 }
 
 @end

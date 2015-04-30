@@ -12,6 +12,7 @@
 
 @synthesize fraisChoisi;
 @synthesize context;
+@synthesize indemniteK;
 
 - (void)viewDidLoad
 {
@@ -26,15 +27,22 @@
     [self chargementListeTypesFrais];
     
     self.montant = [[NSMutableString alloc] init];
+    NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"IndemniteK" inManagedObjectContext:context];
+    indemniteK = [[IndemniteK alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
+    
     [self.montant setString:@"0"];
     
-    if(self.fraisChoisi)
+    if(fraisChoisi)
     {
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
         [dateformater setDateFormat:@"dd/MM/yyyy"]; // Date formater
         NSString *date = [dateformater stringFromDate:fraisChoisi.date];
         [self.dateTexte setText:date];
         [self.localisationLbl setText:fraisChoisi.localisation];
+        if([fraisChoisi.typeFrais.lib isEqualToString:@"Indemnités kilométriques"])
+        {
+            indemniteK = fraisChoisi.indemniteKFrais;
+        }
         [self.typeF setTitle:fraisChoisi.typeFrais.lib forState:UIControlStateNormal];
         self.image.image =  [UIImage imageWithData:[self.fraisChoisi valueForKey:@"image"]];
         NSString *montantTexte = [NSString stringWithFormat:@"%@", fraisChoisi.montant];
@@ -84,7 +92,7 @@
     [self.dateTexte setInputView:self.pickerViewDate];
 }
 
-- (void) viewWillAppear:(BOOL)animated
+- (void) viewDidAppear:(BOOL)animated
 {
     if(self.fraisChoisi)
     {
@@ -94,6 +102,11 @@
     else
     {
         self.navBar.title = @"Ajouter un frais";
+    }
+
+    if([self.typeF.titleLabel.text isEqualToString:@"Indemnités kilométriques"])
+    {
+        [self.modifierIndemnite setHidden:FALSE];
     }
 
     if(![self.montant isEqualToString:@"0"])
@@ -109,10 +122,12 @@
     {
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.typeF setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
+            [self.modifierIndemnite setHidden:TRUE];
             
             if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Indemnités kilométriques"]){
                 IndemnitesTableViewController* controllerDestination = [self.storyboard instantiateViewControllerWithIdentifier:@"indemnites"];
                 [controllerDestination setMontant:self.montant];
+                [controllerDestination setIndemniteK:indemniteK];
                 [self.navigationController pushViewController:controllerDestination animated:YES];
             }
         }
@@ -199,11 +214,6 @@
 
 - (void)chargementListeTypesFrais
 {
-    
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
-    
     // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
     // Configure the request's entity, and optionally its predicate.
@@ -231,6 +241,9 @@
     //Afficher une pop-up le frais a été envoyé au serveur
 }
 
+- (IBAction)modifierIndemnite:(id)sender {
+}
+
 /*
  Sauvegarder le frais en local
  */
@@ -251,14 +264,20 @@
     NSNumber *montant = [numberFormatter numberFromString:champMontant];
     
     NSString *typeFrais = self.typeF.titleLabel.text;
-        
-    if(self.fraisChoisi)
+    Boolean update = false;
+    
+    if(fraisChoisi)
     {
         [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+        update = true;
     }
     else
     {
-        [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+        fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+    }
+    
+    if([typeFrais isEqual: @"Indemnités kilométriques"]){
+        [fraisChoisi addIndemniteK:indemniteK];
     }
     
     NSError *erreur = nil;
@@ -267,12 +286,12 @@
     }
 
     UIAlertView *alert;
-    if(self.fraisChoisi)
+    if(update)
     {
         alert = [[UIAlertView alloc] initWithTitle:@"Modification enregistrée" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
         
         [alert show];
-        
+    
         [self.navigationController popViewControllerAnimated:YES];
     }
     else
@@ -281,8 +300,12 @@
         
         [alert show];
         
+        fraisChoisi = nil;
+        
         [self viewDidLoad];
     }
+    
+   
 }
 
 - (IBAction)changerType:(id)sender {
@@ -308,6 +331,16 @@
     [alerteImage show];
 }
 
+#pragma mark - navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"modifierIndemnite"]){
+        
+        IndemnitesTableViewController* controllerDestination = segue.destinationViewController;
+        [controllerDestination setMontant:self.montant];
+        [controllerDestination setIndemniteK:indemniteK];
+
+    }
+}
 
 @end
 

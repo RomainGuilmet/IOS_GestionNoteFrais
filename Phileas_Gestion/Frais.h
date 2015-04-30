@@ -2,14 +2,14 @@
 //  Frais.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 29/04/2015.
+//  Created by Florent on 30/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Type;
+@class IndemniteK, Type, User;
 
 @interface Frais : NSManagedObject
 
@@ -19,5 +19,7 @@
 @property (nonatomic, retain) NSString * localisation;
 @property (nonatomic, retain) NSNumber * montant;
 @property (nonatomic, retain) Type *typeFrais;
+@property (nonatomic, retain) IndemniteK *indemniteKFrais;
+@property (nonatomic, retain) User *owner;
 
 @end

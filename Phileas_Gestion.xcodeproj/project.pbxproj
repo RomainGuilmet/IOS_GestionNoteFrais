@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A2270891AF220C4008909FF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2270881AF220C4008909FF /* User.m */; };
+		4A22708C1AF220C5008909FF /* BaremeAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A22708B1AF220C5008909FF /* BaremeAuto.m */; };
+		4A22708F1AF220C5008909FF /* IndemniteK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A22708E1AF220C5008909FF /* IndemniteK.m */; };
+		4A2270921AF220C5008909FF /* Frais.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2270911AF220C5008909FF /* Frais.m */; };
+		4A2270951AF220C5008909FF /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2270941AF220C5008909FF /* Type.m */; };
+		4A2270981AF22218008909FF /* IndemniteK+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2270971AF22218008909FF /* IndemniteK+DataModel.m */; };
 		7A0CA9681AE64B6C0070DF31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9671AE64B6C0070DF31 /* main.m */; };
 		7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */; };
 		7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */; };
@@ -15,9 +21,6 @@
 		7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */; };
 		7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */; };
 		7A20993E1AF106DF003788BB /* BaremeAuto+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A20993D1AF106DF003788BB /* BaremeAuto+DataModel.m */; };
-		7A20994A1AF1097A003788BB /* BaremeAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2099491AF1097A003788BB /* BaremeAuto.m */; };
-		7A20994D1AF1097A003788BB /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A20994C1AF1097A003788BB /* Type.m */; };
-		7A2099501AF1097A003788BB /* Frais.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A20994F1AF1097A003788BB /* Frais.m */; };
 		7A5C9A081AEE348E0088A8A5 /* IndemnitesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C9A071AEE348E0088A8A5 /* IndemnitesTableViewController.m */; };
 		7A5C9A0B1AEE349D0088A8A5 /* MapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C9A0A1AEE349D0088A8A5 /* MapTableViewController.m */; };
 		7A5C9A0D1AEE35710088A8A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5C9A0C1AEE35710088A8A5 /* MapKit.framework */; };
@@ -38,6 +41,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A2270871AF220C4008909FF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		4A2270881AF220C4008909FF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		4A22708A1AF220C5008909FF /* BaremeAuto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaremeAuto.h; sourceTree = "<group>"; };
+		4A22708B1AF220C5008909FF /* BaremeAuto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaremeAuto.m; sourceTree = "<group>"; };
+		4A22708D1AF220C5008909FF /* IndemniteK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndemniteK.h; sourceTree = "<group>"; };
+		4A22708E1AF220C5008909FF /* IndemniteK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndemniteK.m; sourceTree = "<group>"; };
+		4A2270901AF220C5008909FF /* Frais.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frais.h; sourceTree = "<group>"; };
+		4A2270911AF220C5008909FF /* Frais.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frais.m; sourceTree = "<group>"; };
+		4A2270931AF220C5008909FF /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		4A2270941AF220C5008909FF /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
+		4A2270961AF22218008909FF /* IndemniteK+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IndemniteK+DataModel.h"; sourceTree = "<group>"; };
+		4A2270971AF22218008909FF /* IndemniteK+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IndemniteK+DataModel.m"; sourceTree = "<group>"; };
 		7A0CA9621AE64B6C0070DF31 /* Phileas_Gestion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phileas_Gestion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CA9661AE64B6C0070DF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0CA9671AE64B6C0070DF31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,12 +67,6 @@
 		7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phileas_GestionTests.m; sourceTree = "<group>"; };
 		7A20993C1AF106DF003788BB /* BaremeAuto+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BaremeAuto+DataModel.h"; sourceTree = "<group>"; };
 		7A20993D1AF106DF003788BB /* BaremeAuto+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaremeAuto+DataModel.m"; sourceTree = "<group>"; };
-		7A2099481AF1097A003788BB /* BaremeAuto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaremeAuto.h; sourceTree = "<group>"; };
-		7A2099491AF1097A003788BB /* BaremeAuto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaremeAuto.m; sourceTree = "<group>"; };
-		7A20994B1AF1097A003788BB /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
-		7A20994C1AF1097A003788BB /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
-		7A20994E1AF1097A003788BB /* Frais.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frais.h; sourceTree = "<group>"; };
-		7A20994F1AF1097A003788BB /* Frais.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frais.m; sourceTree = "<group>"; };
 		7A5C9A061AEE348E0088A8A5 /* IndemnitesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndemnitesTableViewController.h; sourceTree = "<group>"; };
 		7A5C9A071AEE348E0088A8A5 /* IndemnitesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndemnitesTableViewController.m; sourceTree = "<group>"; };
 		7A5C9A091AEE349D0088A8A5 /* MapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewController.h; sourceTree = "<group>"; };
@@ -172,12 +181,16 @@
 		7A50BA131AE7C8180037F47C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				7A20994E1AF1097A003788BB /* Frais.h */,
-				7A20994F1AF1097A003788BB /* Frais.m */,
-				7A20994B1AF1097A003788BB /* Type.h */,
-				7A20994C1AF1097A003788BB /* Type.m */,
-				7A2099481AF1097A003788BB /* BaremeAuto.h */,
-				7A2099491AF1097A003788BB /* BaremeAuto.m */,
+				4A2270931AF220C5008909FF /* Type.h */,
+				4A2270941AF220C5008909FF /* Type.m */,
+				4A2270901AF220C5008909FF /* Frais.h */,
+				4A2270911AF220C5008909FF /* Frais.m */,
+				4A22708D1AF220C5008909FF /* IndemniteK.h */,
+				4A22708E1AF220C5008909FF /* IndemniteK.m */,
+				4A22708A1AF220C5008909FF /* BaremeAuto.h */,
+				4A22708B1AF220C5008909FF /* BaremeAuto.m */,
+				4A2270871AF220C4008909FF /* User.h */,
+				4A2270881AF220C4008909FF /* User.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -185,6 +198,8 @@
 		7A50BA141AE7C8210037F47C /* ModelData */ = {
 			isa = PBXGroup;
 			children = (
+				4A2270961AF22218008909FF /* IndemniteK+DataModel.h */,
+				4A2270971AF22218008909FF /* IndemniteK+DataModel.m */,
 				7A6A629C1AE7D33400929463 /* Type+DataModel.h */,
 				7A6A629D1AE7D33400929463 /* Type+DataModel.m */,
 				7A6A62A91AE7E96000929463 /* Frais+DataModel.h */,
@@ -305,17 +320,20 @@
 			files = (
 				7AC3A2BE1AE9128F002CB541 /* HistoriqueTableViewController.m in Sources */,
 				7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */,
-				7A20994A1AF1097A003788BB /* BaremeAuto.m in Sources */,
+				4A22708F1AF220C5008909FF /* IndemniteK.m in Sources */,
 				7A5C9A0B1AEE349D0088A8A5 /* MapTableViewController.m in Sources */,
-				7A2099501AF1097A003788BB /* Frais.m in Sources */,
+				4A22708C1AF220C5008909FF /* BaremeAuto.m in Sources */,
 				7A20993E1AF106DF003788BB /* BaremeAuto+DataModel.m in Sources */,
 				7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */,
 				7A0CA9681AE64B6C0070DF31 /* main.m in Sources */,
-				7A20994D1AF1097A003788BB /* Type.m in Sources */,
+				4A2270891AF220C4008909FF /* User.m in Sources */,
+				4A2270921AF220C5008909FF /* Frais.m in Sources */,
+				4A2270951AF220C5008909FF /* Type.m in Sources */,
 				7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */,
 				7AC3A2C11AE91371002CB541 /* FraisTableViewController.m in Sources */,
 				7A6A62AB1AE7E96000929463 /* Frais+DataModel.m in Sources */,
 				7A5C9A081AEE348E0088A8A5 /* IndemnitesTableViewController.m in Sources */,
+				4A2270981AF22218008909FF /* IndemniteK+DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
