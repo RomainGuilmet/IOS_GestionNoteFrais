@@ -26,6 +26,8 @@
     
     [self chargementListeTypesFrais];
     
+    [self.modifierIndemnite setHidden:TRUE];
+    
     self.montant = [[NSMutableString alloc] init];
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"IndemniteK" inManagedObjectContext:context];
     indemniteK = [[IndemniteK alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
@@ -221,8 +223,6 @@
     
     NSError *erreur = nil;
     self.resultat = [context executeFetchRequest:requete error:&erreur];
-    if([self.resultat count] == 0)
-        NSLog(@"vide");
 }
 
 -(void)changementDeDate:(UIDatePicker *)sender

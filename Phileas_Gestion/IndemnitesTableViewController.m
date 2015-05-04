@@ -37,7 +37,6 @@
         
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         NSString *villeD = indemniteK.villeDepart;
-        NSLog(@"%@",villeD);
         
         [geocoder
          geocodeAddressString:villeD
@@ -64,7 +63,6 @@
         
         CLGeocoder *geocoder2 = [[CLGeocoder alloc] init];
         NSString *villeA = indemniteK.villeArrivee;
-        NSLog(@"%@",villeA);
         [geocoder2
          geocodeAddressString:villeA
          completionHandler:^(NSArray *placemarks,
@@ -184,8 +182,6 @@
     
     NSError *erreur = nil;
     self.resultat = [context executeFetchRequest:requete error:&erreur];
-    if([self.resultat count] == 0)
-        NSLog(@"vide");
 }
 
 - (void) calculDistance
