@@ -20,15 +20,14 @@
     context = self.appDelegate.managedObjectContext;
 }
 
-
+#pragma mark - actions
 - (IBAction)Connexion:(id)sender {    
-    [[User alloc] initWithPseudo:self.pseudoTextField.text motDePasse:self.mdpTextField.text andContext:context];
+    utilisateur = [[User alloc] initWithPseudo:self.pseudoTextField.text motDePasse:self.mdpTextField.text andContext:context];
     
     NSError *erreur = nil;
     if(![context save:&erreur]){
         NSLog(@"Impossible de sauvegarder l'utilisateur ! %@ %@", erreur, [erreur localizedDescription]);
     }
 }
-
 
 @end

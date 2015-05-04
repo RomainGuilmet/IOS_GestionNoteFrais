@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "User+DataModel.h"
 
+User* utilisateur;
+
 @interface ConnexionViewController : UIViewController
 
 @property (weak, nonatomic) AppDelegate* appDelegate;

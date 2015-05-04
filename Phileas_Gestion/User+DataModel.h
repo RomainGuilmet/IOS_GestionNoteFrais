@@ -10,6 +10,6 @@
 
 @interface User (DataModel)
 
-- (void) initWithPseudo:(NSString*)pseudo motDePasse:(NSString*)mdp andContext:(NSManagedObjectContext*)context;
+- (User*) initWithPseudo:(NSString*)pseudo motDePasse:(NSString*)mdp andContext:(NSManagedObjectContext*)context;
 
 @end

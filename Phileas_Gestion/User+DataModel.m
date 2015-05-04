@@ -10,7 +10,7 @@
 
 @implementation User (DataModel)
 
-- (void) initWithPseudo:(NSString*)pseudo motDePasse:(NSString*)mdp andContext:(NSManagedObjectContext*)context
+- (User*) initWithPseudo:(NSString*)pseudo motDePasse:(NSString*)mdp andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     NSFetchRequest *requete = [[NSFetchRequest alloc] init];
@@ -23,8 +23,9 @@
         User *nouvelUtilisateur = [[User alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
         [nouvelUtilisateur setValue:pseudo forKey:@"pseudo"];
         [nouvelUtilisateur setValue:mdp forKey:@"mdp"];
+        return nouvelUtilisateur;
     }
-
+    return [resultat objectAtIndex:0];
 }
 
 @end

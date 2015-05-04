@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import "Frais+DataModel.h"
 #import "FraisTableViewController.h"
+#import "User+DataModel.h"
+
+extern User* utilisateur;
 
 @interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 

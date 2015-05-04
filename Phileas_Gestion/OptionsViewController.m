@@ -11,7 +11,6 @@
 @implementation OptionsViewController
 
 @synthesize context;
-@synthesize utilisateur;
 
 - (void) viewDidLoad
 {
@@ -20,7 +19,7 @@
     
     context = self.appDelegate.managedObjectContext;
     
-    [self chargerUtilisateur];
+    //[self chargerUtilisateur];
     
     [self.pseudoLbl setText:utilisateur.pseudo];
 }

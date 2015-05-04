@@ -126,6 +126,9 @@
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     // fetchedResultController initialization
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Frais"];
+    /* NSPredicate *predicat = [NSPredicate predicateWithFormat:@"(owner isEqual %@)", utilisateur];UTTypeEqual (A, B)
+    [fetchRequest setPredicate:predicat];
+     Charger les frais uniquement de l'utilisateur connecté */
     // Configure the request's entity, and optionally its predicate.
     [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
