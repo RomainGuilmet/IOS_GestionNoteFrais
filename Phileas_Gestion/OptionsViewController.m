@@ -24,19 +24,6 @@
     [self.pseudoLbl setText:utilisateur.pseudo];
 }
 
-- (void)chargerUtilisateur
-{
-    // fetchedResultController initialization
-    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    // Configure the request's entity, and optionally its predicate.
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
-    
-    NSError *erreur = nil;
-    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
-    utilisateur = [resultat objectAtIndex:0];
-    
-}
-
 - (IBAction)Deconnexion:(id)sender {
     [context deleteObject:utilisateur];
 }

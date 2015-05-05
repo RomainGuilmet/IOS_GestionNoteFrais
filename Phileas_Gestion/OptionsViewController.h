@@ -16,7 +16,6 @@ extern User* utilisateur;
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
-//@property (strong, nonatomic) User* utilisateur;
 
 @property (weak, nonatomic) IBOutlet UILabel *pseudoLbl;
 
