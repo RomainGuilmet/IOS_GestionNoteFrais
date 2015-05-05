@@ -531,7 +531,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="Deconnexion:" destination="Omt-iX-top" eventType="touchUpInside" id="7a5-3r-XNC"/>
-                                    <segue destination="Mw9-DG-k0h" kind="presentation" id="TsI-P8-TK4"/>
+                                    <segue destination="ZP2-Y6-vdH" kind="showDetail" id="bxc-DZ-83c"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecté en tant que :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlO-4G-Ovv">
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qB-Cu-UBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-547.5" y="2614"/>
+            <point key="canvasLocation" x="-483" y="2614"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GEs-M7-RW2">
@@ -624,7 +624,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Connexion:" destination="Mw9-DG-k0h" eventType="touchUpInside" id="xoQ-qy-kFm"/>
-                                    <segue destination="cXG-Qk-XJe" kind="show" id="0sM-a9-j3s"/>
+                                    <segue destination="cXG-Qk-XJe" kind="showDetail" id="0sM-a9-j3s"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pseudo :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-Bd-IIm">
@@ -807,7 +807,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Zdg-aN-diI"/>
-        <segue reference="TsI-P8-TK4"/>
         <segue reference="7TU-Ed-Ken"/>
     </inferredMetricsTieBreakers>
 </document>

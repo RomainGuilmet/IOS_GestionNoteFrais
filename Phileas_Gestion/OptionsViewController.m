@@ -26,5 +26,10 @@
 
 - (IBAction)Deconnexion:(id)sender {
     [context deleteObject:utilisateur];
+    
+    NSError *erreur = nil;
+    if(![context save:&erreur]){
+        NSLog(@"Impossible de se déconnecter ! %@ %@", erreur, [erreur localizedDescription]);
+    }
 }
 @end
