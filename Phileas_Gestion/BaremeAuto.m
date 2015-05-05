@@ -2,11 +2,13 @@
 //  BaremeAuto.m
 //  Phileas_Gestion
 //
-//  Created by Florent on 30/04/2015.
+//  Created by Romain on 05/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
 #import "BaremeAuto.h"
+#import "IndemniteK.h"
+
 
 @implementation BaremeAuto
 

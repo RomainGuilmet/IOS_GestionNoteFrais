@@ -2,14 +2,14 @@
 //  BaremeAuto.h
 //  Phileas_Gestion
 //
-//  Created by Florent on 30/04/2015.
+//  Created by Romain on 05/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSManagedObject;
+@class IndemniteK;
 
 @interface BaremeAuto : NSManagedObject
 
@@ -18,6 +18,14 @@
 @property (nonatomic, retain) NSNumber * fixe;
 @property (nonatomic, retain) NSNumber * haute;
 @property (nonatomic, retain) NSNumber * moyenne;
-@property (nonatomic, retain) NSManagedObject *indemnitesBareme;
+@property (nonatomic, retain) NSSet *indemnitesBareme;
+@end
+
+@interface BaremeAuto (CoreDataGeneratedAccessors)
+
+- (void)addIndemnitesBaremeObject:(IndemniteK *)value;
+- (void)removeIndemnitesBaremeObject:(IndemniteK *)value;
+- (void)addIndemnitesBareme:(NSSet *)values;
+- (void)removeIndemnitesBareme:(NSSet *)values;
 
 @end

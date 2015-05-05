@@ -2,7 +2,7 @@
 //  Frais.m
 //  Phileas_Gestion
 //
-//  Created by Florent on 30/04/2015.
+//  Created by Romain on 05/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -19,8 +19,8 @@
 @dynamic image;
 @dynamic localisation;
 @dynamic montant;
-@dynamic typeFrais;
 @dynamic indemniteKFrais;
 @dynamic owner;
+@dynamic typeFrais;
 
 @end

@@ -246,7 +246,9 @@
     
     NSString *montantTexte = [NSString stringWithFormat:@"%.2f euros", montant];
     [self.montantTextField setText:montantTexte];
-    [self.montant setString:[NSString stringWithFormat:@"%.2f", montant]];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [self.montant setString:[numberFormatter stringFromNumber:[NSNumber numberWithDouble:montant]]];
 }
 
 #pragma mark - actions
@@ -279,6 +281,13 @@
             [self viewDidAppear:true];
         }
     }
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.montantTextField resignFirstResponder];
+    [self.distanceTextField resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 @end

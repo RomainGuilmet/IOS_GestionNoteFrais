@@ -2,7 +2,7 @@
 //  User.h
 //  Phileas_Gestion
 //
-//  Created by Florent on 30/04/2015.
+//  Created by Romain on 05/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -13,8 +13,16 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * pseudo;
 @property (nonatomic, retain) NSString * mdp;
-@property (nonatomic, retain) Frais *fraisUser;
+@property (nonatomic, retain) NSString * pseudo;
+@property (nonatomic, retain) NSSet *fraisUser;
+@end
+
+@interface User (CoreDataGeneratedAccessors)
+
+- (void)addFraisUserObject:(Frais *)value;
+- (void)removeFraisUserObject:(Frais *)value;
+- (void)addFraisUser:(NSSet *)values;
+- (void)removeFraisUser:(NSSet *)values;
 
 @end

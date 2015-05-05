@@ -30,4 +30,12 @@
     }
 }
 
+#pragma mark - TextFieldDelegates
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.pseudoTextField resignFirstResponder];
+    [self.mdpTextField resignFirstResponder];
+    [self.view endEditing:YES];
+}
+
 @end

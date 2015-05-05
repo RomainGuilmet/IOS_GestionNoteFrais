@@ -34,6 +34,9 @@
     
     [self.montant setString:@"0"];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cacherClavier:)];
+    [self.view addGestureRecognizer:tap];
+    
     if(fraisChoisi)
     {
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
@@ -47,7 +50,9 @@
         }
         [self.typeF setTitle:fraisChoisi.typeFrais.lib forState:UIControlStateNormal];
         self.image.image =  [UIImage imageWithData:[self.fraisChoisi valueForKey:@"image"]];
-        NSString *montantTexte = [NSString stringWithFormat:@"%@", fraisChoisi.montant];
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        NSString *montantTexte = [numberFormatter stringFromNumber:fraisChoisi.montant];
         [self.montantTextField setText:montantTexte];
         [self.comTextArea setText:fraisChoisi.commentaire];
         
@@ -170,6 +175,15 @@
     
 }
 
+#pragma mark - TextFieldDelegates
+- (void) cacherClavier:(UITapGestureRecognizer *) recognizer
+{
+    [self.dateTexte resignFirstResponder];
+    [self.montantTextField resignFirstResponder];
+    [self.comTextArea resignFirstResponder];
+    
+}
+
 #pragma mark - methods
 /**
  * Cette fonction sert à créer les différents types de frais possibles et à les stocker sur l'appareil.
@@ -219,7 +233,7 @@
     // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
     // Configure the request's entity, and optionally its predicate.
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:NO]]];
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:YES]]];
     
     NSError *erreur = nil;
     self.resultat = [context executeFetchRequest:requete error:&erreur];
@@ -241,31 +255,33 @@
     //Afficher une pop-up le frais a été envoyé au serveur
 }
 
-- (IBAction)modifierIndemnite:(id)sender {
-}
-
 /*
  Sauvegarder le frais en local
  */
 - (IBAction)saisir:(id)sender {
-    NSString * commentaire = self.comTextArea.text;
+    NSString *commentaire = self.comTextArea.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     NSDate *date = [[NSDate alloc] init];
     date = [dateFormatter dateFromString:self.dateTexte.text];
     
-    NSData * image = UIImagePNGRepresentation(self.image.image);
-    NSString * localisation;
+    NSData *image = UIImagePNGRepresentation(self.image.image);
+    NSString *localisation;
     
-    NSString * champMontant = self.montantTextField.text;
+    NSString *champMontant = self.montantTextField.text;
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    if([champMontant containsString:@"€"]){
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    }
+    else{
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    }
     NSNumber *montant = [numberFormatter numberFromString:champMontant];
     
     NSString *typeFrais = self.typeF.titleLabel.text;
     Boolean update = false;
-    
+
     if(fraisChoisi)
     {
         [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];

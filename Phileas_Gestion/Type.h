@@ -2,7 +2,7 @@
 //  Type.h
 //  Phileas_Gestion
 //
-//  Created by Florent on 30/04/2015.
+//  Created by Romain on 05/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -14,6 +14,14 @@
 @interface Type : NSManagedObject
 
 @property (nonatomic, retain) NSString * lib;
-@property (nonatomic, retain) Frais *fraisType;
+@property (nonatomic, retain) NSSet *fraisType;
+@end
+
+@interface Type (CoreDataGeneratedAccessors)
+
+- (void)addFraisTypeObject:(Frais *)value;
+- (void)removeFraisTypeObject:(Frais *)value;
+- (void)addFraisType:(NSSet *)values;
+- (void)removeFraisType:(NSSet *)values;
 
 @end

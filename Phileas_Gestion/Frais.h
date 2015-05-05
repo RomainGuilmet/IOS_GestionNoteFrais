@@ -2,7 +2,7 @@
 //  Frais.h
 //  Phileas_Gestion
 //
-//  Created by Florent on 30/04/2015.
+//  Created by Romain on 05/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -18,8 +18,8 @@
 @property (nonatomic, retain) NSData * image;
 @property (nonatomic, retain) NSString * localisation;
 @property (nonatomic, retain) NSNumber * montant;
-@property (nonatomic, retain) Type *typeFrais;
 @property (nonatomic, retain) IndemniteK *indemniteKFrais;
 @property (nonatomic, retain) User *owner;
+@property (nonatomic, retain) Type *typeFrais;
 
 @end
