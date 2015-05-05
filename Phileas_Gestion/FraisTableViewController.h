@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "IndemnitesTableViewController.h"
 #import "Type+DataModel.h"
 #import "Frais+DataModel.h"
 #import "IndemniteK+DataModel.h"
 #import "BaremeAuto+DataModel.h"
-#import "IndemnitesTableViewController.h"
-
+#import "User+DataModel.h"
 @interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
 
 
@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IndemniteK* indemniteK;
 
 @property (strong, nonatomic) Frais* fraisChoisi;
+@property (strong, nonatomic) User* utilisateur;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 

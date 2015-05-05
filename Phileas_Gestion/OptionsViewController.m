@@ -28,6 +28,14 @@
 #pragma mark - actions
 
 - (IBAction)Deconnexion:(id)sender {
+    
+    NSArray * tableauFrais = [utilisateur.fraisUser allObjects];
+    for(int i =0; i<[tableauFrais count]; i++)
+    {
+        [context deleteObject:[tableauFrais objectAtIndex:i]];
+        
+    }
+    
     [context deleteObject:utilisateur];
     
     NSError *erreur = nil;

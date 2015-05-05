@@ -10,11 +10,16 @@
 
 @implementation HistoriqueTableViewController
 
+@synthesize context;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self chargementListeFrais];
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
+    context = self.appDelegate.managedObjectContext;
+    
+    [self chargerListeFrais];
     
     self.navBar.title = @"Brouillons en cours";
 }
@@ -85,7 +90,6 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObjectContext *context = self.appDelegate.managedObjectContext;
     if (editingStyle == UITableViewCellEditingStyleDelete){
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
@@ -120,16 +124,11 @@
 
 #pragma mark - methods
 
-- (void) chargementListeFrais
+- (void) chargerListeFrais
 {
-    // appDelegate initialization
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
     // fetchedResultController initialization
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Frais"];
-    /* NSPredicate *predicat = [NSPredicate predicateWithFormat:@"(owner isEqual %@)", utilisateur];UTTypeEqual (A, B)
-    [fetchRequest setPredicate:predicat];
-     Charger les frais uniquement de l'utilisateur connecté */
-    // Configure the request's entity, and optionally its predicate.
+
     [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
     self.fetchedResultsController = [[NSFetchedResultsController alloc]
                                      initWithFetchRequest:fetchRequest

@@ -15,6 +15,7 @@
 @interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
+@property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSIndexPath *selectedFactions;
 

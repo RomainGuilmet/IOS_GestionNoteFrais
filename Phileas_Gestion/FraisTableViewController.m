@@ -13,6 +13,7 @@
 @synthesize fraisChoisi;
 @synthesize context;
 @synthesize indemniteK;
+@synthesize utilisateur;
 
 - (void)viewDidLoad
 {
@@ -20,11 +21,12 @@
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
     context = self.appDelegate.managedObjectContext;
+    [self chargerUtilisateur];
     
-    [self creationTypesFrais];
-    [self creationBaremesAuto];
+    [self creerTypesFrais];
+    [self creerBaremesAuto];
     
-    [self chargementListeTypesFrais];
+    [self chargerListeTypesFrais];
     
     [self.modifierIndemnite setHidden:TRUE];
     
@@ -95,7 +97,7 @@
     
     self.pickerViewDate = [[UIDatePicker alloc] init];
     self.pickerViewDate.datePickerMode = UIDatePickerModeDate;
-    [self.pickerViewDate addTarget:self action:@selector(changementDeDate:) forControlEvents:UIControlEventValueChanged];
+    [self.pickerViewDate addTarget:self action:@selector(changerDeDate:) forControlEvents:UIControlEventValueChanged];
     [self.dateTexte setInputView:self.pickerViewDate];
 }
 
@@ -189,7 +191,7 @@
  * Cette fonction sert à créer les différents types de frais possibles et à les stocker sur l'appareil.
  * Les types de frais sont créés uniquement s'il n'existe pas déjà sur l'appareil. Donc au premier lancement de l'application.
  **/
-- (void)creationTypesFrais
+- (void)creerTypesFrais
 {
     [[Type alloc] initWithName:@"Avion" andContext:context];
     [[Type alloc] initWithName:@"Train" andContext:context];
@@ -214,7 +216,7 @@
  * Les barèmes kilométriques sont créés uniquement s'il n'existe pas déjà sur l'appareil. Donc au premier lancement de l'application.
  * Il sera nécéssaire de modifier les différents chiffres chaque année.
  **/
-- (void)creationBaremesAuto
+- (void)creerBaremesAuto
 {
     [[BaremeAuto alloc] initWithName:@"3 CV et moins" trancheBasse:[NSNumber numberWithDouble:0.41] trancheMoyenne:[NSNumber numberWithDouble:0.245] trancheHaute:[NSNumber numberWithDouble:0.285] fixe:[NSNumber numberWithDouble:824] andContext:context];
     [[BaremeAuto alloc] initWithName:@"4 CV" trancheBasse:[NSNumber numberWithDouble:0.493] trancheMoyenne:[NSNumber numberWithDouble:0.27] trancheHaute:[NSNumber numberWithDouble:0.332] fixe:[NSNumber numberWithDouble:1082] andContext:context];
@@ -228,7 +230,7 @@
     }
 }
 
-- (void)chargementListeTypesFrais
+- (void)chargerListeTypesFrais
 {
     // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
@@ -239,11 +241,26 @@
     self.resultat = [context executeFetchRequest:requete error:&erreur];
 }
 
--(void)changementDeDate:(UIDatePicker *)sender
+-(void)changerDeDate:(UIDatePicker *)sender
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy"];
     self.dateTexte.text = [formatter stringFromDate:sender.date];
+}
+
+- (void) chargerUtilisateur
+{
+    // fetchedResultController initialization
+    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    // Configure the request's entity, and optionally its predicate.
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
+    
+    NSError *erreur = nil;
+    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
+    if([resultat count] > 0)
+    {
+        utilisateur = [resultat objectAtIndex:0];
+    }
 }
 
 #pragma mark - actions
@@ -290,6 +307,7 @@
     else
     {
         fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+        [utilisateur addFraisUserObject:fraisChoisi];
     }
     
     if([typeFrais isEqual: @"Indemnités kilométriques"]){
