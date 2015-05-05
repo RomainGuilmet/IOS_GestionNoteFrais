@@ -265,6 +265,8 @@
     [alerteType setTag:1];
     
     [alerteType show];
+    
+    [self viewDidAppear:true];
 }
 
 - (IBAction)changementTypeTrajet:(id)sender {
@@ -278,7 +280,6 @@
     {
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.cvButton setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
-            [self viewDidAppear:true];
         }
     }
 }
