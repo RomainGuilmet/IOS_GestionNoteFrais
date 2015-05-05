@@ -570,7 +570,7 @@
         <!--Navigation Controller-->
         <scene sceneID="GEs-M7-RW2">
             <objects>
-                <navigationController id="ZP2-Y6-vdH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="connexion" id="ZP2-Y6-vdH" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3h1-jc-cVi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -586,7 +586,7 @@
         <!--Connexion View Controller-->
         <scene sceneID="vqc-3z-f49">
             <objects>
-                <viewController storyboardIdentifier="connexion" id="Mw9-DG-k0h" customClass="ConnexionViewController" sceneMemberID="viewController">
+                <viewController id="Mw9-DG-k0h" customClass="ConnexionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TSW-EQ-zzu"/>
                         <viewControllerLayoutGuide type="bottom" id="8hi-Yg-HO1"/>

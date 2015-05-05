@@ -10,12 +10,11 @@
 #import "AppDelegate.h"
 #import "User+DataModel.h"
 
-User* utilisateur;
-
 @interface ConnexionViewController : UIViewController
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) User* utilisateur;
 
 @property (weak, nonatomic) IBOutlet UITextField *pseudoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mdpTextField;

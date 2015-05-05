@@ -11,6 +11,7 @@
 @implementation OptionsViewController
 
 @synthesize context;
+@synthesize utilisateur;
 
 - (void) viewDidLoad
 {
@@ -19,10 +20,12 @@
     
     context = self.appDelegate.managedObjectContext;
     
-    //[self chargerUtilisateur];
+    [self chargerUtilisateur];
     
     [self.pseudoLbl setText:utilisateur.pseudo];
 }
+
+#pragma mark - actions
 
 - (IBAction)Deconnexion:(id)sender {
     [context deleteObject:utilisateur];
@@ -30,6 +33,23 @@
     NSError *erreur = nil;
     if(![context save:&erreur]){
         NSLog(@"Impossible de se déconnecter ! %@ %@", erreur, [erreur localizedDescription]);
+    }
+}
+
+#pragma mark - methods
+
+- (void) chargerUtilisateur
+{
+    // fetchedResultController initialization
+    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    // Configure the request's entity, and optionally its predicate.
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
+    
+    NSError *erreur = nil;
+    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
+    if([resultat count] > 0)
+    {
+        utilisateur = [resultat objectAtIndex:0];
     }
 }
 @end

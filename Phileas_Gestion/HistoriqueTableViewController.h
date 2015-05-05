@@ -12,8 +12,6 @@
 #import "FraisTableViewController.h"
 #import "User+DataModel.h"
 
-extern User* utilisateur;
-
 @interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) AppDelegate* appDelegate;

@@ -16,7 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    BOOL isLoggedIn = [self estConnecte];
+    
+    NSString *storyboardId = isLoggedIn ? @"tabBar" : @"connexion";
+    self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:storyboardId];
+    
     return YES;
 }
 
@@ -122,6 +126,23 @@
             abort();
         }
     }
+}
+
+#pragma mark - methods
+- (BOOL) estConnecte
+{
+    // fetchedResultController initialization
+    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    // Configure the request's entity, and optionally its predicate.
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
+    
+    NSError *erreur = nil;
+    NSArray *resultat = [self.managedObjectContext executeFetchRequest:requete error:&erreur];
+    if([resultat count] > 0)
+    {
+        return true;
+    }
+    return false;
 }
 
 @end

@@ -10,12 +10,11 @@
 #import "AppDelegate.h"
 #import "User+DataModel.h"
 
-extern User* utilisateur;
-
 @interface OptionsViewController : UIViewController
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) User* utilisateur;
 
 @property (weak, nonatomic) IBOutlet UILabel *pseudoLbl;
 

@@ -11,6 +11,7 @@
 @implementation ConnexionViewController
 
 @synthesize context;
+@synthesize utilisateur;
 
 - (void)viewDidLoad
 {
@@ -18,8 +19,6 @@
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
     context = self.appDelegate.managedObjectContext;
-    
-    [self chargerUtilisateur];
 }
 
 #pragma mark - actions
@@ -29,24 +28,6 @@
     NSError *erreur = nil;
     if(![context save:&erreur]){
         NSLog(@"Impossible de sauvegarder l'utilisateur ! %@ %@", erreur, [erreur localizedDescription]);
-    }
-}
-
-#pragma mark - methods
-- (void)chargerUtilisateur
-{
-    // fetchedResultController initialization
-    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    // Configure the request's entity, and optionally its predicate.
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
-    
-    NSError *erreur = nil;
-    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
-    if([resultat count] > 0)
-    {
-        utilisateur = [resultat objectAtIndex:0];
-        UITabBarController* controllerDestination = [self.storyboard instantiateViewControllerWithIdentifier:@"tabBar"];
-        [self.navigationController showDetailViewController:controllerDestination sender:self];
     }
 }
 
