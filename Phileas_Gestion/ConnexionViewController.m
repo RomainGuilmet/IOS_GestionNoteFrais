@@ -67,7 +67,6 @@
     
     [objectManager getObjectsAtPath:@"api/user" parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
-                                _login = [result array];
                                 [self SauverUtilisateur];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){

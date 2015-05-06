@@ -17,9 +17,6 @@
 @property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) User* utilisateur;
 
-@property (strong, nonatomic) NSArray* login;
-@property (nonatomic) BOOL verif;
-
 @property (weak, nonatomic) IBOutlet UITextField *pseudoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mdpTextField;
 

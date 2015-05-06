@@ -16,7 +16,6 @@
 		7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */; };
 		7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */; };
 		7A20993E1AF106DF003788BB /* BaremeAuto+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A20993D1AF106DF003788BB /* BaremeAuto+DataModel.m */; };
-		7A4846241AFA25E8003CF643 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4846231AFA25E8003CF643 /* Login.m */; };
 		7A5C9A081AEE348E0088A8A5 /* IndemnitesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C9A071AEE348E0088A8A5 /* IndemnitesTableViewController.m */; };
 		7A5C9A0B1AEE349D0088A8A5 /* MapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C9A0A1AEE349D0088A8A5 /* MapTableViewController.m */; };
 		7A5C9A0D1AEE35710088A8A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5C9A0C1AEE35710088A8A5 /* MapKit.framework */; };
@@ -102,8 +101,6 @@
 		7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phileas_GestionTests.m; sourceTree = "<group>"; };
 		7A20993C1AF106DF003788BB /* BaremeAuto+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BaremeAuto+DataModel.h"; sourceTree = "<group>"; };
 		7A20993D1AF106DF003788BB /* BaremeAuto+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaremeAuto+DataModel.m"; sourceTree = "<group>"; };
-		7A4846221AFA25E8003CF643 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
-		7A4846231AFA25E8003CF643 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
 		7A5C9A061AEE348E0088A8A5 /* IndemnitesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndemnitesTableViewController.h; sourceTree = "<group>"; };
 		7A5C9A071AEE348E0088A8A5 /* IndemnitesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndemnitesTableViewController.m; sourceTree = "<group>"; };
 		7A5C9A091AEE349D0088A8A5 /* MapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewController.h; sourceTree = "<group>"; };
@@ -169,7 +166,6 @@
 		7A0CA9591AE64B6C0070DF31 = {
 			isa = PBXGroup;
 			children = (
-				7A4846211AFA25C9003CF643 /* Class */,
 				7A8779B51AF7995900C2EFA8 /* RestKit.xcodeproj */,
 				7A5C9A0E1AEE35750088A8A5 /* Frameworks */,
 				7A0CA9641AE64B6C0070DF31 /* Phileas_Gestion */,
@@ -228,15 +224,6 @@
 				7A0CA9831AE64B6C0070DF31 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7A4846211AFA25C9003CF643 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				7A4846221AFA25E8003CF643 /* Login.h */,
-				7A4846231AFA25E8003CF643 /* Login.m */,
-			);
-			name = Class;
 			sourceTree = "<group>";
 		};
 		7A50BA121AE7C8000037F47C /* ViewController */ = {
@@ -470,7 +457,6 @@
 				7AFEB6001AF8C6CA00A56418 /* IndemniteK.m in Sources */,
 				7A913FDD1AF7AFCA00B9AC14 /* User+DataModel.m in Sources */,
 				7A5C9A081AEE348E0088A8A5 /* IndemnitesTableViewController.m in Sources */,
-				7A4846241AFA25E8003CF643 /* Login.m in Sources */,
 				7AFEB6091AF8C6CB00A56418 /* User.m in Sources */,
 				4A2270981AF22218008909FF /* IndemniteK+DataModel.m in Sources */,
 				7AFEB60C1AF8C6CC00A56418 /* Type.m in Sources */,
