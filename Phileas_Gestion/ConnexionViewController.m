@@ -19,6 +19,10 @@
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
     context = self.appDelegate.managedObjectContext;
+    
+    [self VerifierUser];
+    NSLog(@"%@",((Login*)[_login objectAtIndex:0]).succes);
+
 }
 
 #pragma mark - actions
@@ -38,5 +42,29 @@
     [self.mdpTextField resignFirstResponder];
     [self.view endEditing:YES];
 }
+
+- (void) VerifierUser
+{
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
+    
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:@"cbertrand-6" password:@"test-6"];
+    
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Login class]];
+    [mapping addAttributeMappingsFromArray:@[@"succes"]];
+    
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    [objectManager getObjectsAtPath:@"api/user" parameters:nil
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
+                                _login = [result array];
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                NSLog(@"Mauvais identifiants ou mot de passe !");
+                            }];
+}
+
 
 @end

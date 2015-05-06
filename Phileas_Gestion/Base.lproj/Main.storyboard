@@ -127,6 +127,17 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ny-dH-b3H">
+                                                    <rect key="frame" x="115" y="5" width="430" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title="Choisir un type">
+                                                        <color key="titleColor" red="0.074509803921568626" green="0.53333333333333333" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="changerType:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="5ay-eH-IaU"/>
+                                                    </connections>
+                                                </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpC-2O-yAx">
                                                     <rect key="frame" x="553" y="7" width="46" height="30"/>
                                                     <color key="backgroundColor" red="0.074509803920000006" green="0.53333333329999999" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,17 +153,6 @@
                                                         <segue destination="ypl-ux-hvO" kind="show" identifier="modifierIndemnite" id="D5j-ye-MpF"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ny-dH-b3H">
-                                                    <rect key="frame" x="115" y="5" width="430" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <state key="normal" title="Choisir un type">
-                                                        <color key="titleColor" red="0.074509803921568626" green="0.53333333333333333" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="changerType:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="5ay-eH-IaU"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="kpC-2O-yAx" firstAttribute="top" secondItem="ERt-gZ-NPl" secondAttribute="topMargin" constant="-1" id="6y6-M3-6Wc"/>
@@ -165,7 +165,9 @@
                                                 <constraint firstItem="3Ny-dH-b3H" firstAttribute="leading" secondItem="kRU-Mk-kVJ" secondAttribute="trailing" constant="8" symbolic="YES" id="vD3-R8-97h"/>
                                                 <constraint firstItem="3Ny-dH-b3H" firstAttribute="top" secondItem="ERt-gZ-NPl" secondAttribute="topMargin" constant="-3" id="wBj-av-phX"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="kRU-Mk-kVJ" secondAttribute="bottom" constant="2" id="xKi-3V-Jmr"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kpC-2O-yAx" secondAttribute="trailing" constant="-7" id="y4E-Xc-hOx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kpC-2O-yAx" secondAttribute="trailing" constant="-7" id="y4E-Xc-hOx">
+                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -258,6 +260,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hBr-4O-TnP" id="Vse-mf-96J">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-Y9-UC3">
+                                                    <rect key="frame" x="1" y="6" width="91" height="30"/>
+                                                    <color key="backgroundColor" red="0.074509803921568626" green="0.53333333333333333" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="91" id="w4t-pB-316"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="Saisir le frais"/>
+                                                    <connections>
+                                                        <action selector="saisir:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="EpN-8y-7lY"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMM-Tv-8a2">
                                                     <rect key="frame" x="481" y="7" width="118" height="30"/>
                                                     <color key="backgroundColor" red="0.074509803920000006" green="0.53333333329999999" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -272,27 +286,16 @@
                                                         <action selector="envoyer:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="dTZ-IT-fvp"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-Y9-UC3">
-                                                    <rect key="frame" x="1" y="6" width="91" height="30"/>
-                                                    <color key="backgroundColor" red="0.074509803921568626" green="0.53333333333333333" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="91" id="w4t-pB-316"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" title="Saisir le frais"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="6" width="91" height="30"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="saisir:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="EpN-8y-7lY"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hMM-Tv-8a2" secondAttribute="trailing" constant="-7" id="HlS-oh-7iQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hMM-Tv-8a2" secondAttribute="trailing" constant="-7" id="HlS-oh-7iQ">
+                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstItem="0Oj-Y9-UC3" firstAttribute="bottom" secondItem="Vse-mf-96J" secondAttribute="bottomMargin" id="Pnp-OP-DzI"/>
                                                 <constraint firstItem="hMM-Tv-8a2" firstAttribute="centerY" secondItem="Vse-mf-96J" secondAttribute="centerY" id="eVN-55-lms"/>
-                                                <constraint firstItem="0Oj-Y9-UC3" firstAttribute="leading" secondItem="Vse-mf-96J" secondAttribute="leadingMargin" constant="-7" id="efg-5Y-06K"/>
+                                                <constraint firstItem="0Oj-Y9-UC3" firstAttribute="leading" secondItem="Vse-mf-96J" secondAttribute="leadingMargin" constant="-7" id="efg-5Y-06K">
+                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -860,7 +863,7 @@
         <image name="reglages" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fIs-Ba-bQm"/>
+        <segue reference="Zdg-aN-diI"/>
         <segue reference="7TU-Ed-Ken"/>
     </inferredMetricsTieBreakers>
 </document>

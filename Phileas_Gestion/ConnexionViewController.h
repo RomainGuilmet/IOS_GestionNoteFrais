@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "User+DataModel.h"
+#import "Login.h"
 
 @interface ConnexionViewController : UIViewController
 
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) User* utilisateur;
+
+@property (strong, nonatomic) NSArray* login;
+@property (nonatomic) BOOL verif;
 
 @property (weak, nonatomic) IBOutlet UITextField *pseudoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mdpTextField;
