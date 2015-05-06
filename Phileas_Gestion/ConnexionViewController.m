@@ -19,20 +19,27 @@
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
     context = self.appDelegate.managedObjectContext;
-    
-    [self VerifierUser];
-    NSLog(@"%@",((Login*)[_login objectAtIndex:0]).succes);
-
 }
 
-#pragma mark - actions
-- (IBAction)Connexion:(id)sender {    
+#pragma mark - method
+- (void)SauverUtilisateur {
     utilisateur = [[User alloc] initWithPseudo:self.pseudoTextField.text motDePasse:self.mdpTextField.text andContext:context];
     
     NSError *erreur = nil;
     if(![context save:&erreur]){
         NSLog(@"Impossible de sauvegarder l'utilisateur ! %@ %@", erreur, [erreur localizedDescription]);
     }
+    else
+    {
+        UITabBarController* controllerDestination = [self.storyboard instantiateViewControllerWithIdentifier:@"tabBar"];
+        [self.navigationController showDetailViewController:controllerDestination sender:self];
+    }
+}
+
+- (void)alerteIdentifiants {
+    UIAlertView *alerte = [[UIAlertView alloc]  initWithTitle:@"Connexion impossible" message:@"Mauvais pseudo ou mot de passe" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    
+    [alerte show];
 }
 
 #pragma mark - TextFieldDelegates
@@ -43,12 +50,13 @@
     [self.view endEditing:YES];
 }
 
-- (void) VerifierUser
+#pragma mark - actions
+- (IBAction)Connexion:(id)sender
 {
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
     RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
     
-    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:@"cbertrand-6" password:@"test-6"];
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:self.pseudoTextField.text password:self.mdpTextField.text];
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Login class]];
     [mapping addAttributeMappingsFromArray:@[@"succes"]];
@@ -60,11 +68,14 @@
     [objectManager getObjectsAtPath:@"api/user" parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
                                 _login = [result array];
+                                [self SauverUtilisateur];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                NSLog(@"Mauvais identifiants ou mot de passe !");
+                                [self alerteIdentifiants];
                             }];
 }
+
+
 
 
 @end

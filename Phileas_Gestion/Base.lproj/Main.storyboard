@@ -681,7 +681,6 @@
                                 </state>
                                 <connections>
                                     <action selector="Connexion:" destination="Mw9-DG-k0h" eventType="touchUpInside" id="xoQ-qy-kFm"/>
-                                    <segue destination="cXG-Qk-XJe" kind="showDetail" id="0sM-a9-j3s"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pseudo :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-Bd-IIm">
