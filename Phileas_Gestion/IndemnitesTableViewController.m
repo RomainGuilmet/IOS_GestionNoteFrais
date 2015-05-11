@@ -108,7 +108,6 @@
     if([self.depart count] > 0 && [self.arrivee count] > 0)
     {
         [self calculDistance];
-        
     }    
 }
 
@@ -120,11 +119,7 @@
             ar= [NSNumber numberWithInt:1];
         }
         
-        /*if(fraisChoisi)
-        {
-            [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
-        }*/
-        [indemniteK updateIndemniteK:((MKMapItem *)[depart objectAtIndex:0]).name villeArrivee:((MKMapItem *)[arrivee objectAtIndex:0]).name allezR:ar baremeAuto:ba];
+        [indemniteK updateIndemniteK:((MKMapItem *)[depart objectAtIndex:0]).name villeArrivee:((MKMapItem *)[arrivee objectAtIndex:0]).name allezR:ar baremeAuto:ba andDistance:[NSNumber numberWithDouble:[self.distanceTextField.text doubleValue]]];
         
         NSError *erreur = nil;
         if(![context save:&erreur]){

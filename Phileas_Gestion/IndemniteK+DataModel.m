@@ -10,12 +10,13 @@
 
 @implementation IndemniteK (DataModel)
 
-- (void) updateIndemniteK:(NSString*)villeD villeArrivee:(NSString*)villeA allezR:(NSNumber*)AR baremeAuto:(BaremeAuto*)cylindree
+- (void) updateIndemniteK:(NSString*)villeD villeArrivee:(NSString*)villeA allezR:(NSNumber*)AR baremeAuto:(BaremeAuto*)cylindree andDistance:(NSNumber *)distance
 {
     [self setValue:villeA forKey:@"villeArrivee"];
     [self setValue:villeD forKey:@"villeDepart"];
     [self setValue:AR forKey:@"allezRetour"];
     [self setValue:cylindree forKey:@"cylindree"];
+    [self setValue:distance forKey:@"distance"];
 }
 
 @end

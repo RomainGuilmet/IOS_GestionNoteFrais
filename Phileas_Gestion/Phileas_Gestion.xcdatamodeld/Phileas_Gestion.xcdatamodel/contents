@@ -20,6 +20,7 @@
     </entity>
     <entity name="IndemniteK" representedClassName="IndemniteK" syncable="YES">
         <attribute name="allezRetour" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="villeArrivee" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="villeDepart" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="cylindree" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BaremeAuto" inverseName="indemnitesBareme" inverseEntity="BaremeAuto" syncable="YES"/>
@@ -37,7 +38,7 @@
     <elements>
         <element name="BaremeAuto" positionX="4372" positionY="-1096" width="128" height="133"/>
         <element name="Frais" positionX="4590" positionY="-886" width="128" height="165"/>
-        <element name="IndemniteK" positionX="4365" positionY="-882" width="128" height="118"/>
+        <element name="IndemniteK" positionX="4365" positionY="-882" width="128" height="135"/>
         <element name="Type" positionX="4768" positionY="-844" width="128" height="73"/>
         <element name="User" positionX="4579" positionY="-1107" width="128" height="88"/>
     </elements>

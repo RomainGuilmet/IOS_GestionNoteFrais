@@ -2,7 +2,7 @@
 //  IndemniteK.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 05/05/2015.
+//  Created by Romain on 11/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * allezRetour;
 @property (nonatomic, retain) NSString * villeArrivee;
 @property (nonatomic, retain) NSString * villeDepart;
+@property (nonatomic, retain) NSNumber * distance;
 @property (nonatomic, retain) BaremeAuto *cylindree;
 @property (nonatomic, retain) Frais *fraisIndemniteK;
 

@@ -269,6 +269,57 @@
  */
 - (IBAction)envoyer:(id)sender {
     
+    NSString *commentaire = self.comTextArea.text;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSDate *date = [[NSDate alloc] init];
+    date = [dateFormatter dateFromString:self.dateTexte.text];
+    
+    NSData *image = UIImagePNGRepresentation(self.image.image);
+    NSString *localisation;
+    
+    NSString *champMontant = self.montantTextField.text;
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    if([champMontant containsString:@"€"]){
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    }
+    else{
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    }
+    NSNumber *montant = [numberFormatter numberFromString:champMontant];
+    
+    NSString *typeFrais = self.typeF.titleLabel.text;
+    Boolean update = false;
+    
+    if(fraisChoisi)
+    {
+        [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+        update = true;
+    }
+    else
+    {
+        fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+        [utilisateur addFraisUserObject:fraisChoisi];
+    }
+    
+    if([typeFrais isEqual: @"Indemnités kilométriques"]){
+        [fraisChoisi addIndemniteK:indemniteK];
+    }
+    
+    /*@dynamic commentaire;
+    @dynamic localisation;
+    @dynamic typeFrais;*/
+    
+    
+    //def_id = 1
+    //"amount": "fraisChoisi.montant",
+    //"date": "fraisChoisi.date",
+    //"km": fraisChoisi.indemniteK.distance,
+    //receipt1:fraisChoisi.image
+    //"details": {
+        //"3": null
+    //}
     //Afficher une pop-up le frais a été envoyé au serveur
 }
 
@@ -298,7 +349,7 @@
     
     NSString *typeFrais = self.typeF.titleLabel.text;
     Boolean update = false;
-
+    
     if(fraisChoisi)
     {
         [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
