@@ -58,10 +58,9 @@
     
     [objectManager.HTTPClient setAuthorizationHeaderWithUsername:self.pseudoTextField.text password:self.mdpTextField.text];
     
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Login class]];
-    [mapping addAttributeMappingsFromArray:@[@"succes"]];
+    RKObjectMapping *mapping = [RKObjectMapping new];
     
-    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"succes" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManager addResponseDescriptor:responseDescriptor];
     

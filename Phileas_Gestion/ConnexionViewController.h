@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "User+DataModel.h"
-#import "Login.h"
 
 @interface ConnexionViewController : UIViewController
 
