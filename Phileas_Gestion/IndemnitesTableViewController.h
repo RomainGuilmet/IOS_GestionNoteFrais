@@ -39,6 +39,3 @@
 - (IBAction)changementTypeTrajet:(id)sender;
 
 @end
-
-
-//Enregistrer les indemnités dans un autre type de frais du coreData ???

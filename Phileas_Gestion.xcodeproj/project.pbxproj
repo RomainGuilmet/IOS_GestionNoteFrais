@@ -38,6 +38,7 @@
 		7A913FDA1AF7AF5900B9AC14 /* ConnexionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A913FD91AF7AF5900B9AC14 /* ConnexionViewController.m */; };
 		7A913FDD1AF7AFCA00B9AC14 /* User+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A913FDC1AF7AFCA00B9AC14 /* User+DataModel.m */; };
 		7A913FE01AF7B1EE00B9AC14 /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A913FDF1AF7B1EE00B9AC14 /* OptionsViewController.m */; };
+		7A9B1C3E1B00BD32004DB18B /* Draft.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B1C3D1B00BD32004DB18B /* Draft.m */; };
 		7AC3A2BE1AE9128F002CB541 /* HistoriqueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3A2BD1AE9128F002CB541 /* HistoriqueTableViewController.m */; };
 		7AC3A2C11AE91371002CB541 /* FraisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3A2C01AE91371002CB541 /* FraisTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,8 @@
 		7A913FDC1AF7AFCA00B9AC14 /* User+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+DataModel.m"; sourceTree = "<group>"; };
 		7A913FDE1AF7B1EE00B9AC14 /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		7A913FDF1AF7B1EE00B9AC14 /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
+		7A9B1C3C1B00BD32004DB18B /* Draft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draft.h; sourceTree = "<group>"; };
+		7A9B1C3D1B00BD32004DB18B /* Draft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Draft.m; sourceTree = "<group>"; };
 		7AC3A2BC1AE9128F002CB541 /* HistoriqueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoriqueTableViewController.h; sourceTree = "<group>"; };
 		7AC3A2BD1AE9128F002CB541 /* HistoriqueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoriqueTableViewController.m; sourceTree = "<group>"; };
 		7AC3A2BF1AE91371002CB541 /* FraisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FraisTableViewController.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 			children = (
 				7A48462C1AFA6BEF003CF643 /* Sheet.h */,
 				7A48462D1AFA6BEF003CF643 /* Sheet.m */,
+				7A9B1C3C1B00BD32004DB18B /* Draft.h */,
+				7A9B1C3D1B00BD32004DB18B /* Draft.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9B1C3E1B00BD32004DB18B /* Draft.m in Sources */,
 				7AC3A2BE1AE9128F002CB541 /* HistoriqueTableViewController.m in Sources */,
 				7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */,
 				7A5C9A0B1AEE349D0088A8A5 /* MapTableViewController.m in Sources */,

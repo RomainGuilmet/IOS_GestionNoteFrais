@@ -14,6 +14,8 @@
 #import "IndemniteK+DataModel.h"
 #import "BaremeAuto+DataModel.h"
 #import "User+DataModel.h"
+#import "Draft.h"
+
 @interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
 
 

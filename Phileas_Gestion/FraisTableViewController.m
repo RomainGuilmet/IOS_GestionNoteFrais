@@ -272,7 +272,7 @@
     NSString *commentaire = self.comTextArea.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     NSDate *date = [[NSDate alloc] init];
     date = [dateFormatter dateFromString:self.dateTexte.text];
     
@@ -307,20 +307,70 @@
         [fraisChoisi addIndemniteK:indemniteK];
     }
     
-    /*@dynamic commentaire;
-    @dynamic localisation;
-    @dynamic typeFrais;*/
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
+    
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
+    
+    NSDate* dateActuelle = [NSDate date];
+    NSDateFormatter *dateFormatterActuel = [[NSDateFormatter alloc] init];
+    [dateFormatterActuel setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+
+    Draft *dataObject = [[Draft alloc] init];
+    [dataObject setDef_id:@"1"];
+    [dataObject setAmount:[fraisChoisi.montant stringValue]];
+    [dataObject setDate:[dateFormatterActuel stringFromDate:dateActuelle]];
+    [dataObject setReceipt1:fraisChoisi.image];
+    
+    if([typeFrais isEqual: @"Indemnités kilométriques"]){
+        [dataObject setKm:[fraisChoisi.indemniteKFrais.distance stringValue]];
+    }
+    
+    RKObjectMapping *requestMapping =  [[Draft mapping] inverseMapping];
+        
+    RKRequestDescriptor* requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[Draft class] rootKeyPath:nil method:RKRequestMethodPOST];
+    
+    RKObjectMapping *responseMapping =  [Draft mapping];
+    
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    [objectManager addRequestDescriptor:requestDescriptor];
+    [objectManager setRequestSerializationMIMEType: RKMIMETypeJSON];
+    
+    NSMutableURLRequest  *request= [objectManager multipartFormRequestWithObject:dataObject method:RKRequestMethodPOST path:@"api/draft" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    }];
     
     
-    //def_id = 1
-    //"amount": "fraisChoisi.montant",
-    //"date": "fraisChoisi.date",
-    //"km": fraisChoisi.indemniteK.distance,
-    //receipt1:fraisChoisi.image
-    //"details": {
-        //"3": null
-    //}
-    //Afficher une pop-up le frais a été envoyé au serveur
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] objectRequestOperationWithRequest:request
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
+            UIAlertView *alert;
+            if(update)
+            {
+                alert = [[UIAlertView alloc] initWithTitle:@"Brouillon envoyé" message:@"Votre brouillon vient d'être envoyé au serveur." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
+                
+                [alert show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else
+            {
+                alert = [[UIAlertView alloc] initWithTitle:@"Brouillon envoyé" message:@"Votre brouillon vient d'être envoyé au serveur." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
+                
+                [alert show];
+                
+                fraisChoisi = nil;
+                
+                [self viewDidLoad];
+            }
+       }
+       failure:^(RKObjectRequestOperation *operation, NSError *error){
+           UIAlertView *alert;
+           alert = [[UIAlertView alloc] initWithTitle:@"Erreur d'envoi" message:@"Votre brouillon n'a pas pu être envoyé au serveur. \n Veuillez rééssayer." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
+           [alert show];
+       }];
+    
+    [objectManager enqueueObjectRequestOperation:operation];
 }
 
 /*
