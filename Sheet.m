@@ -10,4 +10,27 @@
 
 @implementation Sheet
 
+- (NSString*) getLabelFromStatusId:(NSNumber*) id
+{
+    NSString* label = @"";
+    
+    if([id isEqualToNumber:@(validated)]){
+        label = @"Validée";
+    }
+    else if ([id isEqualToNumber:@(rejected)])
+    {
+        label = @"Rejetée";
+    }
+    else if ([id isEqualToNumber:@(exportable)])
+    {
+        label = @"Exportable";
+    }
+    else if ([id isEqualToNumber:@(draft)])
+    {
+        label = @"Ebauche";
+    }
+    
+    return label;
+}
+
 @end

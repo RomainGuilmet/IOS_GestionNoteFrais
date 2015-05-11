@@ -33,7 +33,7 @@
     [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Sheet class]];
-    [mapping addAttributeMappingsFromArray:@[@"creation_date", @"latest_status_id", @"number"]];
+    [mapping addAttributeMappingsFromArray:@[@"creation_date", @"latest_status_id", @"number", @"object"]];
     
     RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
@@ -41,7 +41,8 @@
     
     [objectManager getObjectsAtPath:@"api/sheet" parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
-                                _frais = result.array;
+                                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latest_status_id != 3"];
+                                _frais = [result.array filteredArrayUsingPredicate:predicate];
                                 [self.tableView reloadData];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
@@ -65,23 +66,26 @@
     }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"liste" forIndexPath:indexPath];
-    
     Sheet *sheet = _frais[indexPath.row];
-    cell.textLabel.text = sheet.creation_date;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", sheet.number];
+    NotificationCellule *cell = [tableView dequeueReusableCellWithIdentifier:@"liste" forIndexPath:indexPath];
+
+    cell.objectLabel.text = sheet.object;
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@", sheet.creation_date];
+    cell.statusLabel.text = [NSString stringWithFormat:@"%@", [sheet getLabelFromStatusId:sheet.latest_status_id]];
     
     return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return _frais.count;
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A2270981AF22218008909FF /* IndemniteK+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2270971AF22218008909FF /* IndemniteK+DataModel.m */; };
+		4AF5678C1B00A321004D7135 /* NotificationCellule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5678B1B00A321004D7135 /* NotificationCellule.m */; };
 		7A0CA9681AE64B6C0070DF31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9671AE64B6C0070DF31 /* main.m */; };
 		7A0CA96B1AE64B6C0070DF31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96A1AE64B6C0070DF31 /* AppDelegate.m */; };
 		7A0CA96E1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA96C1AE64B6C0070DF31 /* Phileas_Gestion.xcdatamodeld */; };
@@ -89,6 +90,8 @@
 /* Begin PBXFileReference section */
 		4A2270961AF22218008909FF /* IndemniteK+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IndemniteK+DataModel.h"; sourceTree = "<group>"; };
 		4A2270971AF22218008909FF /* IndemniteK+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IndemniteK+DataModel.m"; sourceTree = "<group>"; };
+		4AF5678A1B00A321004D7135 /* NotificationCellule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCellule.h; sourceTree = "<group>"; };
+		4AF5678B1B00A321004D7135 /* NotificationCellule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCellule.m; sourceTree = "<group>"; };
 		7A0CA9621AE64B6C0070DF31 /* Phileas_Gestion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phileas_Gestion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CA9661AE64B6C0070DF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0CA9671AE64B6C0070DF31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				7A913FDF1AF7B1EE00B9AC14 /* OptionsViewController.m */,
 				7A4846291AFA5791003CF643 /* NotificationTableViewController.h */,
 				7A48462A1AFA5791003CF643 /* NotificationTableViewController.m */,
+				4AF5678A1B00A321004D7135 /* NotificationCellule.h */,
+				4AF5678B1B00A321004D7135 /* NotificationCellule.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				7A913FE01AF7B1EE00B9AC14 /* OptionsViewController.m in Sources */,
 				7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */,
 				7AC3A2C11AE91371002CB541 /* FraisTableViewController.m in Sources */,
+				4AF5678C1B00A321004D7135 /* NotificationCellule.m in Sources */,
 				7A6A62AB1AE7E96000929463 /* Frais+DataModel.m in Sources */,
 				7A5BF71E1B009D6000EBE7CA /* IndemniteK.m in Sources */,
 				7A913FDD1AF7AFCA00B9AC14 /* User+DataModel.m in Sources */,

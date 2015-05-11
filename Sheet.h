@@ -10,8 +10,18 @@
 
 @interface Sheet : NSObject
 
+enum {
+    validated = 2,
+    rejected = 3,
+    exportable = 4,
+    draft = 5
+};
+typedef NSNumber* status;
+
 @property (strong, nonatomic) NSString* creation_date;
 @property (strong, nonatomic) NSNumber* latest_status_id;
 @property (strong, nonatomic) NSNumber* number;
+@property (strong, nonatomic) NSString* object;
 
+- (NSString*) getLabelFromStatusId:(NSNumber*) id;
 @end

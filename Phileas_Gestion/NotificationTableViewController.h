@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Sheet.h"
+#import "NotificationCellule.h"
 
 @interface NotificationTableViewController : UITableViewController
 
