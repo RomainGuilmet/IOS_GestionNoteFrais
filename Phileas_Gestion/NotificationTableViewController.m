@@ -19,7 +19,10 @@
     
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     context = self.appDelegate.managedObjectContext;
-    
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
     [self loadFrais];
 }
 
@@ -43,6 +46,8 @@
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
                                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latest_status_id != 3"];
                                 _frais = [result.array filteredArrayUsingPredicate:predicate];
+                                NSString* value = [NSString stringWithFormat:@"%li",[_frais count]];
+                                [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue: value];
                                 [self.tableView reloadData];
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){

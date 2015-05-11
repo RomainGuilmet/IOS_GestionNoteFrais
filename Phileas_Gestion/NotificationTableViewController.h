@@ -19,4 +19,5 @@
 @property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) User* utilisateur;
 
+- (void) loadFrais;
 @end

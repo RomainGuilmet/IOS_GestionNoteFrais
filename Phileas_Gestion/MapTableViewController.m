@@ -27,6 +27,8 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
+    if (![searchBar.text isEqualToString:@""])
+    {
     // Cancel any previous searches.
     [localSearch cancel];
     
@@ -61,6 +63,7 @@
 
         [self.searchDisplayController.searchResultsTableView reloadData];
     }];
+    }
 }
 
 #pragma mark - Table view data source
