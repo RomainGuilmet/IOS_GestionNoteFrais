@@ -20,7 +20,6 @@ typedef NSNumber* status;
 
 @property (strong, nonatomic) NSString* creation_date;
 @property (strong, nonatomic) NSNumber* latest_status_id;
-@property (strong, nonatomic) NSNumber* number;
 @property (strong, nonatomic) NSString* object;
 
 - (NSString*) getLabelFromStatusId:(NSNumber*) id;

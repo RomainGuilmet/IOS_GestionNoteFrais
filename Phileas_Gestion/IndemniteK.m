@@ -2,7 +2,7 @@
 //  IndemniteK.m
 //  Phileas_Gestion
 //
-//  Created by Romain on 11/05/2015.
+//  Created by Romain on 12/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -14,9 +14,9 @@
 @implementation IndemniteK
 
 @dynamic allezRetour;
+@dynamic distance;
 @dynamic villeArrivee;
 @dynamic villeDepart;
-@dynamic distance;
 @dynamic cylindree;
 @dynamic fraisIndemniteK;
 

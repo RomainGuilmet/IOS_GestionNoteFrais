@@ -10,7 +10,7 @@
 
 @interface Type (DataModel)
 
-- (void) initWithName:(NSString*)lib andContext:(NSManagedObjectContext*)context;
+- (void) initWithName:(NSString*)lib andID:(NSNumber*)idType andContext:(NSManagedObjectContext*)context;
 
 + (Type*) selectTypeFrais:(NSString*)lib andContext:(NSManagedObjectContext*)context;
 

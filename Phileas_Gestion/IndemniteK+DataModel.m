@@ -10,6 +10,13 @@
 
 @implementation IndemniteK (DataModel)
 
+/**
+ * @brief Fonction permettant de modifier une indemnité kilomètrique.
+ * @param villeD la ville de départ
+ * @param villeA la ville d'arrivée
+ * @param cylindree le nombre de CV
+ * @param distance la distance parcouru en km
+ */
 - (void) updateIndemniteK:(NSString*)villeD villeArrivee:(NSString*)villeA allezR:(NSNumber*)AR baremeAuto:(BaremeAuto*)cylindree andDistance:(NSNumber *)distance
 {
     [self setValue:villeA forKey:@"villeArrivee"];

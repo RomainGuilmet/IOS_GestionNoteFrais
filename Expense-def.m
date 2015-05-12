@@ -1,19 +1,13 @@
 //
-//  Type.m
+//  Expense-def.m
 //  Phileas_Gestion
 //
 //  Created by Romain on 12/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
-#import "Type.h"
-#import "Frais.h"
+#import "Expense-def.h"
 
-
-@implementation Type
-
-@dynamic lib;
-@dynamic idType;
-@dynamic fraisType;
+@implementation Expense_def
 
 @end

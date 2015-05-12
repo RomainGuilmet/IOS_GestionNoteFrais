@@ -14,11 +14,15 @@
 
 @interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+// ===== AppDelegate et context pour le CoreData =====
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
+
+// ===== Propriétés permettant de géré l'affichage dynamique du tableau =====
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSIndexPath *selectedFactions;
 
+// ===== Outlets =====
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
 @end

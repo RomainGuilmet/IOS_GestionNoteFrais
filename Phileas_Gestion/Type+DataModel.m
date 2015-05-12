@@ -10,7 +10,13 @@
 
 @implementation Type (DataModel)
 
-- (void) initWithName:(NSString*)lib andContext:(NSManagedObjectContext*)context
+/**
+ * @brief Fonction permettant de créer un type de frais.
+ * @param lib le libelé du type de frais
+ * @param idType l'id du type de frais
+ * @param context le contexte de l'application (pour sauvegarder en local)
+ */
+- (void) initWithName:(NSString*)lib andID:(NSNumber*)idType andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Type" inManagedObjectContext:context];
     NSFetchRequest *requete = [[NSFetchRequest alloc] init];
@@ -22,10 +28,16 @@
     if([resultat count] == 0){
         Type *nouveauType = [[Type alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
         [nouveauType setValue:lib forKey:@"lib"];
+        [nouveauType setValue:idType forKey:@"idType"];
     }
-
 }
 
+/**
+ * @brief Fonction permettant de sélectionner un tyoe de frais.
+ * @param lib le libelé du type de frais
+ * @param context le contexte de l'application (pour sauvegarder en local)
+ * @return le type de frais associé au libelé
+ */
 + (Type*) selectTypeFrais:(NSString*)lib andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Type" inManagedObjectContext:context];

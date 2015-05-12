@@ -11,11 +11,11 @@
 
 @interface Draft : NSObject
 
-@property (strong, nonatomic) NSString* def_id;
-@property (strong, nonatomic) NSNumber* amount;
+@property (strong, nonatomic) NSNumber* def_id;
+@property (strong, nonatomic) NSString* amount;
 @property (strong, nonatomic) NSString* date;
 @property (strong, nonatomic) NSString* km;
-@property (strong, nonatomic) NSData* receipt1;
+@property (strong, nonatomic) NSData* receipt;
 @property (strong, nonatomic) NSString* com;
 @property (strong, nonatomic) NSString* from;
 @property (strong, nonatomic) NSString* to;

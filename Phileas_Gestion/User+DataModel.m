@@ -10,6 +10,13 @@
 
 @implementation User (DataModel)
 
+/**
+ * @brief Fonction permettant de créer un utilisateur.
+ * @param pseudo le pseudo de l'utilisateur
+ * @param mdp le mot de passe de l'utilisateur
+ * @param context le contexte de l'application (pour sauvegarder en local)
+ * @return l'utilisateur créé
+ */
 - (User*) initWithPseudo:(NSString*)pseudo motDePasse:(NSString*)mdp andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];

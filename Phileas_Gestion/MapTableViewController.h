@@ -11,8 +11,13 @@
 
 @interface MapTableViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
-@property (weak, nonatomic) IBOutlet UISearchBar *barreRecherche;
-
+// ===== Variables =====
+/**
+ * @brief Un tableau contenant la liste des villes possibles répondant à la recherche.
+ */
 @property (strong, nonatomic) NSMutableArray *lieu;
+
+// ===== Outlets =====
+@property (weak, nonatomic) IBOutlet UISearchBar *barreRecherche;
 
 @end

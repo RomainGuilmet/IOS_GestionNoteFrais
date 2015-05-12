@@ -10,10 +10,17 @@
 
 @implementation Frais (DataModel)
 
-/*
- Penser à vérifier les champs et à rechercher le type grâce à la string
-*/
-
+/**
+ * @brief Fonction permettant de créer un frais.
+ * @param date la date du frais
+ * @param loc la localisation de l'utilisateur
+ * @param type le type de frais
+ * @param img le justificatif
+ * @param montant le montant du frais
+ * @param com le commentaire associé à ce frais
+ * @param context le contexte de l'application (pour sauvegarder en local)
+ * @return le frais créé
+ */
 - (Frais*) initWithDate:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
 {
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"Frais" inManagedObjectContext:context];
@@ -37,6 +44,16 @@
     return nouveauFrais;
 }
 
+/**
+ * @brief Fonction permettant de modifier un frais.
+ * @param date la date du frais
+ * @param loc la localisation de l'utilisateur
+ * @param type le type de frais
+ * @param img le justificatif
+ * @param montant le montant du frais
+ * @param com le commentaire associé à ce frais
+ * @param context le contexte de l'application (pour sauvegarder en local)
+ */
 - (void) updateFrais:(NSDate*)date localisation:(NSString*)loc type:(NSString *)type image:(NSData*)img montant:(NSNumber*)montant commentaire:(NSString*)com andContext:(NSManagedObjectContext*)context
 {
     [self setValue:date forKey:@"date"];
@@ -56,6 +73,10 @@
     [self setValue:com forKey:@"commentaire"];
 }
 
+/**
+ * @brief Fonction permettant d'ajouter une indemnité kilomètrique à un frais (Utilisé si le frais et de type indemnité kilomètrique).
+ * @param indemnite une indemnité kilomètrique à ajouter au frais
+ */
 - (void) addIndemniteK:(IndemniteK*)indemnite
 {
     [self setValue:indemnite forKey:@"indemniteKFrais"];

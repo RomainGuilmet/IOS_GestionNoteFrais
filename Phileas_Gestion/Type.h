@@ -2,7 +2,7 @@
 //  Type.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 11/05/2015.
+//  Created by Romain on 12/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface Type : NSManagedObject
 
 @property (nonatomic, retain) NSString * lib;
+@property (nonatomic, retain) NSNumber * idType;
 @property (nonatomic, retain) NSSet *fraisType;
 @end
 

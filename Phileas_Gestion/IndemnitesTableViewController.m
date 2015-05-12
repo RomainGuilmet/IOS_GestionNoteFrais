@@ -145,28 +145,6 @@
      }
  }
 
-/*
-#pragma mark - Utility Methods
-- (void)plotRouteOnMap:(MKRoute *)route
-{
-    if(self.line) {
-        [self.carte removeOverlay:self.line];
-    }
-    self.line = route.polyline;
-    [self.carte addOverlay:self.line];
-    
-}
-
-#pragma mark - MKMapViewDelegate methods
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
-    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
-    renderer.strokeColor = [UIColor blueColor];
-    renderer.lineWidth = 4.0;
-    return  renderer;
-}
- */
-
 #pragma mark - methods
 - (void)chargementListeBaremes
 {
@@ -209,9 +187,6 @@
             }
             NSString *distanceString = [NSString stringWithFormat:@"%.0f km", distance];
             [self.distanceTextField setText:distanceString];
-            /*
-             [self.carte setDelegate:self];
-             [self plotRouteOnMap:route];*/
             
             if(![self.cvButton.titleLabel.text isEqual:@"Choisir un nombre de CV"])
             {

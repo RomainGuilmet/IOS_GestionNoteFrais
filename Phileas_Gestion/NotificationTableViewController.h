@@ -13,11 +13,21 @@
 
 @interface NotificationTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray* frais;
-
+// ===== AppDelegate et context pour le CoreData =====
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
+
+// ===== Variables =====
+/**
+ * @brief L'utilisateur connecté.
+ */
 @property (strong, nonatomic) User* utilisateur;
 
+/**
+ * @brief Un tableau contenant la liste des frais de l'utilisateur récupérée depuis l'application Web.
+ */
+@property (strong, nonatomic) NSArray* listeFrais;
+
+// ===== Actions =====
 - (void) loadFrais;
 @end

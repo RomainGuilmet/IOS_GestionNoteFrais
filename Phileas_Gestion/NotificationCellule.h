@@ -10,6 +10,7 @@
 
 @interface NotificationCellule : UITableViewCell
 
+// ===== Outlets =====
 @property (nonatomic, weak) IBOutlet UILabel *objectLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *statusLabel;

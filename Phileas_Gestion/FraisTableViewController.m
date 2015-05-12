@@ -14,6 +14,8 @@
 @synthesize context;
 @synthesize indemniteK;
 @synthesize utilisateur;
+@synthesize listeType;
+@synthesize listeExpenseDef;
 
 - (void)viewDidLoad
 {
@@ -25,8 +27,6 @@
     
     [self creerTypesFrais];
     [self creerBaremesAuto];
-    
-    [self chargerListeTypesFrais];
     
     [self.modifierIndemnite setHidden:TRUE];
     
@@ -193,22 +193,35 @@
  **/
 - (void)creerTypesFrais
 {
-    [[Type alloc] initWithName:@"Avion" andContext:context];
-    [[Type alloc] initWithName:@"Train" andContext:context];
-    [[Type alloc] initWithName:@"Carburant" andContext:context];
-    [[Type alloc] initWithName:@"Hotel" andContext:context];
-    [[Type alloc] initWithName:@"Repas" andContext:context];
-    [[Type alloc] initWithName:@"Indemnités kilométriques" andContext:context];
-    [[Type alloc] initWithName:@"Location de véhicule" andContext:context];
-    [[Type alloc] initWithName:@"Péage" andContext:context];
-    [[Type alloc] initWithName:@"Parking" andContext:context];
-    [[Type alloc] initWithName:@"Taxi ou bus" andContext:context];
-    [[Type alloc] initWithName:@"Fournitures" andContext:context];
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
     
-    NSError *erreur = nil;
-    if(![context save:&erreur]){
-        NSLog(@"Impossible de sauvegarder les différents types de frais ! %@ %@", erreur, [erreur localizedDescription]);
-    }
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
+    
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Expense_def class]];
+    [mapping addAttributeMappingsFromArray:@[@"expense_def_id", @"name_fr"]];
+    
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    [objectManager getObjectsAtPath:@"api/expense-def" parameters:nil
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
+                                listeExpenseDef = result.array;
+                                for(int i=0; i<[listeExpenseDef count]; i++)
+                                {
+                                    Expense_def* temp = [listeExpenseDef objectAtIndex:i];
+                                    [[Type alloc] initWithName:temp.name_fr andID:temp.expense_def_id andContext:context];
+                                }
+                                
+                                NSError *erreur = nil;
+                                if(![context save:&erreur]){
+                                    NSLog(@"Impossible de sauvegarder les différents types de frais ! %@ %@", erreur, [erreur localizedDescription]);
+                                }
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                
+                            }];
 }
 
 /**
@@ -238,7 +251,7 @@
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:YES]]];
     
     NSError *erreur = nil;
-    self.resultat = [context executeFetchRequest:requete error:&erreur];
+    listeType = [context executeFetchRequest:requete error:&erreur];
 }
 
 -(void)changerDeDate:(UIDatePicker *)sender
@@ -308,43 +321,46 @@
     }
     
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
+    RKObjectManager* objectManagerDraft = [RKObjectManager managerWithBaseURL:baseUrl];
     
-    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
+    [objectManagerDraft.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
     
     NSDate* dateActuelle = [NSDate date];
     NSDateFormatter *dateFormatterActuel = [[NSDateFormatter alloc] init];
     [dateFormatterActuel setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 
+    NSMutableString *montantFrais = [NSMutableString stringWithFormat:@"%@", fraisChoisi.montant];
+    [montantFrais replaceOccurrencesOfString:@"." withString:@"," options:NSLiteralSearch range: NSMakeRange(0, [montantFrais length])];
+    
     Draft *dataObject = [[Draft alloc] init];
-    [dataObject setDef_id:@"1"];
-    [dataObject setAmount:fraisChoisi.montant];
+    [dataObject setDef_id:fraisChoisi.typeFrais.idType];
+    [dataObject setAmount:montantFrais];
     [dataObject setDate:[dateFormatterActuel stringFromDate:dateActuelle]];
-    [dataObject setReceipt1:fraisChoisi.image];
+    [dataObject setReceipt:fraisChoisi.image];
     [dataObject setCom:fraisChoisi.commentaire];
     
-    if([typeFrais isEqual: @"Indemnités kilométriques"]){
+    if([fraisChoisi.typeFrais.lib isEqual: @"Indemnités kilométriques"]){
         [dataObject setKm:[fraisChoisi.indemniteKFrais.distance stringValue]];
         [dataObject setFrom:fraisChoisi.indemniteKFrais.villeDepart];
         [dataObject setTo:fraisChoisi.indemniteKFrais.villeArrivee];
     }
     RKObjectMapping *requestDraftMapping =  [[Draft mapping] inverseMapping];
     
-    RKRequestDescriptor* requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestDraftMapping objectClass:[Draft class] rootKeyPath:nil method:RKRequestMethodPOST];
+    RKRequestDescriptor* requestDraftDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestDraftMapping objectClass:[Draft class] rootKeyPath:nil method:RKRequestMethodPOST];
     
     RKObjectMapping *responseDraftMapping =  [Draft mapping];
     
-    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseDraftMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor* responseDraftDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseDraftMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    [objectManager addResponseDescriptor:responseDescriptor];
-    [objectManager addRequestDescriptor:requestDescriptor];
-    [objectManager setRequestSerializationMIMEType: RKMIMETypeJSON];
+    [objectManagerDraft addResponseDescriptor:responseDraftDescriptor];
+    [objectManagerDraft addRequestDescriptor:requestDraftDescriptor];
+    [objectManagerDraft setRequestSerializationMIMEType: RKMIMETypeJSON];
     
-    NSMutableURLRequest  *request= [objectManager multipartFormRequestWithObject:dataObject method:RKRequestMethodPOST path:@"api/draft" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    NSMutableURLRequest  *request= [objectManagerDraft multipartFormRequestWithObject:dataObject method:RKRequestMethodPOST path:@"api/draft" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     }];
     
     
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] objectRequestOperationWithRequest:request
+    RKObjectRequestOperation *operation = [objectManagerDraft objectRequestOperationWithRequest:request
         success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
             UIAlertView *alert;
             if(update)
@@ -372,7 +388,7 @@
            [alert show];
        }];
     
-    [objectManager enqueueObjectRequestOperation:operation];
+    [objectManagerDraft enqueueObjectRequestOperation:operation];
 
 }
 
@@ -449,10 +465,11 @@
 - (IBAction)changerType:(id)sender {
     UIAlertView *alerteType = [[UIAlertView alloc] initWithTitle:@"Sélectionner un type de frais" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil];
     
+    [self chargerListeTypesFrais];
     
-    for(int i=0; i<[self.resultat count]; i++)
+    for(int i=0; i<[listeType count]; i++)
     {
-        Type *typeTemp = [self.resultat objectAtIndex:i];
+        Type *typeTemp = [listeType objectAtIndex:i];
         [alerteType addButtonWithTitle:[NSString stringWithFormat:@"%@", typeTemp.lib]];
     }
     

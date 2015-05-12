@@ -12,6 +12,7 @@
 
 @synthesize context;
 @synthesize utilisateur;
+@synthesize listeFrais;
 
 - (void)viewDidLoad
 {
@@ -36,7 +37,7 @@
     [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Sheet class]];
-    [mapping addAttributeMappingsFromArray:@[@"creation_date", @"latest_status_id", @"number", @"object"]];
+    [mapping addAttributeMappingsFromArray:@[@"creation_date", @"latest_status_id", @"object"]];
     
     RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
@@ -45,8 +46,8 @@
     [objectManager getObjectsAtPath:@"api/sheet" parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
                                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latest_status_id != 3"];
-                                _frais = [result.array filteredArrayUsingPredicate:predicate];
-                                NSString* value = [NSString stringWithFormat:@"%li",[_frais count]];
+                                listeFrais = [result.array filteredArrayUsingPredicate:predicate];
+                                NSString* value = [NSString stringWithFormat:@"%li",[listeFrais count]];
                                 [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue: value];
                                 [self.tableView reloadData];
                             }
@@ -79,7 +80,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Sheet *sheet = _frais[indexPath.row];
+    Sheet *sheet = listeFrais[indexPath.row];
     NotificationCellule *cell = [tableView dequeueReusableCellWithIdentifier:@"liste" forIndexPath:indexPath];
 
     cell.objectLabel.text = sheet.object;
@@ -91,7 +92,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _frais.count;
+    return listeFrais.count;
 }
 
 
