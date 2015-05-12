@@ -318,21 +318,23 @@
 
     Draft *dataObject = [[Draft alloc] init];
     [dataObject setDef_id:@"1"];
-    [dataObject setAmount:[fraisChoisi.montant stringValue]];
+    [dataObject setAmount:fraisChoisi.montant];
     [dataObject setDate:[dateFormatterActuel stringFromDate:dateActuelle]];
     [dataObject setReceipt1:fraisChoisi.image];
+    [dataObject setCom:fraisChoisi.commentaire];
     
     if([typeFrais isEqual: @"Indemnités kilométriques"]){
         [dataObject setKm:[fraisChoisi.indemniteKFrais.distance stringValue]];
+        [dataObject setFrom:fraisChoisi.indemniteKFrais.villeDepart];
+        [dataObject setTo:fraisChoisi.indemniteKFrais.villeArrivee];
     }
+    RKObjectMapping *requestDraftMapping =  [[Draft mapping] inverseMapping];
     
-    RKObjectMapping *requestMapping =  [[Draft mapping] inverseMapping];
-        
-    RKRequestDescriptor* requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[Draft class] rootKeyPath:nil method:RKRequestMethodPOST];
+    RKRequestDescriptor* requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestDraftMapping objectClass:[Draft class] rootKeyPath:nil method:RKRequestMethodPOST];
     
-    RKObjectMapping *responseMapping =  [Draft mapping];
+    RKObjectMapping *responseDraftMapping =  [Draft mapping];
     
-    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseDraftMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManager addResponseDescriptor:responseDescriptor];
     [objectManager addRequestDescriptor:requestDescriptor];
@@ -371,6 +373,7 @@
        }];
     
     [objectManager enqueueObjectRequestOperation:operation];
+
 }
 
 /*
