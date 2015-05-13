@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * @brief Classe servant à la communication avec l'api Phileas via RestKit.
+ * @brief Cette classe sert pour récupérer des données d'un frais via la commande sheet.
+ */
+
 @interface Sheet : NSObject
 
 enum {
@@ -22,5 +27,5 @@ typedef NSNumber* status;
 @property (strong, nonatomic) NSNumber* latest_status_id;
 @property (strong, nonatomic) NSString* object;
 
-- (NSString*) getLabelFromStatusId:(NSNumber*) id;
+- (NSString*) getLabelFromStatusId:(NSNumber*) idEtat;
 @end

@@ -13,6 +13,9 @@
 @synthesize context;
 @synthesize utilisateur;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void) viewDidLoad
 {
     [super viewDidLoad];
@@ -26,7 +29,10 @@
 }
 
 #pragma mark - actions
-
+/**
+ * @brief Cette fonction permet de se déconnecter.
+ * @brief Pour cela, elle supprime totalement l'utilisateur enregistré en local ainsi que ses brouillons locaux.
+ */
 - (IBAction)Deconnexion:(id)sender {
     
     NSArray * tableauFrais = [utilisateur.fraisUser allObjects];
@@ -45,12 +51,12 @@
 }
 
 #pragma mark - methods
-
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
 - (void) chargerUtilisateur
 {
-    // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    // Configure the request's entity, and optionally its predicate.
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
     
     NSError *erreur = nil;

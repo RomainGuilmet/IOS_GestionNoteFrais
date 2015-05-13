@@ -12,13 +12,18 @@
 
 @synthesize context;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // On initialise l'appDelegate et le context de l'application pour le coreData.
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     context = self.appDelegate.managedObjectContext;
     
+    // Nous chargeons la liste de tous les brouillons enregistrés dans l'application.
     [self chargerListeFrais];
     
     self.navBar.title = @"Brouillons en cours";
@@ -27,23 +32,19 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     NSArray *sections = [self.fetchedResultsController sections];
     id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
     return [sectionInfo numberOfObjects];
-    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cellule";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    // Configure the cell...
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -101,11 +102,12 @@
 }
 
 #pragma mark - Helper methods
-
+/**
+ * @brief Cette fonction permet de configurer chaque ligne du tableView avec la date et le type de chaque brouillon sauvegardé en local.
+ */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    // Fetch Record
     Frais *frais = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    // Update Cell
+    
     NSDateFormatter *dateformater=[[NSDateFormatter alloc]init];
     [dateformater setDateFormat:@"dd/MM/yyyy"];
     NSString *date = [dateformater stringFromDate:frais.date];
@@ -113,7 +115,10 @@
     [cell.textLabel setText:texte];
 }
 
-
+/**
+ * @brief Cette fonction permet de changer la page active vers la page de frais au clic sur une ligne de la tableView.
+ * @brief Nous passons en paramètres du controller frais, le frais sélectionné pour que nous puissons le modifier.
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"modifierFrais"]){
         Frais *fraisChoisi = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
@@ -124,9 +129,11 @@
 
 #pragma mark - methods
 
+/**
+ * @brief Cette fonction permet de charger la liste des brouillons enregistrés dans le coreData.
+ */
 - (void) chargerListeFrais
 {
-    // fetchedResultController initialization
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Frais"];
 
     [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
@@ -135,7 +142,7 @@
                                      managedObjectContext:self.appDelegate.managedObjectContext
                                      sectionNameKeyPath:nil
                                      cacheName:nil];
-    // Configure Fetched Results Controller
+
     [self.fetchedResultsController setDelegate:self];
     NSError *error;
     [self.fetchedResultsController performFetch:&error];

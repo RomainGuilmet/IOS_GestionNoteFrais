@@ -13,6 +13,9 @@
 @synthesize context;
 @synthesize utilisateur;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -22,6 +25,9 @@
 }
 
 #pragma mark - method
+/**
+ * @brief Cette fonction permet de sauvegarder l'utilisateur qui vient de se connecter dans le coreData afin qu'il reste connecté.
+ */
 - (void)SauverUtilisateur {
     utilisateur = [[User alloc] initWithPseudo:self.pseudoTextField.text motDePasse:self.mdpTextField.text andContext:context];
     
@@ -36,6 +42,9 @@
     }
 }
 
+/**
+ * @brief Cette fonction sert à afficher une alerte si les identifiants de l'utilisateur ne sont pas les bons.
+ */
 - (void)alerteIdentifiants {
     UIAlertView *alerte = [[UIAlertView alloc]  initWithTitle:@"Connexion impossible" message:@"Mauvais pseudo ou mot de passe" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     
@@ -43,6 +52,9 @@
 }
 
 #pragma mark - TextFieldDelegates
+/**
+ * @brief Cette fonction sert à cacher le clavier lorsque l'on clique en dehors d'un textField.
+ */
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.pseudoTextField resignFirstResponder];
@@ -51,6 +63,10 @@
 }
 
 #pragma mark - actions
+/**
+ * @brief Cette fonction sert à se connecter à l'application.
+ * @brief Pour cela, il faut être connecté à internet et au moyen de la fonction user de l'api nous allons vérifier que les identifiants fourni correspondent à ceux d'un utilisateur enregistré sur l'application web.
+ */
 - (IBAction)Connexion:(id)sender
 {
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];

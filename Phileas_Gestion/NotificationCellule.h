@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * @brief Cette classe sert à remplir le contenu présent sur chaque ligne du tableView notifications.
+ */
 @interface NotificationCellule : UITableViewCell
 
 // ===== Outlets =====

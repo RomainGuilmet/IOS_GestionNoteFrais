@@ -10,6 +10,11 @@
 
 @implementation Draft
 
+/**
+ * @brief Cette fonction sert à effectuer rapidement une map RestKit pour la fonction draft.
+ * @brief Cela permet de connecter la class draft de l'application à la fonction draft de l'api.
+ * @return mapping le RKObjectMapping pour la fonction draft.
+ */
 +(RKObjectMapping*)mapping   {
     
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Draft class]];

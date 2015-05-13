@@ -17,32 +17,43 @@
 @synthesize listeType;
 @synthesize listeExpenseDef;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
+    // On initialise l'appDelegate et le context de l'application pour le coreData.
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
     context = self.appDelegate.managedObjectContext;
+    
+    // Nous chargeons les informations de l'utilisateur connecté.
     [self chargerUtilisateur];
     
+    // Nous créons les différents types de frais et barèmes automobile (s'il n'existe pas déjà).
     [self creerTypesFrais];
     [self creerBaremesAuto];
     
+    // Nous cachons le bouton permettant de modifier une indemnité kilométrique.
     [self.modifierIndemnite setHidden:TRUE];
     
+    // Nous allouons les variables strong qui seront passé par pointeur avec le prepareForSegue.
     self.montant = [[NSMutableString alloc] init];
     NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"IndemniteK" inManagedObjectContext:context];
     indemniteK = [[IndemniteK alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
     
     [self.montant setString:@"0"];
     
+    // Nous initialisons la fonction permettant de cacher le clavier.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cacherClavier:)];
     [self.view addGestureRecognizer:tap];
     
+    // Si la variable fraisChoisi exite, et donc si c'est une modification d'un brouillon, nous remplissons les champs avec les données du frais.
     if(fraisChoisi)
     {
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
-        [dateformater setDateFormat:@"dd/MM/yyyy"]; // Date formater
+        [dateformater setDateFormat:@"dd/MM/yyyy"];
         NSString *date = [dateformater stringFromDate:fraisChoisi.date];
         [self.dateTexte setText:date];
         [self.localisationLbl setText:fraisChoisi.localisation];
@@ -59,11 +70,13 @@
         [self.comTextArea setText:fraisChoisi.commentaire];
         
     }
+    
+    // Sinon nous les mettons par défaut.
     else
     {
         NSDate *dateActuelle = [NSDate date];
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
-        [dateformater setDateFormat:@"dd/MM/yyyy"]; // Date formater
+        [dateformater setDateFormat:@"dd/MM/yyyy"];
         NSString *date = [dateformater stringFromDate:dateActuelle];
         [self.dateTexte setText:date];
         [self.localisationLbl setText:@"Localisation"];
@@ -74,7 +87,7 @@
         
     }
     
-    //Localisation à tester sur un appareil.
+    // Nous récupérons les coordonnées gps de l'appareil.
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager locationServicesEnabled])
     {
@@ -95,12 +108,16 @@
         [self.localisationLbl setText:localisation];
     }
     
+    // Nous initialisons le datePicker permettant de choisir la date.
     self.pickerViewDate = [[UIDatePicker alloc] init];
     self.pickerViewDate.datePickerMode = UIDatePickerModeDate;
     [self.pickerViewDate addTarget:self action:@selector(changerDeDate:) forControlEvents:UIControlEventValueChanged];
     [self.dateTexte setInputView:self.pickerViewDate];
 }
 
+/**
+ * @brief Cette fonction est appelée quand la vue apparaît.
+ */
 - (void) viewDidAppear:(BOOL)animated
 {
     if(self.fraisChoisi)
@@ -125,14 +142,20 @@
 }
 
 #pragma mark - alertView delegates
+/**
+ * @brief Cette fonction sert à gérer les alertView.
+ * @brief Si le tag vaut 1 alors nous gérons l'alerte correspondant le choix d'un type de frais, s'il vaut 2 nous gérons celle concernant le choix d'un justificatif.
+ */
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView.tag == 1)
     {
+        // Si l'alerte a été fermée avec un autre bouton qu'annuler nous changeons le nom du bouton changerType (pour afficher le type choisi et le réutiliser plus tard).
         if(![[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Annuler"]){
             [self.typeF setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
             [self.modifierIndemnite setHidden:TRUE];
             
+            // Si le type choisi est indemnités kilométriques nous chargons le controller indemnites (comme ci nous avions cliqué sur le bouton modifier c.f. prepareForSegue plus bas).
             if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Indemnités kilométriques"]){
                 IndemnitesTableViewController* controllerDestination = [self.storyboard instantiateViewControllerWithIdentifier:@"indemnites"];
                 [controllerDestination setMontant:self.montant];
@@ -144,6 +167,7 @@
     
     if(alertView.tag == 2)
     {
+        // Si le mode choisi est appareil photo, nous lançons ce dernier.
         if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Appareil Photo"]) {
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                 UIImagePickerController *pickerView =[[UIImagePickerController alloc]init];
@@ -152,8 +176,10 @@
                 pickerView.sourceType = UIImagePickerControllerSourceTypeCamera;
                 [self presentViewController:pickerView animated:YES completion:nil];
             }
-            
-        }else if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Librairie d'images"]) {
+        }
+        
+        // Si le mode choisi est librairie, nous permettons le choix d'une photo dans la bibliothèque d'images.
+        else if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Librairie d'images"]) {
             
             UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
             pickerView.allowsEditing = YES;
@@ -166,7 +192,9 @@
 }
 
 #pragma mark - PickerDelegates
-
+/**
+ * @brief Cette fonction sert à récupérer l'image sélectionner parmis la librairie ou prise en photo et à l'enregistrer dans une variable locale.
+ */
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:true completion:nil];
@@ -174,10 +202,12 @@
     UIImage * img = [info valueForKey:UIImagePickerControllerEditedImage];
     
     self.image.image = img;
-    
 }
 
 #pragma mark - TextFieldDelegates
+/**
+ * @brief Cette fonction sert à cacher le clavier lorsque l'on clique en dehors d'un textField.
+ */
 - (void) cacherClavier:(UITapGestureRecognizer *) recognizer
 {
     [self.dateTexte resignFirstResponder];
@@ -188,9 +218,9 @@
 
 #pragma mark - methods
 /**
- * Cette fonction sert à créer les différents types de frais possibles et à les stocker sur l'appareil.
- * Les types de frais sont créés uniquement s'il n'existe pas déjà sur l'appareil. Donc au premier lancement de l'application.
- **/
+ * @brief Cette fonction sert à récupérer les différents types de frais possibles depuis la BD phileas et à les stocker sur l'appareil.
+ * @brief Les types de frais sont créés uniquement s'il n'existe pas déjà sur l'appareil, donc au premier lancement de l'application.
+ */
 - (void)creerTypesFrais
 {
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
@@ -225,10 +255,10 @@
 }
 
 /**
- * Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l'appareil.
- * Les barèmes kilométriques sont créés uniquement s'il n'existe pas déjà sur l'appareil. Donc au premier lancement de l'application.
- * Il sera nécéssaire de modifier les différents chiffres chaque année.
- **/
+ * @brief Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l'appareil.
+ * @brief Les barèmes kilométriques sont créés uniquement s'il n'existe pas déjà sur l'appareil, donc au premier lancement de l'application.
+ * @brief Il sera nécessaire de modifier les différents chiffres chaque année.
+ */
 - (void)creerBaremesAuto
 {
     [[BaremeAuto alloc] initWithName:@"3 CV et moins" trancheBasse:[NSNumber numberWithDouble:0.41] trancheMoyenne:[NSNumber numberWithDouble:0.245] trancheHaute:[NSNumber numberWithDouble:0.285] fixe:[NSNumber numberWithDouble:824] andContext:context];
@@ -243,17 +273,21 @@
     }
 }
 
+/**
+ * @brief Cette fonction permet de charger depuis le coreData tous les types de frais existant.
+ */
 - (void)chargerListeTypesFrais
 {
-    // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"Type"];
-    // Configure the request's entity, and optionally its predicate.
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lib" ascending:YES]]];
     
     NSError *erreur = nil;
     listeType = [context executeFetchRequest:requete error:&erreur];
 }
 
+/**
+ * @brief Cette fonction permet de changer la date du frais après l'avoir sélectionnée dans un datePicker.
+ */
 -(void)changerDeDate:(UIDatePicker *)sender
 {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -261,11 +295,12 @@
     self.dateTexte.text = [formatter stringFromDate:sender.date];
 }
 
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
 - (void) chargerUtilisateur
 {
-    // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    // Configure the request's entity, and optionally its predicate.
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
     
     NSError *erreur = nil;
@@ -277,11 +312,12 @@
 }
 
 #pragma mark - actions
-/*
- Envoyer le frais au serveur
+/**
+ * @brief Cette fonction permet d'envoyer le brouillon à l'application web de phileas.
+ * @brief Cette fonction utilise le framework RestKit et la fonction draft de l'api de phileas.
  */
 - (IBAction)envoyer:(id)sender {
-    
+    // Nous récupérons les différentes champs de la vue relatif à un frais.
     NSString *commentaire = self.comTextArea.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -303,35 +339,42 @@
     NSNumber *montant = [numberFormatter numberFromString:champMontant];
     
     NSString *typeFrais = self.typeF.titleLabel.text;
+    
     Boolean update = false;
     
+    // Nous le sauvegardons en local pour le modifier ultérieurement.
+    // Si le frais existe déjà nous le modifions.
     if(fraisChoisi)
     {
         [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
         update = true;
     }
+    // Sinon nous en créons un nouveau
     else
     {
         fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
         [utilisateur addFraisUserObject:fraisChoisi];
     }
-    
+    // Si le type du frais est une indemnité kilométrique, nous récupérons l'indemnité créée précédement et nous l'ajoutons au frais.
     if([typeFrais isEqual: @"Indemnités kilométriques"]){
         [fraisChoisi addIndemniteK:indemniteK];
     }
     
+    // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
     RKObjectManager* objectManagerDraft = [RKObjectManager managerWithBaseURL:baseUrl];
-    
     [objectManagerDraft.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
     
+    // Nous préparons la date de création du brouillon au format de l'api.
     NSDate* dateActuelle = [NSDate date];
     NSDateFormatter *dateFormatterActuel = [[NSDateFormatter alloc] init];
     [dateFormatterActuel setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 
+    // Nous prépartons le montant du frais au format de l'api (nombre à virgule).
     NSMutableString *montantFrais = [NSMutableString stringWithFormat:@"%@", fraisChoisi.montant];
     [montantFrais replaceOccurrencesOfString:@"." withString:@"," options:NSLiteralSearch range: NSMakeRange(0, [montantFrais length])];
     
+    // Nous préparons l'objet draft avec les informations du frais créé.
     Draft *dataObject = [[Draft alloc] init];
     [dataObject setDef_id:fraisChoisi.typeFrais.idType];
     [dataObject setAmount:montantFrais];
@@ -339,30 +382,30 @@
     [dataObject setReceipt:fraisChoisi.image];
     [dataObject setCom:fraisChoisi.commentaire];
     
+    // Si le type de frais est indemnités kilométriques, nous ajoutons les informations de l'indemnité créée.
     if([fraisChoisi.typeFrais.lib isEqual: @"Indemnités kilométriques"]){
         [dataObject setKm:[fraisChoisi.indemniteKFrais.distance stringValue]];
         [dataObject setFrom:fraisChoisi.indemniteKFrais.villeDepart];
         [dataObject setTo:fraisChoisi.indemniteKFrais.villeArrivee];
     }
+    
+    // Nous préparons le manager avec les map RestKit de requête et de réponse pour notre objet.
     RKObjectMapping *requestDraftMapping =  [[Draft mapping] inverseMapping];
-    
     RKRequestDescriptor* requestDraftDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestDraftMapping objectClass:[Draft class] rootKeyPath:nil method:RKRequestMethodPOST];
-    
     RKObjectMapping *responseDraftMapping =  [Draft mapping];
-    
     RKResponseDescriptor* responseDraftDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseDraftMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManagerDraft addResponseDescriptor:responseDraftDescriptor];
     [objectManagerDraft addRequestDescriptor:requestDraftDescriptor];
     [objectManagerDraft setRequestSerializationMIMEType: RKMIMETypeJSON];
     
+    // Nous préparons la requête de post multi-part avec la fonction draft de l'api.
     NSMutableURLRequest  *request= [objectManagerDraft multipartFormRequestWithObject:dataObject method:RKRequestMethodPOST path:@"api/draft" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     }];
-    
-    
     RKObjectRequestOperation *operation = [objectManagerDraft objectRequestOperationWithRequest:request
         success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
             UIAlertView *alert;
+            // Si c'est une modification, nous retournons à la vue précédente, la liste des brouillons.
             if(update)
             {
                 alert = [[UIAlertView alloc] initWithTitle:@"Brouillon envoyé" message:@"Votre brouillon vient d'être envoyé au serveur." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
@@ -371,6 +414,7 @@
                 
                 [self.navigationController popViewControllerAnimated:YES];
             }
+            // Si c'est un nouveau frais, nous rechargeons une vue vierge permettant de saisir un nouveau frais.
             else
             {
                 alert = [[UIAlertView alloc] initWithTitle:@"Brouillon envoyé" message:@"Votre brouillon vient d'être envoyé au serveur." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
@@ -383,19 +427,22 @@
             }
        }
        failure:^(RKObjectRequestOperation *operation, NSError *error){
+           // S'il y a eu une erreur, nous l'affichons.
            UIAlertView *alert;
            alert = [[UIAlertView alloc] initWithTitle:@"Erreur d'envoi" message:@"Votre brouillon n'a pas pu être envoyé au serveur. \n Veuillez rééssayer." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
            [alert show];
        }];
     
+    // Nous exécutons la requête
     [objectManagerDraft enqueueObjectRequestOperation:operation];
 
 }
 
-/*
- Sauvegarder le frais en local
+/**
+ * @brief Cette fonction sert à sauvegarder le brouillon en local au clic sur le bouton saisir ou à modifier un brouillon au clic sur le bouton modifier.
  */
 - (IBAction)saisir:(id)sender {
+    // Nous récupérons les différentes champs de la vue relatif à un frais.
     NSString *commentaire = self.comTextArea.text;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -417,29 +464,35 @@
     NSNumber *montant = [numberFormatter numberFromString:champMontant];
     
     NSString *typeFrais = self.typeF.titleLabel.text;
+    
     Boolean update = false;
     
+    // Si le frais existe déjà nous le modifions.
     if(fraisChoisi)
     {
         [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
         update = true;
     }
+    // Sinon nous en créons un nouveau
     else
     {
         fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
         [utilisateur addFraisUserObject:fraisChoisi];
     }
     
+    // Si le type du frais est une indemnité kilométrique, nous récupérons l'indemnité créée précédement et nous l'ajoutons au frais.
     if([typeFrais isEqual: @"Indemnités kilométriques"]){
         [fraisChoisi addIndemniteK:indemniteK];
     }
     
+    // Nous sauvegardons le frais en local
     NSError *erreur = nil;
     if(![context save:&erreur]){
         NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
     }
 
     UIAlertView *alert;
+    // Si c'est une modification qui a été effectuée nous l'affichons et nous retournons à la vue précédente, la liste des brouillons.
     if(update)
     {
         alert = [[UIAlertView alloc] initWithTitle:@"Modification enregistrée" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
@@ -448,6 +501,7 @@
     
         [self.navigationController popViewControllerAnimated:YES];
     }
+    // Si c'est un nouveau frais qui a été créé nous l'affichons et nous rechargeons une vue vierge permettant de saisir un nouveau frais.
     else
     {
         alert = [[UIAlertView alloc] initWithTitle:@"Brouillon enregistré" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -462,6 +516,9 @@
    
 }
 
+/**
+ * @brief Cette fonction permet de lancer une alerte au clic sur le bouton changerType afin de choisir le type du frais parmis la liste de tous les types.
+ */
 - (IBAction)changerType:(id)sender {
     UIAlertView *alerteType = [[UIAlertView alloc] initWithTitle:@"Sélectionner un type de frais" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil];
     
@@ -478,6 +535,9 @@
     [alerteType show];
 }
 
+/**
+ * @brief Cette fonction permet de lancer une alerte au clic sur le bouton justificatif pour choisir de prendre une photo ou de sélectionner une image dans la librairie.
+ */
 - (IBAction)choisirImage:(id)sender {
     UIAlertView *alerteImage = [[UIAlertView alloc]  initWithTitle:@"Sélectionner une image depuis :" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:@"Librairie d'images",@"Appareil Photo", nil];
     
@@ -487,6 +547,10 @@
 }
 
 #pragma mark - navigation
+/**
+ * @brief Cette fonction permet de changer la page active vers la page indemnités kilomètriques au clic sur le bouton modifier.
+ * @brief Nous passons par pointeur au controller indemnites le montant et une indemnite que ce dernier modifiera afin que nous puissons les utiliser ici.
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"modifierIndemnite"]){
         

@@ -15,6 +15,9 @@
 
 @synthesize lieu;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.barreRecherche setDelegate:self];
@@ -22,47 +25,47 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+/**
+ * @brief Cette fonction permet de rechercher un lieu à chaque fois que le texte champ dans la barre de recherhe.
+ */
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (![searchBar.text isEqualToString:@""])
     {
-    // Cancel any previous searches.
-    [localSearch cancel];
+        [localSearch cancel];
     
-    // Perform a new search.
-    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.naturalLanguageQuery = searchBar.text;
+        MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+        request.naturalLanguageQuery = searchBar.text;
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    localSearch = [[MKLocalSearch alloc] initWithRequest:request];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        localSearch = [[MKLocalSearch alloc] initWithRequest:request];
     
-    [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
+        [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
         
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         
-        if (error != nil) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Map Error",nil)
-                                        message:[error localizedDescription]
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
-            return;
-        }
+            if (error != nil) {
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Map Error",nil)
+                                            message:[error localizedDescription]
+                                           delegate:nil
+                                  cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
+                return;
+            }
         
-        if ([response.mapItems count] == 0) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Results",nil)
-                                        message:nil
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
-            return;
-        }
+            if ([response.mapItems count] == 0) {
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Results",nil)
+                                            message:nil
+                                           delegate:nil
+                                  cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
+                return;
+            }
         
-        results = response;
+            results = response;
 
-        [self.searchDisplayController.searchResultsTableView reloadData];
-    }];
+            [self.searchDisplayController.searchResultsTableView reloadData];
+        }];
     }
 }
 
@@ -72,7 +75,9 @@
     return [results.mapItems count];
 }
 
-
+/**
+ * @brief Cette fonction permet de configurer les lignes du tableView avec les résultats de la recherche.
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *IDENTIFIER = @"SearchResultsCell";

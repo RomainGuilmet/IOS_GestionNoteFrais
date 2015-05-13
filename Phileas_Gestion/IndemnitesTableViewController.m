@@ -16,18 +16,26 @@
 @synthesize ba;
 @synthesize indemniteK;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self->_appDelegate = [[UIApplication sharedApplication] delegate];
     
+    // On initialise l'appDelegate et le context de l'application pour le coreData.
+    self->_appDelegate = [[UIApplication sharedApplication] delegate];
     context = self.appDelegate.managedObjectContext;
     
+    // Nous chargeons la liste des barèmes automobiles.
     [self chargementListeBaremes];
     
+    // Nous allouons les variables strong qui seront passé par pointeur avec le prepareForSegue.
     depart = [[NSMutableArray alloc]init];
     arrivee = [[NSMutableArray alloc]init];
+    
     [self.cvButton setTitle:@"Choisir un nombre de CV" forState:UIControlStateNormal];
     
+    // Si l'indemnité à une ville de départ existante alors nous partons du principe qu'elle existe et nous remplissons les champs avec les valeurs de l'indemnité.
     if(indemniteK.villeDepart){
         if([indemniteK.allezRetour isEqualToNumber:[NSNumber numberWithInt:1]])
         {
@@ -88,7 +96,11 @@
     }
 }
 
+/**
+ * @brief Cette fonction est appelée quand la vue apparaît.
+ */
 - (void)viewDidAppear:(BOOL)animated {
+    // Si une ville de départ a été choisie nous l'affichons.
     if([depart count] == 1)
     {
         if(![((MKMapItem *)[depart objectAtIndex:0]).name isEqual:@"Unknown Location"])
@@ -97,6 +109,7 @@
         }
     }
     
+    // Si une ville d'arrivée a été choisie nous l'affichons.
     if([arrivee count] == 1)
     {
         if(![((MKMapItem *)[arrivee objectAtIndex:0]).name isEqual:@"Unknown Location"])
@@ -105,12 +118,16 @@
         }
     }
     
+    // Si les villes de départ et d'arrivée ont été choisis nous calculons la distance.
     if([self.depart count] > 0 && [self.arrivee count] > 0)
     {
         [self calculDistance];
     }    
 }
 
+/**
+ * @brief Cette fonction est appelée quand la vue va disparaître.
+ */
 -(void) viewWillDisappear:(BOOL)animated{
     if (ba) {
         NSNumber *ar = [NSNumber numberWithInt:0];
@@ -130,10 +147,14 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Navigation
+/**
+ * @brief Cette fonction permet de changer la page active vers la page mapTableView au clic sur la ligne départ ou arrivée.
+ * @brief Nous passons par pointeur au controller tableView la ville de départ si la ligne sélectionné est celle de départ pour qu'il la modifie.
+ * @brief Nous passons par pointeur au controller tableView la ville d'arrivée si la ligne sélectionné est celle d'arrivée pour qu'il la modifie.
+ */
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([[segue identifier] isEqualToString:@"depart"]){
          MapTableViewController *controllerDestination = segue.destinationViewController;
@@ -146,30 +167,28 @@
  }
 
 #pragma mark - methods
+/**
+ * @brief Cette fonction permet de charger la liste des barèmes automobiles enregistrés dans le coreData.
+ */
 - (void)chargementListeBaremes
 {
-    // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"BaremeAuto"];
-    // Configure the request's entity, and optionally its predicate.
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"cylindre" ascending:YES]]];
     
     NSError *erreur = nil;
     self.resultat = [context executeFetchRequest:requete error:&erreur];
 }
 
+/**
+ * @brief Cette fonction permet de calculer la distance entre deux emplacements géographiques.
+ */
 - (void) calculDistance
 {
-    
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
     
-    // source and destination are the relevant MKMapItem's
     request.source = ((MKMapItem *)[self.depart objectAtIndex:0]);
     request.destination = ((MKMapItem *)[self.arrivee objectAtIndex:0]);
-    
-    // Specify the transportation type
     request.transportType = MKDirectionsTransportTypeAutomobile;
-    
-    // If you're open to getting more than one route, requestsAlternateRoutes = YES; else requestsAlternateRoutes = NO;
     request.requestsAlternateRoutes = YES;
     
     MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
@@ -196,6 +215,9 @@
     }];
 }
 
+/**
+ * @brief Cette fonction permet de calculer le coût d'une indemnité kilométrique en fonction de la cylindrée et de la distance.
+ */
 - (void) calculMontant
 {
     NSString* cylindre = self.cvButton.titleLabel.text;
@@ -222,6 +244,9 @@
 }
 
 #pragma mark - actions
+/**
+ * @brief Cette fonction permet de lancer une alerte au clic sur le bouton choisirCylindree pour choisir le nombre de CV du véhicule.
+ */
 - (IBAction)choisirPuissance:(id)sender {
     UIAlertView *alerteType = [[UIAlertView alloc] initWithTitle:@"Sélectionner une puissance administrative" message:@"" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil];
     
@@ -237,11 +262,19 @@
     [alerteType show];
 }
 
+/**
+ * @brief Cette fonction permet de recharger la vue au changement d'état du switch pour recalculer directement la disance et le coût de l'indemnité.
+ */
 - (IBAction)changementTypeTrajet:(id)sender {
     [self viewDidAppear:true];
 }
 
 #pragma mark - alertView delegates
+/**
+ * @brief Cette fonction sert à gérer les alertView.
+ * @brief Cela permet de recharger la vue après avoir sélectionné une cylindrée.
+ */
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView.tag == 1)
@@ -253,6 +286,10 @@
     }
 }
 
+#pragma mark - TextFieldDelegates
+/**
+ * @brief Cette fonction sert à cacher le clavier lorsque l'on clique en dehors d'un textField.
+ */
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.montantTextField resignFirstResponder];

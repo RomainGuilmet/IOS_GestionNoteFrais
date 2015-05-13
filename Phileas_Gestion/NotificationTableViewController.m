@@ -14,35 +14,49 @@
 @synthesize utilisateur;
 @synthesize listeFrais;
 
+/**
+ * @brief Cette fonction est appelée quand la vue est chargée par l'application.
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // On initialise l'appDelegate et le context de l'application pour le coreData.
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     context = self.appDelegate.managedObjectContext;
 }
 
+/**
+ * @brief Cette fonction est appelée quand la vue apparaît.
+ */
 - (void) viewDidAppear:(BOOL)animated
 {
+    // Nous chargeons les frais d'un utilisateur
     [self loadFrais];
 }
 
+#pragma mark - methods
+/**
+ * @brief Cette fonction sert à charger tous les frais disponible sur l'application web.
+ * @brief Elle utilise la class sheet et la fonction sheet de l'api.
+ */
 - (void) loadFrais
 {
+    // Nous chargeons l'utilisateur connecté.
     [self chargerUtilisateur];
 
+    // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
     RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
-    
     [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
     
+    // Nous préparons le manager avec les map RestKit de réponse pour notre objet.
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Sheet class]];
     [mapping addAttributeMappingsFromArray:@[@"creation_date", @"latest_status_id", @"object"]];
-    
     RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
     [objectManager addResponseDescriptor:responseDescriptor];
     
+    // Nous exécutons la requête avec la fonction sheet de l'api Phileas.
     [objectManager getObjectsAtPath:@"api/sheet" parameters:nil
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
                                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latest_status_id != 3"];
@@ -57,11 +71,12 @@
 
 }
 
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
 - (void) chargerUtilisateur
 {
-    // fetchedResultController initialization
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    // Configure the request's entity, and optionally its predicate.
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
     
     NSError *erreur = nil;
@@ -72,12 +87,20 @@
     }
 }
 
+#pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return listeFrais.count;
+}
 
+/**
+ * @brief Cette fonction sert à configurer chaque ligne du tableView avec le numéro de la note de frais, sa date de création et son statut.
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Sheet *sheet = listeFrais[indexPath.row];
@@ -90,10 +113,6 @@
     return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return listeFrais.count;
-}
 
 
 @end

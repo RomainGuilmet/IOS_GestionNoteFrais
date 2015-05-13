@@ -10,22 +10,27 @@
 
 @implementation Sheet
 
-- (NSString*) getLabelFromStatusId:(NSNumber*) id
+/**
+ * @brief Cette fonction permet de convertir l'id relatif à l'état d'un frais en une chaîne de caractère correspondant à cette id.
+ * @param idEtat l'identifiant relatif à l'état d'un frais
+ * @return label le nom de cet état
+ */
+- (NSString*) getLabelFromStatusId:(NSNumber*) idEtat
 {
     NSString* label = @"";
     
-    if([id isEqualToNumber:@(validated)]){
+    if([idEtat isEqualToNumber:@(validated)]){
         label = @"Validée";
     }
-    else if ([id isEqualToNumber:@(rejected)])
+    else if ([idEtat isEqualToNumber:@(rejected)])
     {
         label = @"Rejetée";
     }
-    else if ([id isEqualToNumber:@(exportable)])
+    else if ([idEtat isEqualToNumber:@(exportable)])
     {
         label = @"Exportable";
     }
-    else if ([id isEqualToNumber:@(draft)])
+    else if ([idEtat isEqualToNumber:@(draft)])
     {
         label = @"Ebauche";
     }
