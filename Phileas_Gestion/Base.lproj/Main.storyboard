@@ -1106,6 +1106,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="EQh-hh-kUJ"/>
+                    <connections>
+                        <outlet property="navBar" destination="EQh-hh-kUJ" id="VGQ-9i-nIy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISp-iE-COE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

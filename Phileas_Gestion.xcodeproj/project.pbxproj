@@ -17,6 +17,8 @@
 		7A0CA9791AE64B6C0070DF31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CA9771AE64B6C0070DF31 /* LaunchScreen.xib */; };
 		7A0CA9851AE64B6C0070DF31 /* Phileas_GestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */; };
 		7A20993E1AF106DF003788BB /* BaremeAuto+DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A20993D1AF106DF003788BB /* BaremeAuto+DataModel.m */; };
+		7A44AC661B09FF4100F45A5C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A44AC651B09FF4100F45A5C /* CoreLocation.framework */; };
+		7A44AC691B0A1A3100F45A5C /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A44AC681B0A1A3100F45A5C /* Message.m */; };
 		7A4529351B0241DC00041AD5 /* Expense-def.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4529341B0241DC00041AD5 /* Expense-def.m */; };
 		7A4529381B02423400041AD5 /* BaremeAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4529371B02423400041AD5 /* BaremeAuto.m */; };
 		7A45293B1B02423500041AD5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45293A1B02423500041AD5 /* User.m */; };
@@ -108,6 +110,9 @@
 		7A0CA9841AE64B6C0070DF31 /* Phileas_GestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phileas_GestionTests.m; sourceTree = "<group>"; };
 		7A20993C1AF106DF003788BB /* BaremeAuto+DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BaremeAuto+DataModel.h"; sourceTree = "<group>"; };
 		7A20993D1AF106DF003788BB /* BaremeAuto+DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaremeAuto+DataModel.m"; sourceTree = "<group>"; };
+		7A44AC651B09FF4100F45A5C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7A44AC671B0A1A3100F45A5C /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		7A44AC681B0A1A3100F45A5C /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		7A4529331B0241DC00041AD5 /* Expense-def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Expense-def.h"; sourceTree = "<group>"; };
 		7A4529341B0241DC00041AD5 /* Expense-def.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Expense-def.m"; sourceTree = "<group>"; };
 		7A4529361B02423400041AD5 /* BaremeAuto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaremeAuto.h; sourceTree = "<group>"; };
@@ -158,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A44AC661B09FF4100F45A5C /* CoreLocation.framework in Frameworks */,
 				7A8779D31AF79BD800C2EFA8 /* libRestKit.a in Frameworks */,
 				7A8779D01AF79ABD00C2EFA8 /* SystemConfiguration.framework in Frameworks */,
 				7A8779CE1AF79AB300C2EFA8 /* Security.framework in Frameworks */,
@@ -251,6 +257,8 @@
 				7A9B1C3D1B00BD32004DB18B /* Draft.m */,
 				7A4529331B0241DC00041AD5 /* Expense-def.h */,
 				7A4529341B0241DC00041AD5 /* Expense-def.m */,
+				7A44AC671B0A1A3100F45A5C /* Message.h */,
+				7A44AC681B0A1A3100F45A5C /* Message.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 		7A5C9A0E1AEE35750088A8A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A44AC651B09FF4100F45A5C /* CoreLocation.framework */,
 				7A8779CF1AF79ABD00C2EFA8 /* SystemConfiguration.framework */,
 				7A8779CD1AF79AB300C2EFA8 /* Security.framework */,
 				7A8779CB1AF79AAC00C2EFA8 /* MobileCoreServices.framework */,
@@ -487,6 +496,7 @@
 				7A0CA9681AE64B6C0070DF31 /* main.m in Sources */,
 				7A913FE01AF7B1EE00B9AC14 /* OptionsViewController.m in Sources */,
 				7A6A629E1AE7D33400929463 /* Type+DataModel.m in Sources */,
+				7A44AC691B0A1A3100F45A5C /* Message.m in Sources */,
 				7A4529381B02423400041AD5 /* BaremeAuto.m in Sources */,
 				7A4529351B0241DC00041AD5 /* Expense-def.m in Sources */,
 				7A45293E1B02423500041AD5 /* Frais.m in Sources */,

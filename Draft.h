@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSString* com;
 @property (strong, nonatomic) NSString* from;
 @property (strong, nonatomic) NSString* to;
+@property (strong, nonatomic) NSString* localisation;
 
 /**
  * @brief Cette fonction sert à effectuer rapidement une map RestKit pour la fonction draft.

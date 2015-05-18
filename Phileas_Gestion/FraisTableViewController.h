@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 #import "AppDelegate.h"
 #import "IndemnitesTableViewController.h"
 #import "Type+DataModel.h"
@@ -23,10 +25,12 @@
 @property (weak, nonatomic) AppDelegate* appDelegate;
 @property (weak, nonatomic) NSManagedObjectContext *context;
 
-// ===== Variables =====
+// ===== Variables utilisées pour la géolocalisation =====
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+@property (strong, nonatomic) CLPlacemark *placemark;
 
-@property (strong, nonatomic) CLLocationManager* locationManager;
-
+// ===== Autres variables =====
 /**
  * @brief Un tableau qui va contenir la liste des type de frais.
  */
@@ -92,7 +96,6 @@
  * @brief Cette fonction utilise le framework RestKit et la fonction draft de l'api de phileas.
  */
 - (IBAction)envoyer:(id)sender;
-
 @end
 
 

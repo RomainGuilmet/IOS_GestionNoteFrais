@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Sheet.h"
+#import "Message.h"
 #import "NotificationCellule.h"
 
 @interface NotificationTableViewController : UITableViewController
@@ -27,5 +28,8 @@
  * @brief Un tableau contenant la liste des frais de l'utilisateur récupérée depuis l'application Web.
  */
 @property (strong, nonatomic) NSArray* listeFrais;
+
+// ===== Outlets =====
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
 @end

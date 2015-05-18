@@ -16,6 +16,9 @@
 @synthesize utilisateur;
 @synthesize listeType;
 @synthesize listeExpenseDef;
+@synthesize locationManager;
+@synthesize geocoder;
+@synthesize placemark;
 
 /**
  * @brief Cette fonction est appelée quand la vue est chargée par l'application.
@@ -74,12 +77,22 @@
     // Sinon nous les mettons par défaut.
     else
     {
+        // Nous démarrons les outils servant à la géolocalisation
+        locationManager = [[CLLocationManager alloc] init];
+        geocoder = [[CLGeocoder alloc] init];
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        locationManager.distanceFilter = 1000.0f;
+        [self.locationManager requestWhenInUseAuthorization];
+        
+        [locationManager startUpdatingLocation];
+        
         NSDate *dateActuelle = [NSDate date];
         NSDateFormatter *dateformater = [[NSDateFormatter alloc]init];
         [dateformater setDateFormat:@"dd/MM/yyyy"];
         NSString *date = [dateformater stringFromDate:dateActuelle];
         [self.dateTexte setText:date];
-        [self.localisationLbl setText:@"Localisation"];
+        [self.localisationLbl setText:@"Impossible de vous localiser"];
         [self.typeF setTitle:@"Type" forState:UIControlStateNormal];
         self.image.image =  [UIImage imageWithData:nil];
         [self.montantTextField setText:@""];
@@ -99,29 +112,6 @@
  */
 - (void) viewDidAppear:(BOOL)animated
 {
-    
-    // Nous récupérons les coordonnées gps de l'appareil.
-    self.locationManager = [[CLLocationManager alloc] init];
-    if ([CLLocationManager locationServicesEnabled])
-    {
-        self.locationManager.delegate = self;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.locationManager.distanceFilter = 10.0f;
-        [self.locationManager startUpdatingLocation];
-        NSString *localisation;
-        if(self.locationManager.location == NULL)
-        {
-            localisation = @"Impossible de vous localiser";
-        }
-        else
-        {
-            localisation = [NSString stringWithFormat:@"%@", self.locationManager.location];
-        }
-        
-        [self.localisationLbl setText:localisation];
-    }
-
-    
     if(self.fraisChoisi)
     {
         self.navBar.title = @"Modifier un frais";
@@ -216,6 +206,38 @@
     [self.montantTextField resignFirstResponder];
     [self.comTextArea resignFirstResponder];
     
+}
+
+#pragma mark - LocationManagerDelegates
+/**
+ * @brief Cette fonction permet de changer le label localisation si l'on se déplace.
+ */
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    [geocoder reverseGeocodeLocation:[locations lastObject] // You can pass aLocation here instead
+                   completionHandler:^(NSArray *placemarks, NSError *error) {
+                       
+                       dispatch_async(dispatch_get_main_queue(),^ {
+                           // do stuff with placemarks on the main thread
+                           
+                           if (placemarks.count == 1) {
+                               NSLog(@"placemark");
+                               placemark = [placemarks objectAtIndex:0];
+                               
+                               [self.localisationLbl setText:placemark.locality];
+                           }
+                           
+                       });
+                       
+                   }];
+}
+
+/**
+ * @brief Cette fonction sert afficher les erreurs de localisation
+ */
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    [self.localisationLbl setText:@"Impossible de vous localiser"];
 }
 
 #pragma mark - methods
@@ -328,7 +350,7 @@
     date = [dateFormatter dateFromString:self.dateTexte.text];
     
     NSData *image = UIImagePNGRepresentation(self.image.image);
-    NSString *localisation;
+    NSString *localisation = self.localisationLbl.text;
     
     NSString *champMontant = self.montantTextField.text;
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -383,6 +405,7 @@
     [dataObject setDate:[dateFormatterActuel stringFromDate:dateActuelle]];
     [dataObject setReceipt:fraisChoisi.image];
     [dataObject setCom:fraisChoisi.commentaire];
+    [dataObject setLocalisation:fraisChoisi.localisation];
     
     // Si le type de frais est indemnités kilométriques, nous ajoutons les informations de l'indemnité créée.
     if([fraisChoisi.typeFrais.lib isEqual: @"Indemnités kilométriques"]){
@@ -453,7 +476,7 @@
     date = [dateFormatter dateFromString:self.dateTexte.text];
     
     NSData *image = UIImagePNGRepresentation(self.image.image);
-    NSString *localisation;
+    NSString *localisation = self.localisationLbl.text;
     
     NSString *champMontant = self.montantTextField.text;
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -467,7 +490,7 @@
     
     NSString *typeFrais = self.typeF.titleLabel.text;
     
-    if(typeFrais != @"" && typeFrais != @"Type")
+    if(![typeFrais  isEqual: @""] && ![typeFrais  isEqual: @"Type"])
     {
         Boolean update = false;
     

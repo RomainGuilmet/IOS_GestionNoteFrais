@@ -24,6 +24,8 @@
     // On initialise l'appDelegate et le context de l'application pour le coreData.
     self->_appDelegate = [[UIApplication sharedApplication] delegate];
     context = self.appDelegate.managedObjectContext;
+    
+    self.navBar.title = @"Notifications";
 }
 
 /**
@@ -61,7 +63,7 @@
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
                                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"latest_status_id != 3"];
                                 listeFrais = [result.array filteredArrayUsingPredicate:predicate];
-                                NSString* value = [NSString stringWithFormat:@"%li",[listeFrais count]];
+                                NSString* value = [NSString stringWithFormat:@"%li",(unsigned long)[listeFrais count]];
                                 [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue: value];
                                 [self.tableView reloadData];
                             }

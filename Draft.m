@@ -27,7 +27,8 @@
                                                   @"receipt1": @"receipt",
                                                   @"details.comment": @"com",
                                                   @"details.from": @"from",
-                                                  @"details.to": @"to"
+                                                  @"details.to": @"to",
+                                                  @"details.localisation": @"localisation"
                                                   }];
     
     
