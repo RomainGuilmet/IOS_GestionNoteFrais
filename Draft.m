@@ -25,9 +25,9 @@
                                                   @"date": @"date",
                                                   @"km": @"km",
                                                   @"receipt1": @"receipt",
-                                                  @"details.3": @"com",
-                                                  @"details.4": @"from",
-                                                  @"details.5": @"to"
+                                                  @"details.comment": @"com",
+                                                  @"details.from": @"from",
+                                                  @"details.to": @"to"
                                                   }];
     
     
