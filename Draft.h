@@ -2,7 +2,7 @@
 //  Draft.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 11/05/2015.
+//  Created by Florent&Romain on 11/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -25,6 +25,11 @@
 @property (strong, nonatomic) NSString* from;
 @property (strong, nonatomic) NSString* to;
 
+/**
+ * @brief Cette fonction sert à effectuer rapidement une map RestKit pour la fonction draft.
+ * @brief Cela permet de connecter la class draft de l'application à la fonction draft de l'api.
+ * @return mapping le RKObjectMapping pour la fonction draft.
+ */
 +(RKObjectMapping*)mapping;
 
 @end

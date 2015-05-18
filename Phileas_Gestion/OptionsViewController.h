@@ -26,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *pseudoLbl;
 
 // ===== Actions =====
+/**
+ * @brief Cette fonction permet de se déconnecter.
+ * @brief Pour cela, elle supprime totalement l'utilisateur enregistré en local ainsi que ses brouillons locaux.
+ */
 - (IBAction)Deconnexion:(id)sender;
 
 @end

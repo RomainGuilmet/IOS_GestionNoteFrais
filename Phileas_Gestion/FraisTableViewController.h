@@ -2,7 +2,7 @@
 //  FraisTableViewController.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 23/04/2015.
+//  Created by Florent&Romain on 23/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -72,9 +72,25 @@
 @property (strong, nonatomic) NSDate *dateToChoose;
 
 // ===== Actions =====
+/**
+ * @brief Cette fonction permet de lancer une alerte au clic sur le bouton changerType afin de choisir le type du frais parmis la liste de tous les types.
+ */
 - (IBAction)changerType:(id)sender;
+
+/**
+ * @brief Cette fonction permet de lancer une alerte au clic sur le bouton justificatif pour choisir de prendre une photo ou de sélectionner une image dans la librairie.
+ */
 - (IBAction)choisirImage:(id)sender;
+
+/**
+ * @brief Cette fonction sert à sauvegarder le brouillon en local au clic sur le bouton saisir ou à modifier un brouillon au clic sur le bouton modifier.
+ */
 - (IBAction)saisir:(id)sender;
+
+/**
+ * @brief Cette fonction permet d'envoyer le brouillon à l'application web de phileas.
+ * @brief Cette fonction utilise le framework RestKit et la fonction draft de l'api de phileas.
+ */
 - (IBAction)envoyer:(id)sender;
 
 @end

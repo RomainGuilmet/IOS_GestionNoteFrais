@@ -2,7 +2,7 @@
 //  IndemnitesTableViewController.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 27/04/2015.
+//  Created by Florent&Romain on 27/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -56,7 +56,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *montantTextField;
 
 // ===== Actions =====
+/**
+ * @brief Cette fonction permet de lancer une alerte au clic sur le bouton choisirCylindree pour choisir le nombre de CV du véhicule.
+ */
 - (IBAction)choisirPuissance:(id)sender;
+
+/**
+ * @brief Cette fonction permet de recharger la vue au changement d'état du switch pour recalculer directement la disance et le coût de l'indemnité.
+ */
 - (IBAction)changementTypeTrajet:(id)sender;
 
 @end

@@ -46,7 +46,7 @@
  * @brief Cette fonction sert à afficher une alerte si les identifiants de l'utilisateur ne sont pas les bons.
  */
 - (void)alerteIdentifiants {
-    UIAlertView *alerte = [[UIAlertView alloc]  initWithTitle:@"Connexion impossible" message:@"Mauvais pseudo ou mot de passe" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alerte = [[UIAlertView alloc]  initWithTitle:@"Connexion impossible" message:@"Vérifiez votre connexion internet ainsi que vos identifiants." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     
     [alerte show];
 }

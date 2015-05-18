@@ -2,7 +2,7 @@
 //  Sheet.h
 //  Phileas_Gestion
 //
-//  Created by Romain on 06/05/2015.
+//  Created by Florent&Romain on 06/05/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -27,5 +27,10 @@ typedef NSNumber* status;
 @property (strong, nonatomic) NSNumber* latest_status_id;
 @property (strong, nonatomic) NSString* object;
 
+/**
+ * @brief Cette fonction permet de convertir l'id relatif à l'état d'un frais en une chaîne de caractère correspondant à cette id.
+ * @param idEtat l'identifiant relatif à l'état d'un frais
+ * @return label le nom de cet état
+ */
 - (NSString*) getLabelFromStatusId:(NSNumber*) idEtat;
 @end

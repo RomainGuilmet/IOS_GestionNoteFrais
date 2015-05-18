@@ -2,7 +2,7 @@
 //  Frais+DataModel.m
 //  Phileas_Gestion
 //
-//  Created by Romain on 22/04/2015.
+//  Created by Florent&Romain on 22/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
  * @brief Fonction permettant de créer un frais.
  * @param date la date du frais
  * @param loc la localisation de l'utilisateur
- * @param type le type de frais
+ * @param type le type de frais, ce paramètre est obligatoire
  * @param img le justificatif
  * @param montant le montant du frais
  * @param com le commentaire associé à ce frais
@@ -30,7 +30,7 @@
     Type* typeFrais = [Type selectTypeFrais:type andContext:context];
     [nouveauFrais setValue:typeFrais forKey:@"typeFrais"];
     [nouveauFrais setValue:img forKey:@"image"];
-    if(montant != NULL)
+    if(montant != nil)
     {
         [nouveauFrais setValue:montant forKey:@"montant"];
     }
@@ -48,7 +48,7 @@
  * @brief Fonction permettant de modifier un frais.
  * @param date la date du frais
  * @param loc la localisation de l'utilisateur
- * @param type le type de frais
+ * @param type le type de frais, ce paramètre est obligatoire
  * @param img le justificatif
  * @param montant le montant du frais
  * @param com le commentaire associé à ce frais

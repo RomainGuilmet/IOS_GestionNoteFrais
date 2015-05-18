@@ -2,7 +2,7 @@
 //  FraisTableViewController.m
 //  Phileas_Gestion
 //
-//  Created by Romain on 23/04/2015.
+//  Created by Florent&Romain on 23/04/2015.
 //  Copyright (c) 2015 Florent&Romain. All rights reserved.
 //
 
@@ -87,6 +87,19 @@
         
     }
     
+    // Nous initialisons le datePicker permettant de choisir la date.
+    self.pickerViewDate = [[UIDatePicker alloc] init];
+    self.pickerViewDate.datePickerMode = UIDatePickerModeDate;
+    [self.pickerViewDate addTarget:self action:@selector(changerDeDate:) forControlEvents:UIControlEventValueChanged];
+    [self.dateTexte setInputView:self.pickerViewDate];
+}
+
+/**
+ * @brief Cette fonction est appelée quand la vue apparaît.
+ */
+- (void) viewDidAppear:(BOOL)animated
+{
+    
     // Nous récupérons les coordonnées gps de l'appareil.
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager locationServicesEnabled])
@@ -107,19 +120,8 @@
         
         [self.localisationLbl setText:localisation];
     }
-    
-    // Nous initialisons le datePicker permettant de choisir la date.
-    self.pickerViewDate = [[UIDatePicker alloc] init];
-    self.pickerViewDate.datePickerMode = UIDatePickerModeDate;
-    [self.pickerViewDate addTarget:self action:@selector(changerDeDate:) forControlEvents:UIControlEventValueChanged];
-    [self.dateTexte setInputView:self.pickerViewDate];
-}
 
-/**
- * @brief Cette fonction est appelée quand la vue apparaît.
- */
-- (void) viewDidAppear:(BOOL)animated
-{
+    
     if(self.fraisChoisi)
     {
         self.navBar.title = @"Modifier un frais";
@@ -465,55 +467,62 @@
     
     NSString *typeFrais = self.typeF.titleLabel.text;
     
-    Boolean update = false;
-    
-    // Si le frais existe déjà nous le modifions.
-    if(fraisChoisi)
+    if(typeFrais != @"" && typeFrais != @"Type")
     {
-        [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
-        update = true;
-    }
-    // Sinon nous en créons un nouveau
-    else
-    {
-        fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
-        [utilisateur addFraisUserObject:fraisChoisi];
-    }
+        Boolean update = false;
     
-    // Si le type du frais est une indemnité kilométrique, nous récupérons l'indemnité créée précédement et nous l'ajoutons au frais.
-    if([typeFrais isEqual: @"Indemnités kilométriques"]){
-        [fraisChoisi addIndemniteK:indemniteK];
-    }
+        // Si le frais existe déjà nous le modifions.
+        if(fraisChoisi)
+        {
+            [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+            update = true;
+        }
+        // Sinon nous en créons un nouveau
+        else
+        {
+            fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
+            [utilisateur addFraisUserObject:fraisChoisi];
+        }
     
-    // Nous sauvegardons le frais en local
-    NSError *erreur = nil;
-    if(![context save:&erreur]){
-        NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
-    }
+        // Si le type du frais est une indemnité kilométrique, nous récupérons l'indemnité créée précédement et nous l'ajoutons au frais.
+        if([typeFrais isEqual: @"Indemnités kilométriques"]){
+            [fraisChoisi addIndemniteK:indemniteK];
+        }
+    
+        // Nous sauvegardons le frais en local
+        NSError *erreur = nil;
+        if(![context save:&erreur]){
+            NSLog(@"Impossible de sauvegarder le frais ! %@ %@", erreur, [erreur localizedDescription]);
+        }
 
-    UIAlertView *alert;
-    // Si c'est une modification qui a été effectuée nous l'affichons et nous retournons à la vue précédente, la liste des brouillons.
-    if(update)
-    {
-        alert = [[UIAlertView alloc] initWithTitle:@"Modification enregistrée" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
+        UIAlertView *alert;
+        // Si c'est une modification qui a été effectuée nous l'affichons et nous retournons à la vue précédente, la liste des brouillons.
+        if(update)
+        {
+            alert = [[UIAlertView alloc] initWithTitle:@"Modification enregistrée" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
         
-        [alert show];
+            [alert show];
     
-        [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        // Si c'est un nouveau frais qui a été créé nous l'affichons et nous rechargeons une vue vierge permettant de saisir un nouveau frais.
+        else
+        {
+            alert = [[UIAlertView alloc] initWithTitle:@"Brouillon enregistré" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+            [alert show];
+        
+            fraisChoisi = nil;
+        
+            [self viewDidLoad];
+        }
     }
-    // Si c'est un nouveau frais qui a été créé nous l'affichons et nous rechargeons une vue vierge permettant de saisir un nouveau frais.
     else
     {
-        alert = [[UIAlertView alloc] initWithTitle:@"Brouillon enregistré" message:@"Votre brouillon vient d'être sauvegardé en local." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Impossible de sauvegarder" message:@"Veuillez vérifier que vous avez choisi un type." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
-        
-        fraisChoisi = nil;
-        
-        [self viewDidLoad];
     }
-    
-   
 }
 
 /**

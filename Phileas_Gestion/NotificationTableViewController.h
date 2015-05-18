@@ -28,6 +28,4 @@
  */
 @property (strong, nonatomic) NSArray* listeFrais;
 
-// ===== Actions =====
-- (void) loadFrais;
 @end

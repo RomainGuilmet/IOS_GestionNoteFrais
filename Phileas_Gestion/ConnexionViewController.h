@@ -27,6 +27,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *mdpTextField;
 
 // ===== Actions =====
+/**
+ * @brief Cette fonction sert à se connecter à l'application.
+ * @brief Pour cela, il faut être connecté à internet et au moyen de la fonction user de l'api nous allons vérifier que les identifiants fourni correspondent à ceux d'un utilisateur enregistré sur l'application web.
+ */
 - (IBAction)Connexion:(id)sender;
 
 @end
