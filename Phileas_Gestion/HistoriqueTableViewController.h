@@ -25,4 +25,10 @@
 // ===== Outlets =====
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
+// ===== Methods =====
+/**
+ * @brief Cette fonction permet de charger la liste des brouillons enregistrés dans le coreData.
+ */
+- (void) chargerListeFrais;
+
 @end

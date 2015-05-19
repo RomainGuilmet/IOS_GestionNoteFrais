@@ -32,4 +32,15 @@
 // ===== Outlets =====
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
+// ===== Methods =====
+/**
+ * @brief Cette fonction sert à charger tous les frais disponible sur l'application web.
+ * @brief Elle utilise la class sheet et la fonction sheet de l'api.
+ */
+- (void) loadFrais;
+
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
+- (void) chargerUtilisateur;
 @end

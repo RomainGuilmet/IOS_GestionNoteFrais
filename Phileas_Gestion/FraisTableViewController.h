@@ -96,7 +96,34 @@
  * @brief Cette fonction utilise le framework RestKit et la fonction draft de l'api de phileas.
  */
 - (IBAction)envoyer:(id)sender;
+
+// ===== Methods =====
+/**
+ * @brief Cette fonction sert à récupérer les différents types de frais possibles depuis la BD phileas et à les stocker sur l'appareil.
+ * @brief Les types de frais sont créés uniquement s'il n'existe pas déjà sur l'appareil, donc au premier lancement de l'application.
+ */
+- (void)creerTypesFrais;
+
+/**
+ * @brief Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l'appareil.
+ * @brief Les barèmes kilométriques sont créés uniquement s'il n'existe pas déjà sur l'appareil, donc au premier lancement de l'application.
+ * @brief Il sera nécessaire de modifier les différents chiffres chaque année.
+ */
+- (void)creerBaremesAuto;
+
+/**
+ * @brief Cette fonction permet de charger depuis le coreData tous les types de frais existant.
+ */
+- (void)chargerListeTypesFrais;
+
+/**
+ * @brief Cette fonction permet de changer la date du frais après l'avoir sélectionnée dans un datePicker.
+ */
+-(void)changerDeDate:(UIDatePicker *)sender;
+
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
+- (void) chargerUtilisateur;
+
 @end
-
-
-//Microphone à ajouter

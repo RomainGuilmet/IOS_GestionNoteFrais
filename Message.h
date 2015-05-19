@@ -11,8 +11,8 @@
 @interface Message : NSObject
 
 /**
- * Classe servant à la communication avec l'api Phileas via RestKit.
- * Cette classe seret à récupérer les messages via la commande message.
+ * @brief Classe servant à la communication avec l'api Phileas via RestKit.
+ * @brief Cette classe seret à récupérer les messages via la commande message.
  */
 
 @property (strong, nonatomic) NSString* message_title;

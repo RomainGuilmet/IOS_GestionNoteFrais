@@ -33,4 +33,15 @@
  */
 - (IBAction)Connexion:(id)sender;
 
+// ===== Methods =====
+/**
+ * @brief Cette fonction permet de sauvegarder l'utilisateur qui vient de se connecter dans le coreData afin qu'il reste connecté.
+ */
+- (void)SauverUtilisateur;
+
+/**
+ * @brief Cette fonction sert à afficher une alerte si les identifiants de l'utilisateur ne sont pas les bons.
+ */
+- (void)alerteIdentifiants;
+
 @end

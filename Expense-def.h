@@ -10,8 +10,8 @@
 #import <RestKit/RestKit.h>
 
 /**
- * Classe servant à la communication avec l'api Phileas via RestKit.
- * Cette classe seret à récupérer les type de frais via la commande expense-def.
+ * @brief Classe servant à la communication avec l'api Phileas via RestKit.
+ * @brief Cette classe seret à récupérer les type de frais via la commande expense-def.
  */
 
 @interface Expense_def : NSObject

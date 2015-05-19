@@ -10,8 +10,8 @@
 #import <RestKit/RestKit.h>
 
 /**
- * Classe servant à la communication avec l'api Phileas via RestKit.
- * Cette classe sert à envoyer des données relatives à un frais via la commande draft.
+ * @brief Classe servant à la communication avec l'api Phileas via RestKit.
+ * @brief Cette classe sert à envoyer des données relatives à un frais via la commande draft.
  */
 
 @interface Draft : NSObject

@@ -66,4 +66,20 @@
  */
 - (IBAction)changementTypeTrajet:(id)sender;
 
+// ===== Methods =====
+/**
+ * @brief Cette fonction permet de charger la liste des barèmes automobiles enregistrés dans le coreData.
+ */
+- (void)chargementListeBaremes;
+
+/**
+ * @brief Cette fonction permet de calculer la distance entre deux emplacements géographiques.
+ */
+- (void) calculDistance;
+
+/**
+ * @brief Cette fonction permet de calculer le coût d'une indemnité kilométrique en fonction de la cylindrée et de la distance.
+ */
+- (void) calculMontant;
+
 @end
