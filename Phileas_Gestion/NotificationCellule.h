@@ -14,8 +14,8 @@
 @interface NotificationCellule : UITableViewCell
 
 // ===== Outlets =====
-@property (nonatomic, weak) IBOutlet UILabel *objectLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titreLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
-@property (nonatomic, weak) IBOutlet UILabel *statusLabel;
+@property (nonatomic, weak) IBOutlet UILabel *msgLabel;
 
 @end

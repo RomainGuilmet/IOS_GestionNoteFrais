@@ -13,6 +13,7 @@
 @synthesize context;
 @synthesize utilisateur;
 @synthesize listeFrais;
+@synthesize listeMessages;
 
 /**
  * @brief Cette fonction est appelée quand la vue est chargée par l'application.
@@ -34,7 +35,8 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     // Nous chargeons les frais d'un utilisateur
-    [self loadFrais];
+    //[self loadFrais];
+    [self loadMessages];
 }
 
 #pragma mark - methods
@@ -73,6 +75,35 @@
 
 }
 
+- (void) loadMessages
+{
+    // Nous chargeons l'utilisateur connecté.
+    [self chargerUtilisateur];
+    
+    // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
+    
+    // Nous préparons le manager avec les map RestKit de réponse pour notre objet.
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Message class]];
+    [mapping addAttributeMappingsFromArray:@[@"message_title", @"message_body", @"created"]];
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    // Nous exécutons la requête avec la fonction sheet de l'api Phileas.
+    [objectManager getObjectsAtPath:@"api/message" parameters:nil
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
+                                listeMessages = [result array];
+                                NSString* value = [NSString stringWithFormat:@"%li",(unsigned long)[listeMessages count]];
+                                [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue: value];
+                                [self.tableView reloadData];
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                
+                            }];
+}
+
 /**
  * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
  */
@@ -97,7 +128,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return listeFrais.count;
+    //return listeFrais.count;
+    return listeMessages.count;
 }
 
 /**
@@ -105,12 +137,18 @@
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Sheet *sheet = listeFrais[indexPath.row];
+    //Sheet *sheet = listeFrais[indexPath.row];
+    Message *msg = listeMessages[indexPath.row];
     NotificationCellule *cell = [tableView dequeueReusableCellWithIdentifier:@"liste" forIndexPath:indexPath];
 
-    cell.objectLabel.text = sheet.object;
+    /*cell.objectLabel.text = sheet.object;
     cell.dateLabel.text = [NSString stringWithFormat:@"%@", sheet.creation_date];
-    cell.statusLabel.text = [NSString stringWithFormat:@"%@", [sheet getLabelFromStatusId:sheet.latest_status_id]];
+    cell.statusLabel.text = [NSString stringWithFormat:@"%@", [sheet getLabelFromStatusId:sheet.latest_status_id]];*/
+    
+    cell.titreLabel.text = msg.message_title;
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@", msg.created];
+    cell.msgLabel.text = [NSString stringWithFormat:@"%@", msg.message_body];
+    
     
     return cell;
 }

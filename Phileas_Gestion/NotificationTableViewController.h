@@ -29,6 +29,11 @@
  */
 @property (strong, nonatomic) NSArray* listeFrais;
 
+/**
+ * @brief Un tableau contenant la liste des messages de l'utilisateur récupérée depuis l'application Web.
+ */
+@property (strong, nonatomic) NSArray* listeMessages;
+
 // ===== Outlets =====
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
