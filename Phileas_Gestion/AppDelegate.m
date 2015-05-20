@@ -153,4 +153,21 @@
     return false;
 }
 
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
+- (User *) chargerUtilisateur
+{
+    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
+    
+    NSError *erreur = nil;
+    NSArray *resultat = [self.managedObjectContext executeFetchRequest:requete error:&erreur];
+    if([resultat count] > 0)
+    {
+        return [resultat objectAtIndex:0];
+    }
+    return nil;
+}
+
 @end

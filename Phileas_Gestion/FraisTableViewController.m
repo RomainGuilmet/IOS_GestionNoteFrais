@@ -32,11 +32,14 @@
     context = self.appDelegate.managedObjectContext;
     
     // Nous chargeons les informations de l'utilisateur connecté.
-    [self chargerUtilisateur];
+    utilisateur = [self.appDelegate chargerUtilisateur];
+    [self compterNotifs];
     
     // Nous créons les différents types de frais et barèmes automobile (s'il n'existe pas déjà).
     [self creerTypesFrais];
     [self creerBaremesAuto];
+    
+    
     
     // Nous cachons le bouton permettant de modifier une indemnité kilométrique.
     [self.modifierIndemnite setHidden:TRUE];
@@ -320,19 +323,32 @@
 }
 
 /**
- * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ * @brief Cette fonction sert à récupérer le nombre de messages récents afin d'afficher un badge sur les notifications.
+ * @brief Elle utilise la class message et la fonction message de l'api.
  */
-- (void) chargerUtilisateur
+- (void) compterNotifs
 {
-    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
+    // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
+    NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseUrl];
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:utilisateur.pseudo password:utilisateur.mdp];
     
-    NSError *erreur = nil;
-    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
-    if([resultat count] > 0)
-    {
-        utilisateur = [resultat objectAtIndex:0];
-    }
+    // Nous préparons le manager avec les map RestKit de réponse pour notre objet.
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Message class]];
+    [mapping addAttributeMappingsFromArray:@[@"message_title", @"message_body", @"created"]];
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:nil keyPath:@"result" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
+    // Nous exécutons la requête avec la fonction sheet de l'api Phileas.
+    [objectManager getObjectsAtPath:@"api/message" parameters:nil
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *result){
+                                NSArray* listeMessages = [result array];
+                                NSString* value = [NSString stringWithFormat:@"%li",(unsigned long)[listeMessages count]];
+                                [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue: value];
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                
+                            }];
 }
 
 #pragma mark - actions
@@ -362,27 +378,9 @@
     }
     NSNumber *montant = [numberFormatter numberFromString:champMontant];
     
-    NSString *typeFrais = self.typeF.titleLabel.text;
+    Type *typeFrais = [Type selectTypeFrais:self.typeF.titleLabel.text andContext:context];
     
     Boolean update = false;
-    
-    // Nous le sauvegardons en local pour le modifier ultérieurement.
-    // Si le frais existe déjà nous le modifions.
-    if(fraisChoisi)
-    {
-        [fraisChoisi updateFrais:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
-        update = true;
-    }
-    // Sinon nous en créons un nouveau
-    else
-    {
-        fraisChoisi = [[Frais alloc] initWithDate:date localisation:localisation type:typeFrais image:image montant:montant commentaire:commentaire andContext:context];
-        [utilisateur addFraisUserObject:fraisChoisi];
-    }
-    // Si le type du frais est une indemnité kilométrique, nous récupérons l'indemnité créée précédement et nous l'ajoutons au frais.
-    if([typeFrais isEqual: @"Indemnités kilométriques"]){
-        [fraisChoisi addIndemniteK:indemniteK];
-    }
     
     // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
@@ -395,23 +393,23 @@
     [dateFormatterActuel setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 
     // Nous prépartons le montant du frais au format de l'api (nombre à virgule).
-    NSMutableString *montantFrais = [NSMutableString stringWithFormat:@"%@", fraisChoisi.montant];
+    NSMutableString *montantFrais = [NSMutableString stringWithFormat:@"%@", montant];
     [montantFrais replaceOccurrencesOfString:@"." withString:@"," options:NSLiteralSearch range: NSMakeRange(0, [montantFrais length])];
     
     // Nous préparons l'objet draft avec les informations du frais créé.
     Draft *dataObject = [[Draft alloc] init];
-    [dataObject setDef_id:fraisChoisi.typeFrais.idType];
+    [dataObject setDef_id:typeFrais.idType];
     [dataObject setAmount:montantFrais];
     [dataObject setDate:[dateFormatterActuel stringFromDate:dateActuelle]];
-    [dataObject setReceipt:fraisChoisi.image];
-    [dataObject setCom:fraisChoisi.commentaire];
-    [dataObject setLocalisation:fraisChoisi.localisation];
+    [dataObject setReceipt:image];
+    [dataObject setCom:commentaire];
+    [dataObject setLocalisation:localisation];
     
     // Si le type de frais est indemnités kilométriques, nous ajoutons les informations de l'indemnité créée.
     if([fraisChoisi.typeFrais.lib isEqual: @"Indemnités kilométriques"]){
-        [dataObject setKm:[fraisChoisi.indemniteKFrais.distance stringValue]];
-        [dataObject setFrom:fraisChoisi.indemniteKFrais.villeDepart];
-        [dataObject setTo:fraisChoisi.indemniteKFrais.villeArrivee];
+        [dataObject setKm:[indemniteK.distance stringValue]];
+        [dataObject setFrom:indemniteK.villeDepart];
+        [dataObject setTo:indemniteK.villeArrivee];
     }
     
     // Nous préparons le manager avec les map RestKit de requête et de réponse pour notre objet.
@@ -454,7 +452,7 @@
        failure:^(RKObjectRequestOperation *operation, NSError *error){
            // S'il y a eu une erreur, nous l'affichons.
            UIAlertView *alert;
-           alert = [[UIAlertView alloc] initWithTitle:@"Erreur d'envoi" message:@"Votre brouillon n'a pas pu être envoyé au serveur. \n Veuillez rééssayer." delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
+           alert = [[UIAlertView alloc] initWithTitle:@"Erreur d'envoi" message:@"Votre brouillon n'a pas pu être envoyé au serveur. \n Veuillez vérifier votre connexion à internet. \n Les champs avec une astérisques sont obligatoires. " delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
            [alert show];
        }];
     

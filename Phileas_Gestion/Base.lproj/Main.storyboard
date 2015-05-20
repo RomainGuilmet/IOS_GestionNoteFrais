@@ -1063,19 +1063,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SSs-O0-T3W" id="aqn-Et-4Rn">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="Message" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQ2-42-Cv0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="Message" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQ2-42-Cv0">
                                             <rect key="frame" x="496" y="34" width="103" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="Date" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBN-vD-5du">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="Date" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBN-vD-5du">
                                             <rect key="frame" x="496" y="8" width="103" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="Titre" text="Titre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBJ-sm-wPf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="Titre" text="Titre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBJ-sm-wPf">
                                             <rect key="frame" x="8" y="21" width="149" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="149" id="rUS-fC-ALg"/>
@@ -1111,12 +1111,12 @@
                                             <exclude reference="ePv-Hy-05Q"/>
                                             <exclude reference="pZP-O2-is7"/>
                                             <exclude reference="row-wD-U7w"/>
+                                            <exclude reference="HhA-3n-nAh"/>
+                                            <exclude reference="Skm-OY-Uov"/>
                                             <exclude reference="183-7U-Bi8"/>
                                             <exclude reference="adU-CU-T6t"/>
                                             <exclude reference="o7R-UZ-sAJ"/>
                                             <exclude reference="yTQ-Va-Wa0"/>
-                                            <exclude reference="HhA-3n-nAh"/>
-                                            <exclude reference="Skm-OY-Uov"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -1124,12 +1124,12 @@
                                             <include reference="ePv-Hy-05Q"/>
                                             <include reference="pZP-O2-is7"/>
                                             <include reference="row-wD-U7w"/>
+                                            <include reference="HhA-3n-nAh"/>
+                                            <include reference="Skm-OY-Uov"/>
                                             <include reference="183-7U-Bi8"/>
                                             <include reference="adU-CU-T6t"/>
                                             <include reference="o7R-UZ-sAJ"/>
                                             <include reference="yTQ-Va-Wa0"/>
-                                            <include reference="HhA-3n-nAh"/>
-                                            <include reference="Skm-OY-Uov"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

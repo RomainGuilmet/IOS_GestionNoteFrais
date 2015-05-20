@@ -23,7 +23,7 @@
     
     context = self.appDelegate.managedObjectContext;
     
-    [self chargerUtilisateur];
+    utilisateur = [self.appDelegate chargerUtilisateur];
     
     [self.pseudoLbl setText:utilisateur.pseudo];
 }
@@ -50,20 +50,4 @@
     }
 }
 
-#pragma mark - methods
-/**
- * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
- */
-- (void) chargerUtilisateur 
-{
-    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
-    
-    NSError *erreur = nil;
-    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
-    if([resultat count] > 0)
-    {
-        utilisateur = [resultat objectAtIndex:0];
-    }
-}
 @end

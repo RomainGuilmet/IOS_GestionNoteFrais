@@ -18,6 +18,7 @@
 #import "User+DataModel.h"
 #import "Draft.h"
 #import "Expense-def.h"
+#import "Message.h"
 
 @interface FraisTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
 
@@ -122,8 +123,9 @@
 -(void)changerDeDate:(UIDatePicker *)sender;
 
 /**
- * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ * @brief Cette fonction sert à récupérer le nombre de messages récents afin d'afficher un badge sur les notifications.
+ * @brief Elle utilise la class message et la fonction message de l'api.
  */
-- (void) chargerUtilisateur;
+- (void) compterNotifs;
 
 @end

@@ -45,7 +45,9 @@
 - (void) loadFrais;
 
 /**
- * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ * @brief Cette fonction sert à charger tous les messages récents récupérée depuis l'application web.
+ * @brief Elle utilise la class message et la fonction message de l'api.
  */
-- (void) chargerUtilisateur;
+- (void) loadMessages;
+
 @end

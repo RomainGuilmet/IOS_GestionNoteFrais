@@ -36,7 +36,7 @@
 {
     // Nous chargeons les frais d'un utilisateur
     //[self loadFrais];
-    [self loadMessages];
+    [self chargerMessages];
 }
 
 #pragma mark - methods
@@ -47,7 +47,7 @@
 - (void) loadFrais
 {
     // Nous chargeons l'utilisateur connecté.
-    [self chargerUtilisateur];
+    utilisateur = [self.appDelegate chargerUtilisateur];
 
     // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
@@ -75,10 +75,14 @@
 
 }
 
-- (void) loadMessages
+/**
+ * @brief Cette fonction sert à charger tous les messages récents récupérée depuis l'application web.
+ * @brief Elle utilise la class message et la fonction message de l'api.
+ */
+- (void) chargerMessages
 {
     // Nous chargeons l'utilisateur connecté.
-    [self chargerUtilisateur];
+    utilisateur = [self.appDelegate chargerUtilisateur];
     
     // Nous préparons le manager RestKit avec l'url de l'application web et les données relatives à un utilisateur.
     NSURL *baseUrl = [[NSURL alloc] initWithString:@"https://app-phileas.dpinfo.fr"];
@@ -104,21 +108,6 @@
                             }];
 }
 
-/**
- * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
- */
-- (void) chargerUtilisateur
-{
-    NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
-    
-    NSError *erreur = nil;
-    NSArray *resultat = [context executeFetchRequest:requete error:&erreur];
-    if([resultat count] > 0)
-    {
-        utilisateur = [resultat objectAtIndex:0];
-    }
-}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

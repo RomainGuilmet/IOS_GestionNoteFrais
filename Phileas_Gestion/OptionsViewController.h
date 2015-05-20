@@ -32,9 +32,4 @@
  */
 - (IBAction)Deconnexion:(id)sender;
 
-// ===== Methods =====
-/**
- * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
- */
-- (void) chargerUtilisateur;
 @end

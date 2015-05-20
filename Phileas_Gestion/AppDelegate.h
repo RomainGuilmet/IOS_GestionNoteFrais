@@ -22,6 +22,10 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+/**
+ * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ */
+- (User *) chargerUtilisateur;
 
 @end
 
