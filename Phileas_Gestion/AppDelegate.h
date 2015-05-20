@@ -31,6 +31,7 @@
 
 /**
  * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
+ * @return l'utilisateur connecté
  */
 - (User *) chargerUtilisateur;
 
