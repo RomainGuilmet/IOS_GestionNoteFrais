@@ -11,3 +11,9 @@
 *.pbxproj
 
 *.xcbkptlist
+
+config
+
+*.html
+
+*.png
