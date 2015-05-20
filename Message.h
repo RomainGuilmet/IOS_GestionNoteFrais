@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Message : NSObject
-
 /**
  * @brief Classe servant à la communication avec l'api Phileas via RestKit.
  * @brief Cette classe seret à récupérer les messages via la commande message.
  */
+
+@interface Message : NSObject
 
 @property (strong, nonatomic) NSString* message_title;
 @property (strong, nonatomic) NSString* message_body;
