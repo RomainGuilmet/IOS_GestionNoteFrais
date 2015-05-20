@@ -12,7 +12,7 @@
 #import "FraisTableViewController.h"
 #import "User+DataModel.h"
 
-@interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface HistoriqueTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
 
 // ===== AppDelegate et context pour le CoreData =====
 @property (weak, nonatomic) AppDelegate* appDelegate;
@@ -24,6 +24,14 @@
 
 // ===== Outlets =====
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editerBouton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *annulerBouton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *supprimerBouton;
+
+// ===== Actions =====
+- (IBAction)editer:(id)sender;
+- (IBAction)annuler:(id)sender;
+- (IBAction)supprimer:(id)sender;
 
 // ===== Methods =====
 /**

@@ -43,9 +43,6 @@
     
     // Nous allouons les variables strong qui seront passé par pointeur avec le prepareForSegue.
     self.montant = [[NSMutableString alloc] init];
-    NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"IndemniteK" inManagedObjectContext:context];
-    indemniteK = [[IndemniteK alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
-    
     [self.montant setString:@"0"];
     
     // Nous initialisons la fonction permettant de cacher le clavier.
@@ -149,6 +146,9 @@
             
             // Si le type choisi est indemnités kilométriques nous chargons le controller indemnites (comme ci nous avions cliqué sur le bouton modifier c.f. prepareForSegue plus bas).
             if([[alertView buttonTitleAtIndex:buttonIndex]  isEqual: @"Indemnités kilométriques"]){
+                NSEntityDescription *entiteDesc = [NSEntityDescription entityForName:@"IndemniteK" inManagedObjectContext:context];
+                indemniteK = [[IndemniteK alloc] initWithEntity:entiteDesc insertIntoManagedObjectContext:context];
+                
                 IndemnitesTableViewController* controllerDestination = [self.storyboard instantiateViewControllerWithIdentifier:@"indemnites"];
                 [controllerDestination setMontant:self.montant];
                 [controllerDestination setIndemniteK:indemniteK];

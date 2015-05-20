@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZP2-Y6-vdH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZP2-Y6-vdH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -84,7 +84,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ1-cX-pgr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date* :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ1-cX-pgr">
                                                     <rect key="frame" x="8" y="11" width="51" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="51" id="HUV-xQ-nSZ"/>
@@ -243,7 +243,7 @@
                                                         <action selector="changerType:" destination="QjB-Ui-bxh" eventType="touchUpInside" id="5r0-L5-GD5"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Type de frais :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-Mk-kVJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Type de frais* :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRU-Mk-kVJ">
                                                     <rect key="frame" x="8" y="13" width="101" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="101" id="2rd-P6-mBh">
@@ -410,7 +410,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XC6-jU-D5x" id="MWS-RF-8EV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Montant :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG4-FG-N9f">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Montant* :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG4-FG-N9f">
                                                     <rect key="frame" x="8" y="13" width="70" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="Zw3-NW-172"/>
@@ -964,8 +964,8 @@
                                     <action selector="Connexion:" destination="Mw9-DG-k0h" eventType="touchUpInside" id="xoQ-qy-kFm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pseudo :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-Bd-IIm">
-                                <rect key="frame" x="16" y="194" width="68" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Identifiant :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-Bd-IIm">
+                                <rect key="frame" x="16" y="194" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1030,7 +1030,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayn-hg-tvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2743.5" y="1106"/>
+            <point key="canvasLocation" x="-2744" y="1106"/>
         </scene>
         <!--Règlages-->
         <scene sceneID="5pS-P9-Pep">
@@ -1135,7 +1135,7 @@
         <scene sceneID="a60-aX-kPy">
             <objects>
                 <tableViewController id="r3A-OY-rQf" customClass="HistoriqueTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ft2-hR-BBs">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ft2-hR-BBs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -1153,9 +1153,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="QjB-Ui-bxh" kind="show" identifier="modifierFrais" id="fIs-Ba-bQm"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1165,10 +1162,29 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="VLY-jZ-bth"/>
                     <connections>
+                        <outlet property="annulerBouton" destination="C7m-Fy-2q4" id="lfG-R7-WGS"/>
+                        <outlet property="editerBouton" destination="Mr1-Pg-OLk" id="1Kr-Mx-dyI"/>
                         <outlet property="navBar" destination="VLY-jZ-bth" id="EaO-54-xDw"/>
+                        <outlet property="supprimerBouton" destination="SHm-RY-kew" id="HRR-v5-X16"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrP-wp-bG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="edit" id="Mr1-Pg-OLk">
+                    <connections>
+                        <action selector="editer:" destination="r3A-OY-rQf" id="hsK-XU-NXb"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="cancel" id="C7m-Fy-2q4">
+                    <connections>
+                        <action selector="annuler:" destination="r3A-OY-rQf" id="GFc-Nt-d3l"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Supprimer" id="SHm-RY-kew">
+                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="supprimer:" destination="r3A-OY-rQf" id="qYF-Ey-jkJ"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="-483" y="1106"/>
         </scene>
@@ -1181,7 +1197,6 @@
         <image name="reglages" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fIs-Ba-bQm"/>
         <segue reference="7TU-Ed-Ken"/>
     </inferredMetricsTieBreakers>
 </document>

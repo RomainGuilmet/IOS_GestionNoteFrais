@@ -54,7 +54,7 @@
 /**
  * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
  */
-- (void) chargerUtilisateur
+- (void) chargerUtilisateur 
 {
     NSFetchRequest *requete = [[NSFetchRequest alloc] initWithEntityName:@"User"];
     [requete setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"pseudo" ascending:NO]]];
