@@ -23,6 +23,13 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 /**
+ * @brief Cette fonction permet de savoir si un utilisateur est déjà connecté.
+ * @brief Si un utilisateur est sauvé en local alors nous considérons qu'il est connecté et l'application passera la page de connexion.
+ * @return true si un utilisateur existe, false sinon.
+ */
+- (BOOL) estConnecte;
+
+/**
  * @brief Cette fonction permet de charger les informations concernant l'utilisateur connecté.
  */
 - (User *) chargerUtilisateur;

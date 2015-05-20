@@ -48,6 +48,6 @@
  * @brief Cette fonction sert à charger tous les messages récents récupérée depuis l'application web.
  * @brief Elle utilise la class message et la fonction message de l'api.
  */
-- (void) loadMessages;
+- (void) chargerMessages;
 
 @end
