@@ -1,0 +1,82 @@
+\hypertarget{category_bareme_auto_07_data_model_08}{}\section{Référence de la catégorie Bareme\+Auto(Data\+Model)}
+\label{category_bareme_auto_07_data_model_08}\index{Bareme\+Auto(\+Data\+Model)@{Bareme\+Auto(\+Data\+Model)}}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+(void) -\/ \hyperlink{category_bareme_auto_07_data_model_08_a34905aa0136303afc3abde9c3978fc11}{init\+With\+Name\+:tranche\+Basse\+:tranche\+Moyenne\+:tranche\+Haute\+:fixe\+:and\+Context\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant de créer un barème automobile servant pour calculer les indemnitès kilométriques. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Méthodes de classe}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_bareme_auto}{Bareme\+Auto} $\ast$) + \hyperlink{category_bareme_auto_07_data_model_08_ae513644bd10af97e9f20f567d8b8d3de}{select\+Bareme\+Auto\+:and\+Context\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant de sélectionner un barème automobile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des méthodes}
+\hypertarget{category_bareme_auto_07_data_model_08_a34905aa0136303afc3abde9c3978fc11}{}\index{Bareme\+Auto(\+Data\+Model)@{Bareme\+Auto(\+Data\+Model)}!init\+With\+Name\+:tranche\+Basse\+:tranche\+Moyenne\+:tranche\+Haute\+:fixe\+:and\+Context\+:@{init\+With\+Name\+:tranche\+Basse\+:tranche\+Moyenne\+:tranche\+Haute\+:fixe\+:and\+Context\+:}}
+\index{init\+With\+Name\+:tranche\+Basse\+:tranche\+Moyenne\+:tranche\+Haute\+:fixe\+:and\+Context\+:@{init\+With\+Name\+:tranche\+Basse\+:tranche\+Moyenne\+:tranche\+Haute\+:fixe\+:and\+Context\+:}!Bareme\+Auto(\+Data\+Model)@{Bareme\+Auto(\+Data\+Model)}}
+\subsubsection[{init\+With\+Name\+:tranche\+Basse\+:tranche\+Moyenne\+:tranche\+Haute\+:fixe\+:and\+Context\+:(\+N\+S\+String $\ast$cylindre,[tranche\+Basse] N\+S\+Number $\ast$basse,[tranche\+Moyenne] N\+S\+Number $\ast$moyenne,[tranche\+Haute] N\+S\+Number $\ast$haute,[fixe] N\+S\+Number $\ast$fixe,[and\+Context] N\+S\+Managed\+Object\+Context $\ast$context)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) init\+With\+Name\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String$\ast$)}]{cylindre}
+\item[{trancheBasse:(N\+S\+Number$\ast$)}]{basse}
+\item[{trancheMoyenne:(N\+S\+Number$\ast$)}]{moyenne}
+\item[{trancheHaute:(N\+S\+Number$\ast$)}]{haute}
+\item[{fixe:(N\+S\+Number$\ast$)}]{fixe}
+\item[{andContext:(N\+S\+Managed\+Object\+Context$\ast$)}]{context}
+\end{DoxyParamCaption}
+}\label{category_bareme_auto_07_data_model_08_a34905aa0136303afc3abde9c3978fc11}
+
+
+Fonction permettant de créer un barème automobile servant pour calculer les indemnitès kilométriques. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cylindre} & le nombre de C\+V du véhicule \\
+\hline
+{\em basse} & la tranche basse du barème pour ce nombre de C\+V, i.\+e le nombre de km parcouru $<$ 5000 \\
+\hline
+{\em moyenne} & la tranche moyenne du barème pour ce nombre de C\+V, i.\+e le nombre de km parcouru compris entre 5000 et 20000 \\
+\hline
+{\em haute} & la tranche haute du barème pour ce nombre de C\+V, i.\+e le nombre de km parcouru $>$ 20000 \\
+\hline
+{\em fixe} & la part fixe de l\textquotesingle{}indemnitè pour ce nombre de C\+V pour la tranche moyenne \\
+\hline
+{\em context} & le contexte de l\textquotesingle{}application (pour sauvegarder en local) \\
+\hline
+\end{DoxyParams}
+
+
+Dérive la classe \hyperlink{interface_bareme_auto_a34905aa0136303afc3abde9c3978fc11}{Bareme\+Auto}.
+
+\hypertarget{category_bareme_auto_07_data_model_08_ae513644bd10af97e9f20f567d8b8d3de}{}\index{Bareme\+Auto(\+Data\+Model)@{Bareme\+Auto(\+Data\+Model)}!select\+Bareme\+Auto\+:and\+Context\+:@{select\+Bareme\+Auto\+:and\+Context\+:}}
+\index{select\+Bareme\+Auto\+:and\+Context\+:@{select\+Bareme\+Auto\+:and\+Context\+:}!Bareme\+Auto(\+Data\+Model)@{Bareme\+Auto(\+Data\+Model)}}
+\subsubsection[{select\+Bareme\+Auto\+:and\+Context\+:(\+N\+S\+String $\ast$cylindre,[and\+Context] N\+S\+Managed\+Object\+Context $\ast$context)}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Bareme\+Auto} $\ast$) select\+Bareme\+Auto\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String$\ast$)}]{cylindre}
+\item[{andContext:(N\+S\+Managed\+Object\+Context$\ast$)}]{context}
+\end{DoxyParamCaption}
+}\label{category_bareme_auto_07_data_model_08_ae513644bd10af97e9f20f567d8b8d3de}
+
+
+Fonction permettant de sélectionner un barème automobile. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cylindre} & le nombre de C\+V du véhicule \\
+\hline
+{\em context} & le contexte de l\textquotesingle{}application (pour sauvegarder en local) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le barème automobile correspondant à cette cylindrée 
+\end{DoxyReturn}
+
+
+Dérive la classe \hyperlink{interface_bareme_auto_ae513644bd10af97e9f20f567d8b8d3de}{Bareme\+Auto}.
+
+
+
+La documentation de cette catégorie a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Bareme\+Auto+\+Data\+Model.\+h\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Bareme\+Auto+\+Data\+Model.\+m\end{DoxyCompactItemize}

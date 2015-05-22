@@ -1,0 +1,156 @@
+\hypertarget{interface_frais_table_view_controller}{}\section{Référence de la classe Frais\+Table\+View\+Controller}
+\label{interface_frais_table_view_controller}\index{Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}}
+Graphe d\textquotesingle{}héritage de Frais\+Table\+View\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.768176cm]{interface_frais_table_view_controller}
+\end{center}
+\end{figure}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_frais_table_view_controller_a9e9503cbeb176649f71acbbb972c957b}{}(I\+B\+Action) -\/ \hyperlink{interface_frais_table_view_controller_a9e9503cbeb176649f71acbbb972c957b}{changer\+Type\+:}\label{interface_frais_table_view_controller_a9e9503cbeb176649f71acbbb972c957b}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de lancer une alerte au clic sur le bouton changer\+Type afin de choisir le type du frais parmis la liste de tous les types. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a786b7f79469b7053e7945f48b54a6995}{}(I\+B\+Action) -\/ \hyperlink{interface_frais_table_view_controller_a786b7f79469b7053e7945f48b54a6995}{choisir\+Image\+:}\label{interface_frais_table_view_controller_a786b7f79469b7053e7945f48b54a6995}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de lancer une alerte au clic sur le bouton justificatif pour choisir de prendre une photo ou de sélectionner une image dans la librairie. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_aea8b4b64f0ac4d5b9ff0b0639984e454}{}(I\+B\+Action) -\/ \hyperlink{interface_frais_table_view_controller_aea8b4b64f0ac4d5b9ff0b0639984e454}{saisir\+:}\label{interface_frais_table_view_controller_aea8b4b64f0ac4d5b9ff0b0639984e454}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à sauvegarder le brouillon en local au clic sur le bouton saisir ou à modifier un brouillon au clic sur le bouton modifier. \end{DoxyCompactList}\item 
+(I\+B\+Action) -\/ \hyperlink{interface_frais_table_view_controller_abc98906544c206fd4e0d95985c5311e6}{envoyer\+:}
+\begin{DoxyCompactList}\small\item\em Cette fonction permet d\textquotesingle{}envoyer le brouillon à l\textquotesingle{}application web de phileas. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{interface_frais_table_view_controller_ad99824daa7ac44e459ef385c4cac69ef}{creer\+Types\+Frais}
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à récupérer les différents types de frais possibles depuis la B\+D phileas et à les stocker sur l\textquotesingle{}appareil. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{interface_frais_table_view_controller_a2f40e61c1e197bfefc2d6d7482255ac7}{creer\+Baremes\+Auto}
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l\textquotesingle{}appareil. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_acc1bac7eaa03824cda75c83d1e2eed5c}{}(void) -\/ \hyperlink{interface_frais_table_view_controller_acc1bac7eaa03824cda75c83d1e2eed5c}{charger\+Liste\+Types\+Frais}\label{interface_frais_table_view_controller_acc1bac7eaa03824cda75c83d1e2eed5c}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de charger depuis le core\+Data tous les types de frais existant. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a153c4b8a9c89021c55e531528e8551d2}{}(void) -\/ \hyperlink{interface_frais_table_view_controller_a153c4b8a9c89021c55e531528e8551d2}{changer\+De\+Date\+:}\label{interface_frais_table_view_controller_a153c4b8a9c89021c55e531528e8551d2}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de changer la date du frais après l\textquotesingle{}avoir sélectionnée dans un date\+Picker. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{interface_frais_table_view_controller_a4678c45c6f34c58900f35ccb2f60f6e5}{compter\+Notifs}
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à récupérer le nombre de messages récents afin d\textquotesingle{}afficher un badge sur les notifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_frais_table_view_controller_a45129fa58165e5321ea8225c198052cc}{}\hyperlink{interface_app_delegate}{App\+Delegate} $\ast$ {\bfseries app\+Delegate}\label{interface_frais_table_view_controller_a45129fa58165e5321ea8225c198052cc}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_accd04bb561ade993f078b367bb024514}{}N\+S\+Managed\+Object\+Context $\ast$ {\bfseries context}\label{interface_frais_table_view_controller_accd04bb561ade993f078b367bb024514}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a74c61c733ac4c59a9bde39288dfd66d1}{}C\+L\+Location\+Manager $\ast$ {\bfseries location\+Manager}\label{interface_frais_table_view_controller_a74c61c733ac4c59a9bde39288dfd66d1}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_aec19cb6bbfef2a41d47b8e80fe070bf6}{}C\+L\+Geocoder $\ast$ {\bfseries geocoder}\label{interface_frais_table_view_controller_aec19cb6bbfef2a41d47b8e80fe070bf6}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_ae796b88ef4e0a43d50581701fc1c82ca}{}C\+L\+Placemark $\ast$ {\bfseries placemark}\label{interface_frais_table_view_controller_ae796b88ef4e0a43d50581701fc1c82ca}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_ab93aa06fed5d979a294947c05ecd9b08}{}N\+S\+Array $\ast$ \hyperlink{interface_frais_table_view_controller_ab93aa06fed5d979a294947c05ecd9b08}{liste\+Type}\label{interface_frais_table_view_controller_ab93aa06fed5d979a294947c05ecd9b08}
+
+\begin{DoxyCompactList}\small\item\em Un tableau qui va contenir la liste des type de frais. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a9249b11df9a6ccd85769be4eca0dd11b}{}N\+S\+Mutable\+String $\ast$ \hyperlink{interface_frais_table_view_controller_a9249b11df9a6ccd85769be4eca0dd11b}{montant}\label{interface_frais_table_view_controller_a9249b11df9a6ccd85769be4eca0dd11b}
+
+\begin{DoxyCompactList}\small\item\em Une chaîne de caractère contenant le montant du frais. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a9ba5a1442223405d6f3cd9238c44f3b9}{}\hyperlink{interface_indemnite_k}{Indemnite\+K} $\ast$ \hyperlink{interface_frais_table_view_controller_a9ba5a1442223405d6f3cd9238c44f3b9}{indemnite\+K}\label{interface_frais_table_view_controller_a9ba5a1442223405d6f3cd9238c44f3b9}
+
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}indemnité kilomètrique du frais si elle existe. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a3497c33fbbbb86a57f718102b926ead0}{}\hyperlink{interface_frais}{Frais} $\ast$ \hyperlink{interface_frais_table_view_controller_a3497c33fbbbb86a57f718102b926ead0}{frais\+Choisi}\label{interface_frais_table_view_controller_a3497c33fbbbb86a57f718102b926ead0}
+
+\begin{DoxyCompactList}\small\item\em Le frais qui va être créé ou modifié. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a42b5274fc3e34b65e3a20ed1786d192c}{}\hyperlink{interface_user}{User} $\ast$ \hyperlink{interface_frais_table_view_controller_a42b5274fc3e34b65e3a20ed1786d192c}{utilisateur}\label{interface_frais_table_view_controller_a42b5274fc3e34b65e3a20ed1786d192c}
+
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}utilisateur connecté. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a31481e8ca9a4d1390a8c7958dbd92e66}{}N\+S\+Array $\ast$ \hyperlink{interface_frais_table_view_controller_a31481e8ca9a4d1390a8c7958dbd92e66}{liste\+Expense\+Def}\label{interface_frais_table_view_controller_a31481e8ca9a4d1390a8c7958dbd92e66}
+
+\begin{DoxyCompactList}\small\item\em Un tableau qui va contenir la liste des expense-\/def récupérée depuis la B\+D. \end{DoxyCompactList}\item 
+\hypertarget{interface_frais_table_view_controller_a4a9ca8bd973d213593dc130d48d80d11}{}I\+B\+Outlet U\+I\+Navigation\+Item $\ast$ {\bfseries nav\+Bar}\label{interface_frais_table_view_controller_a4a9ca8bd973d213593dc130d48d80d11}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a9b1926822abe899274de29db9331fede}{}I\+B\+Outlet U\+I\+Text\+Field $\ast$ {\bfseries date\+Texte}\label{interface_frais_table_view_controller_a9b1926822abe899274de29db9331fede}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a9669d4fbcb81a093dd08e42a03cb0e91}{}I\+B\+Outlet U\+I\+Label $\ast$ {\bfseries localisation\+Lbl}\label{interface_frais_table_view_controller_a9669d4fbcb81a093dd08e42a03cb0e91}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a30afe25eaf862d745dc5f125e09f5f4c}{}I\+B\+Outlet U\+I\+Button $\ast$ {\bfseries type\+F}\label{interface_frais_table_view_controller_a30afe25eaf862d745dc5f125e09f5f4c}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a1c4c4c67620651cf7b82f1a7b8484ab4}{}I\+B\+Outlet U\+I\+Text\+Field $\ast$ {\bfseries montant\+Text\+Field}\label{interface_frais_table_view_controller_a1c4c4c67620651cf7b82f1a7b8484ab4}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a5c82dfb37586d71b484cff5b246e1492}{}I\+B\+Outlet U\+I\+Button $\ast$ {\bfseries modifier\+Indemnite}\label{interface_frais_table_view_controller_a5c82dfb37586d71b484cff5b246e1492}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a8c9bc57dc62376039c9ea0c015ce04a4}{}I\+B\+Outlet U\+I\+Text\+View $\ast$ {\bfseries com\+Text\+Area}\label{interface_frais_table_view_controller_a8c9bc57dc62376039c9ea0c015ce04a4}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a38743d270441cee133b3bdc0baa084cf}{}I\+B\+Outlet U\+I\+Image\+View $\ast$ {\bfseries image}\label{interface_frais_table_view_controller_a38743d270441cee133b3bdc0baa084cf}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_aea4bcfb258af7a9275a9ab2e7da0060f}{}I\+B\+Outlet U\+I\+Button $\ast$ {\bfseries saisir\+Button}\label{interface_frais_table_view_controller_aea4bcfb258af7a9275a9ab2e7da0060f}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_a0c02e0172da3771d00e57dc213533a4f}{}U\+I\+Date\+Picker $\ast$ {\bfseries picker\+View\+Date}\label{interface_frais_table_view_controller_a0c02e0172da3771d00e57dc213533a4f}
+
+\item 
+\hypertarget{interface_frais_table_view_controller_aa47471375607bf77b06ca152de46397c}{}N\+S\+Date $\ast$ {\bfseries date\+To\+Choose}\label{interface_frais_table_view_controller_aa47471375607bf77b06ca152de46397c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des méthodes}
+\hypertarget{interface_frais_table_view_controller_a4678c45c6f34c58900f35ccb2f60f6e5}{}\index{Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}!compter\+Notifs@{compter\+Notifs}}
+\index{compter\+Notifs@{compter\+Notifs}!Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}}
+\subsubsection[{compter\+Notifs()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) compter\+Notifs 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_frais_table_view_controller_a4678c45c6f34c58900f35ccb2f60f6e5}
+
+
+Cette fonction sert à récupérer le nombre de messages récents afin d\textquotesingle{}afficher un badge sur les notifications. 
+
+Elle utilise la class message et la fonction message de l\textquotesingle{}api. \hypertarget{interface_frais_table_view_controller_a2f40e61c1e197bfefc2d6d7482255ac7}{}\index{Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}!creer\+Baremes\+Auto@{creer\+Baremes\+Auto}}
+\index{creer\+Baremes\+Auto@{creer\+Baremes\+Auto}!Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}}
+\subsubsection[{creer\+Baremes\+Auto()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) creer\+Baremes\+Auto 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_frais_table_view_controller_a2f40e61c1e197bfefc2d6d7482255ac7}
+
+
+Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l\textquotesingle{}appareil. 
+
+Les barèmes kilométriques sont créés uniquement s\textquotesingle{}il n\textquotesingle{}existe pas déjà sur l\textquotesingle{}appareil, donc au premier lancement de l\textquotesingle{}application. Il sera nécessaire de modifier les différents chiffres chaque année. \hypertarget{interface_frais_table_view_controller_ad99824daa7ac44e459ef385c4cac69ef}{}\index{Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}!creer\+Types\+Frais@{creer\+Types\+Frais}}
+\index{creer\+Types\+Frais@{creer\+Types\+Frais}!Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}}
+\subsubsection[{creer\+Types\+Frais()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) creer\+Types\+Frais 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_frais_table_view_controller_ad99824daa7ac44e459ef385c4cac69ef}
+
+
+Cette fonction sert à récupérer les différents types de frais possibles depuis la B\+D phileas et à les stocker sur l\textquotesingle{}appareil. 
+
+Les types de frais sont créés uniquement s\textquotesingle{}il n\textquotesingle{}existe pas déjà sur l\textquotesingle{}appareil, donc au premier lancement de l\textquotesingle{}application. \hypertarget{interface_frais_table_view_controller_abc98906544c206fd4e0d95985c5311e6}{}\index{Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}!envoyer\+:@{envoyer\+:}}
+\index{envoyer\+:@{envoyer\+:}!Frais\+Table\+View\+Controller@{Frais\+Table\+View\+Controller}}
+\subsubsection[{envoyer\+:(id sender)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (I\+B\+Action) envoyer\+: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{sender}
+\end{DoxyParamCaption}
+}\label{interface_frais_table_view_controller_abc98906544c206fd4e0d95985c5311e6}
+
+
+Cette fonction permet d\textquotesingle{}envoyer le brouillon à l\textquotesingle{}application web de phileas. 
+
+Cette fonction utilise le framework Rest\+Kit et la fonction draft de l\textquotesingle{}api de phileas. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Frais\+Table\+View\+Controller.\+h\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Frais\+Table\+View\+Controller.\+m\end{DoxyCompactItemize}

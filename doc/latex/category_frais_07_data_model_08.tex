@@ -1,0 +1,119 @@
+\hypertarget{category_frais_07_data_model_08}{}\section{Référence de la catégorie Frais(Data\+Model)}
+\label{category_frais_07_data_model_08}\index{Frais(\+Data\+Model)@{Frais(\+Data\+Model)}}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_frais}{Frais} $\ast$) -\/ \hyperlink{category_frais_07_data_model_08_a29457909591bf30736c9c59d835acc50}{init\+With\+Date\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant de créer un frais. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{category_frais_07_data_model_08_ac633bc42fb134ed7386255d789d5dbd0}{update\+Frais\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant de modifier un frais. \end{DoxyCompactList}\item 
+(void) -\/ \hyperlink{category_frais_07_data_model_08_a167e8a8bc4944d05418814431c8b1928}{add\+Indemnite\+K\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}ajouter une indemnité kilomètrique à un frais (Utilisé si le frais et de type indemnité kilomètrique). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des méthodes}
+\hypertarget{category_frais_07_data_model_08_a167e8a8bc4944d05418814431c8b1928}{}\index{Frais(\+Data\+Model)@{Frais(\+Data\+Model)}!add\+Indemnite\+K\+:@{add\+Indemnite\+K\+:}}
+\index{add\+Indemnite\+K\+:@{add\+Indemnite\+K\+:}!Frais(\+Data\+Model)@{Frais(\+Data\+Model)}}
+\subsubsection[{add\+Indemnite\+K\+:(\+Indemnite\+K $\ast$indemnite)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) add\+Indemnite\+K\+: 
+\begin{DoxyParamCaption}
+\item[{({\bf Indemnite\+K}$\ast$)}]{indemnite}
+\end{DoxyParamCaption}
+}\label{category_frais_07_data_model_08_a167e8a8bc4944d05418814431c8b1928}
+
+
+Fonction permettant d\textquotesingle{}ajouter une indemnité kilomètrique à un frais (Utilisé si le frais et de type indemnité kilomètrique). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em indemnite} & une indemnité kilomètrique à ajouter au frais \\
+\hline
+\end{DoxyParams}
+
+
+Dérive la classe \hyperlink{interface_frais_a167e8a8bc4944d05418814431c8b1928}{Frais}.
+
+\hypertarget{category_frais_07_data_model_08_a29457909591bf30736c9c59d835acc50}{}\index{Frais(\+Data\+Model)@{Frais(\+Data\+Model)}!init\+With\+Date\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:@{init\+With\+Date\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:}}
+\index{init\+With\+Date\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:@{init\+With\+Date\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:}!Frais(\+Data\+Model)@{Frais(\+Data\+Model)}}
+\subsubsection[{init\+With\+Date\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:(\+N\+S\+Date $\ast$date,[localisation] N\+S\+String $\ast$loc,[type] N\+S\+String $\ast$type,[image] N\+S\+Data $\ast$img,[montant] N\+S\+Number $\ast$montant,[commentaire] N\+S\+String $\ast$com,[and\+Context] N\+S\+Managed\+Object\+Context $\ast$context)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf Frais} $\ast$) init\+With\+Date\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+Date$\ast$)}]{date}
+\item[{localisation:(N\+S\+String$\ast$)}]{loc}
+\item[{type:(N\+S\+String $\ast$)}]{type}
+\item[{image:(N\+S\+Data$\ast$)}]{img}
+\item[{montant:(N\+S\+Number$\ast$)}]{montant}
+\item[{commentaire:(N\+S\+String$\ast$)}]{com}
+\item[{andContext:(N\+S\+Managed\+Object\+Context$\ast$)}]{context}
+\end{DoxyParamCaption}
+}\label{category_frais_07_data_model_08_a29457909591bf30736c9c59d835acc50}
+
+
+Fonction permettant de créer un frais. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em date} & la date du frais \\
+\hline
+{\em loc} & la localisation de l\textquotesingle{}utilisateur \\
+\hline
+{\em type} & le type de frais, ce paramètre est obligatoire \\
+\hline
+{\em img} & le justificatif \\
+\hline
+{\em montant} & le montant du frais \\
+\hline
+{\em com} & le commentaire associé à ce frais \\
+\hline
+{\em context} & le contexte de l\textquotesingle{}application (pour sauvegarder en local) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le frais créé 
+\end{DoxyReturn}
+
+
+Dérive la classe \hyperlink{interface_frais_a29457909591bf30736c9c59d835acc50}{Frais}.
+
+\hypertarget{category_frais_07_data_model_08_ac633bc42fb134ed7386255d789d5dbd0}{}\index{Frais(\+Data\+Model)@{Frais(\+Data\+Model)}!update\+Frais\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:@{update\+Frais\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:}}
+\index{update\+Frais\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:@{update\+Frais\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:}!Frais(\+Data\+Model)@{Frais(\+Data\+Model)}}
+\subsubsection[{update\+Frais\+:localisation\+:type\+:image\+:montant\+:commentaire\+:and\+Context\+:(\+N\+S\+Date $\ast$date,[localisation] N\+S\+String $\ast$loc,[type] N\+S\+String $\ast$type,[image] N\+S\+Data $\ast$img,[montant] N\+S\+Number $\ast$montant,[commentaire] N\+S\+String $\ast$com,[and\+Context] N\+S\+Managed\+Object\+Context $\ast$context)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) update\+Frais\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+Date$\ast$)}]{date}
+\item[{localisation:(N\+S\+String$\ast$)}]{loc}
+\item[{type:(N\+S\+String $\ast$)}]{type}
+\item[{image:(N\+S\+Data$\ast$)}]{img}
+\item[{montant:(N\+S\+Number$\ast$)}]{montant}
+\item[{commentaire:(N\+S\+String$\ast$)}]{com}
+\item[{andContext:(N\+S\+Managed\+Object\+Context$\ast$)}]{context}
+\end{DoxyParamCaption}
+}\label{category_frais_07_data_model_08_ac633bc42fb134ed7386255d789d5dbd0}
+
+
+Fonction permettant de modifier un frais. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em date} & la date du frais \\
+\hline
+{\em loc} & la localisation de l\textquotesingle{}utilisateur \\
+\hline
+{\em type} & le type de frais, ce paramètre est obligatoire \\
+\hline
+{\em img} & le justificatif \\
+\hline
+{\em montant} & le montant du frais \\
+\hline
+{\em com} & le commentaire associé à ce frais \\
+\hline
+{\em context} & le contexte de l\textquotesingle{}application (pour sauvegarder en local) \\
+\hline
+\end{DoxyParams}
+
+
+Dérive la classe \hyperlink{interface_frais_ac633bc42fb134ed7386255d789d5dbd0}{Frais}.
+
+
+
+La documentation de cette catégorie a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Frais+\+Data\+Model.\+h\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Frais+\+Data\+Model.\+m\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\hypertarget{interface_sheet}{}\section{Référence de la classe Sheet}
+\label{interface_sheet}\index{Sheet@{Sheet}}
+
+
+Classe servant à la communication avec l\textquotesingle{}api Phileas via Rest\+Kit.  
+
+
+
+
+{\ttfamily \#import $<$Sheet.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Sheet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_sheet}
+\end{center}
+\end{figure}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+(N\+S\+String $\ast$) -\/ \hyperlink{interface_sheet_a0aa2541c9ca00d9c78473cf55f271a42}{get\+Label\+From\+Status\+Id\+:}
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de convertir l\textquotesingle{}id relatif à l\textquotesingle{}état d\textquotesingle{}un frais en une chaîne de caractère correspondant à cette id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Types protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_sheet_a1a7c6f48d943722212bea9c63726089d}{}typedef N\+S\+Number $\ast$ {\bfseries status}\label{interface_sheet_a1a7c6f48d943722212bea9c63726089d}
+
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_sheet_ad53acf14ae1f984fe1c58c04d2bf7dff}{}{\bfseries validated} = 2\label{interface_sheet_ad53acf14ae1f984fe1c58c04d2bf7dff}
+
+\item 
+\hypertarget{interface_sheet_a451d3e647b731db35287e7bcda70928e}{}{\bfseries rejected} = 3\label{interface_sheet_a451d3e647b731db35287e7bcda70928e}
+
+\item 
+\hypertarget{interface_sheet_ab4f2a903cb574a73e1805c210d54c096}{}{\bfseries exportable} = 4\label{interface_sheet_ab4f2a903cb574a73e1805c210d54c096}
+
+\item 
+{\bfseries draft}
+\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_sheet_aa48ba276b37be7275e3052536b09fe14}{}N\+S\+String $\ast$ {\bfseries creation\+\_\+date}\label{interface_sheet_aa48ba276b37be7275e3052536b09fe14}
+
+\item 
+\hypertarget{interface_sheet_af2e596e0a16e6af9ca165e57388df121}{}N\+S\+Number $\ast$ {\bfseries latest\+\_\+status\+\_\+id}\label{interface_sheet_af2e596e0a16e6af9ca165e57388df121}
+
+\item 
+\hypertarget{interface_sheet_a79f248377589d50814ac481de0272a3f}{}N\+S\+String $\ast$ {\bfseries object}\label{interface_sheet_a79f248377589d50814ac481de0272a3f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe servant à la communication avec l\textquotesingle{}api Phileas via Rest\+Kit. 
+
+Cette classe sert pour récupérer des données d\textquotesingle{}un frais via la commande sheet. 
+
+\subsection{Documentation des méthodes}
+\hypertarget{interface_sheet_a0aa2541c9ca00d9c78473cf55f271a42}{}\index{Sheet@{Sheet}!get\+Label\+From\+Status\+Id\+:@{get\+Label\+From\+Status\+Id\+:}}
+\index{get\+Label\+From\+Status\+Id\+:@{get\+Label\+From\+Status\+Id\+:}!Sheet@{Sheet}}
+\subsubsection[{get\+Label\+From\+Status\+Id\+:(\+N\+S\+Number $\ast$id\+Etat)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+String $\ast$) get\+Label\+From\+Status\+Id\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+Number$\ast$)}]{id\+Etat}
+\end{DoxyParamCaption}
+}\label{interface_sheet_a0aa2541c9ca00d9c78473cf55f271a42}
+
+
+Cette fonction permet de convertir l\textquotesingle{}id relatif à l\textquotesingle{}état d\textquotesingle{}un frais en une chaîne de caractère correspondant à cette id. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id\+Etat} & l\textquotesingle{}identifiant relatif à l\textquotesingle{}état d\textquotesingle{}un frais \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+label le nom de cet état 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{interface_sheet_a7f72175e656f0b6de99c2bcccb299230}{}\index{Sheet@{Sheet}!draft@{draft}}
+\index{draft@{draft}!Sheet@{Sheet}}
+\subsubsection[{draft}]{\setlength{\rightskip}{0pt plus 5cm}-\/ draft\hspace{0.3cm}{\ttfamily [protected]}}\label{interface_sheet_a7f72175e656f0b6de99c2bcccb299230}
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= 5
+\}
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/Sheet.\+h\item 
+Projet\+Indus/Sheet.\+m\end{DoxyCompactItemize}

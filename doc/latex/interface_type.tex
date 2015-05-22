@@ -1,0 +1,102 @@
+\hypertarget{interface_type}{}\section{Référence de la classe Type}
+\label{interface_type}\index{Type@{Type}}
+Graphe d\textquotesingle{}héritage de Type\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_type}
+\end{center}
+\end{figure}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_type_a4cedaf21b6d42062da5c02528f242f36}{}(void) -\/ {\bfseries add\+Frais\+Type\+Object\+:}\label{interface_type_a4cedaf21b6d42062da5c02528f242f36}
+
+\item 
+\hypertarget{interface_type_a3e6ca8ffbe4d074e0d5a0017dea982b3}{}(void) -\/ {\bfseries remove\+Frais\+Type\+Object\+:}\label{interface_type_a3e6ca8ffbe4d074e0d5a0017dea982b3}
+
+\item 
+\hypertarget{interface_type_a56ba34766482e49edff2f87f00ca09f8}{}(void) -\/ {\bfseries add\+Frais\+Type\+:}\label{interface_type_a56ba34766482e49edff2f87f00ca09f8}
+
+\item 
+\hypertarget{interface_type_a9a402f4b6a35306c879847e8bf014888}{}(void) -\/ {\bfseries remove\+Frais\+Type\+:}\label{interface_type_a9a402f4b6a35306c879847e8bf014888}
+
+\item 
+(void) -\/ \hyperlink{interface_type_a59810472b23ae4965b824699c9c67805}{init\+With\+Name\+:and\+I\+D\+:and\+Context\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant de créer un type de frais. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Méthodes de classe}
+\begin{DoxyCompactItemize}
+\item 
+(\hyperlink{interface_type}{Type} $\ast$) + \hyperlink{interface_type_a232cb2698685112a988efd035534298f}{select\+Type\+Frais\+:and\+Context\+:}
+\begin{DoxyCompactList}\small\item\em Fonction permettant de sélectionner un tyoe de frais. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_type_a158dd99be4762a0da2ff961904e76718}{}N\+S\+String $\ast$ {\bfseries lib}\label{interface_type_a158dd99be4762a0da2ff961904e76718}
+
+\item 
+\hypertarget{interface_type_af99bd6d971c4f0368d46a46f59c7c212}{}N\+S\+Number $\ast$ {\bfseries id\+Type}\label{interface_type_af99bd6d971c4f0368d46a46f59c7c212}
+
+\item 
+\hypertarget{interface_type_a61e0ca9bd4e62b328b90f100d735fdc1}{}N\+S\+Set $\ast$ {\bfseries frais\+Type}\label{interface_type_a61e0ca9bd4e62b328b90f100d735fdc1}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des méthodes}
+\hypertarget{interface_type_a59810472b23ae4965b824699c9c67805}{}\index{Type@{Type}!init\+With\+Name\+:and\+I\+D\+:and\+Context\+:@{init\+With\+Name\+:and\+I\+D\+:and\+Context\+:}}
+\index{init\+With\+Name\+:and\+I\+D\+:and\+Context\+:@{init\+With\+Name\+:and\+I\+D\+:and\+Context\+:}!Type@{Type}}
+\subsubsection[{init\+With\+Name\+:and\+I\+D\+:and\+Context\+:(\+N\+S\+String $\ast$lib,[and\+I\+D] N\+S\+Number $\ast$id\+Type,[and\+Context] N\+S\+Managed\+Object\+Context $\ast$context)}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (void) init\+With\+Name\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String$\ast$)}]{lib}
+\item[{andID:(N\+S\+Number$\ast$)}]{id\+Type}
+\item[{andContext:(N\+S\+Managed\+Object\+Context$\ast$)}]{context}
+\end{DoxyParamCaption}
+}\label{interface_type_a59810472b23ae4965b824699c9c67805}
+
+
+Fonction permettant de créer un type de frais. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lib} & le libelé du type de frais, paramètre obligatoire \\
+\hline
+{\em id\+Type} & l\textquotesingle{}id du type de frais, paramètre obligatoire \\
+\hline
+{\em context} & le contexte de l\textquotesingle{}application (pour sauvegarder en local) \\
+\hline
+\end{DoxyParams}
+
+
+Déclarée dans la catégorie \hyperlink{category_type_07_data_model_08_a59810472b23ae4965b824699c9c67805}{Type(\+Data\+Model)}.
+
+\hypertarget{interface_type_a232cb2698685112a988efd035534298f}{}\index{Type@{Type}!select\+Type\+Frais\+:and\+Context\+:@{select\+Type\+Frais\+:and\+Context\+:}}
+\index{select\+Type\+Frais\+:and\+Context\+:@{select\+Type\+Frais\+:and\+Context\+:}!Type@{Type}}
+\subsubsection[{select\+Type\+Frais\+:and\+Context\+:(\+N\+S\+String $\ast$lib,[and\+Context] N\+S\+Managed\+Object\+Context $\ast$context)}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf Type} $\ast$) select\+Type\+Frais\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String$\ast$)}]{lib}
+\item[{andContext:(N\+S\+Managed\+Object\+Context$\ast$)}]{context}
+\end{DoxyParamCaption}
+}\label{interface_type_a232cb2698685112a988efd035534298f}
+
+
+Fonction permettant de sélectionner un tyoe de frais. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lib} & le libelé du type de frais, ce paramètre est obligatoire \\
+\hline
+{\em context} & le contexte de l\textquotesingle{}application (pour sauvegarder en local) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le type de frais associé au libelé 
+\end{DoxyReturn}
+
+
+Déclarée dans la catégorie \hyperlink{category_type_07_data_model_08_a232cb2698685112a988efd035534298f}{Type(\+Data\+Model)}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Type.\+h\end{DoxyCompactItemize}

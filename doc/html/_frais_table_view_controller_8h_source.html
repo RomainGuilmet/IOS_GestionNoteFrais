@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Phileas_Gestion:  Fichier source de ProjetIndus/Phileas_Gestion/FraisTableViewController.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Phileas_Gestion
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_562e9c6c93af801fd1c652d3d235b422.html">ProjetIndus</a></li><li class="navelem"><a class="el" href="dir_588f78694c4f0687a7e64e87d9ecaaa6.html">Phileas_Gestion</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">FraisTableViewController.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  FraisTableViewController.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  Phileas_Gestion</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//  Created by Florent&amp;Romain on 23/04/2015.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2015 Florent&amp;Romain. All rights reserved.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &lt;UIKit/UIKit.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#import &lt;CoreLocation/CoreLocation.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#import &lt;MapKit/MapKit.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#import &quot;AppDelegate.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#import &quot;IndemnitesTableViewController.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#import &quot;Type+DataModel.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#import &quot;Frais+DataModel.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#import &quot;IndemniteK+DataModel.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#import &quot;BaremeAuto+DataModel.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#import &quot;User+DataModel.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#import &quot;Draft.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#import &quot;Expense-def.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#import &quot;Message.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html">   23</a></span>&#160;<span class="keyword">@interface </span><a class="code" href="interface_frais_table_view_controller.html">FraisTableViewController</a> : UITableViewController &lt;NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate&gt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// ===== AppDelegate et context pour le CoreData =====</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) <a class="code" href="interface_app_delegate.html">AppDelegate</a>* appDelegate;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) NSManagedObjectContext *context;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// ===== Variables utilisées pour la géolocalisation =====</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">@property</span> (strong, nonatomic) CLLocationManager *locationManager;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">@property</span> (strong, nonatomic) CLGeocoder *geocoder;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">@property</span> (strong, nonatomic) CLPlacemark *placemark;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// ===== Autres variables =====</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html#ab93aa06fed5d979a294947c05ecd9b08">   38</a></span>&#160;<span class="comment"></span><span class="keyword">@property</span> (strong, nonatomic) NSArray* <a class="code" href="interface_frais_table_view_controller.html#ab93aa06fed5d979a294947c05ecd9b08">listeType</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html#a9249b11df9a6ccd85769be4eca0dd11b">   43</a></span>&#160;<span class="keyword">@property</span> (strong, nonatomic) NSMutableString* <a class="code" href="interface_frais_table_view_controller.html#a9249b11df9a6ccd85769be4eca0dd11b">montant</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html#a9ba5a1442223405d6f3cd9238c44f3b9">   48</a></span>&#160;<span class="keyword">@property</span> (strong, nonatomic) <a class="code" href="interface_indemnite_k.html">IndemniteK</a>* <a class="code" href="interface_frais_table_view_controller.html#a9ba5a1442223405d6f3cd9238c44f3b9">indemniteK</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html#a3497c33fbbbb86a57f718102b926ead0">   53</a></span>&#160;<span class="keyword">@property</span> (strong, nonatomic) <a class="code" href="interface_frais.html">Frais</a>* <a class="code" href="interface_frais_table_view_controller.html#a3497c33fbbbb86a57f718102b926ead0">fraisChoisi</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html#a42b5274fc3e34b65e3a20ed1786d192c">   58</a></span>&#160;<span class="keyword">@property</span> (strong, nonatomic) <a class="code" href="interface_user.html">User</a>* <a class="code" href="interface_frais_table_view_controller.html#a42b5274fc3e34b65e3a20ed1786d192c">utilisateur</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="interface_frais_table_view_controller.html#a31481e8ca9a4d1390a8c7958dbd92e66">   63</a></span>&#160;<span class="keyword">@property</span> (strong, nonatomic) NSArray* <a class="code" href="interface_frais_table_view_controller.html#a31481e8ca9a4d1390a8c7958dbd92e66">listeExpenseDef</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// ===== Outlets =====</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UINavigationItem *navBar;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UITextField *dateTexte;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UILabel *localisationLbl;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UIButton *typeF;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UITextField *montantTextField;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">@property</span> (strong, nonatomic) IBOutlet UIButton *modifierIndemnite;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UITextView *comTextArea;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UIImageView *image;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">@property</span> (weak, nonatomic) IBOutlet UIButton *saisirButton;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">@property</span> (strong, nonatomic) UIDatePicker *pickerViewDate;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">@property</span> (strong, nonatomic) NSDate *dateToChoose;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">// ===== Actions =====</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"></span>- (IBAction)changerType:(<span class="keywordtype">id</span>)sender;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;- (IBAction)choisirImage:(<span class="keywordtype">id</span>)sender;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;- (IBAction)saisir:(<span class="keywordtype">id</span>)sender;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;- (IBAction)envoyer:(<span class="keywordtype">id</span>)sender;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">// ===== Methods =====</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"></span>- (void)<a class="code" href="interface_frais_table_view_controller.html#ad99824daa7ac44e459ef385c4cac69ef">creerTypesFrais</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;- (void)<a class="code" href="interface_frais_table_view_controller.html#a2f40e61c1e197bfefc2d6d7482255ac7">creerBaremesAuto</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;- (void)<a class="code" href="interface_frais_table_view_controller.html#acc1bac7eaa03824cda75c83d1e2eed5c">chargerListeTypesFrais</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;-(void)changerDeDate:(UIDatePicker *)sender;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;- (void) <a class="code" href="interface_frais_table_view_controller.html#a4678c45c6f34c58900f35ccb2f60f6e5">compterNotifs</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_ab93aa06fed5d979a294947c05ecd9b08"><div class="ttname"><a href="interface_frais_table_view_controller.html#ab93aa06fed5d979a294947c05ecd9b08">FraisTableViewController::listeType</a></div><div class="ttdeci">NSArray * listeType</div><div class="ttdoc">Un tableau qui va contenir la liste des type de frais. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:38</div></div>
+<div class="ttc" id="interface_user_html"><div class="ttname"><a href="interface_user.html">User</a></div><div class="ttdef"><b>Definition:</b> User.h:14</div></div>
+<div class="ttc" id="interface_indemnite_k_html"><div class="ttname"><a href="interface_indemnite_k.html">IndemniteK</a></div><div class="ttdef"><b>Definition:</b> IndemniteK.h:14</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_acc1bac7eaa03824cda75c83d1e2eed5c"><div class="ttname"><a href="interface_frais_table_view_controller.html#acc1bac7eaa03824cda75c83d1e2eed5c">-[FraisTableViewController chargerListeTypesFrais]</a></div><div class="ttdeci">void chargerListeTypesFrais()</div><div class="ttdoc">Cette fonction permet de charger depuis le coreData tous les types de frais existant. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.m:306</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a9ba5a1442223405d6f3cd9238c44f3b9"><div class="ttname"><a href="interface_frais_table_view_controller.html#a9ba5a1442223405d6f3cd9238c44f3b9">FraisTableViewController::indemniteK</a></div><div class="ttdeci">IndemniteK * indemniteK</div><div class="ttdoc">L&#39;indemnité kilomètrique du frais si elle existe. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:48</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a2f40e61c1e197bfefc2d6d7482255ac7"><div class="ttname"><a href="interface_frais_table_view_controller.html#a2f40e61c1e197bfefc2d6d7482255ac7">-[FraisTableViewController creerBaremesAuto]</a></div><div class="ttdeci">void creerBaremesAuto()</div><div class="ttdoc">Cette fonction sert à créer les différents barèmes kilométriques et à les stocker sur l&#39;appareil...</div><div class="ttdef"><b>Definition:</b> FraisTableViewController.m:289</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a9249b11df9a6ccd85769be4eca0dd11b"><div class="ttname"><a href="interface_frais_table_view_controller.html#a9249b11df9a6ccd85769be4eca0dd11b">FraisTableViewController::montant</a></div><div class="ttdeci">NSMutableString * montant</div><div class="ttdoc">Une chaîne de caractère contenant le montant du frais. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:43</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_ad99824daa7ac44e459ef385c4cac69ef"><div class="ttname"><a href="interface_frais_table_view_controller.html#ad99824daa7ac44e459ef385c4cac69ef">-[FraisTableViewController creerTypesFrais]</a></div><div class="ttdeci">void creerTypesFrais()</div><div class="ttdoc">Cette fonction sert à récupérer les différents types de frais possibles depuis la BD phileas et à les...</div><div class="ttdef"><b>Definition:</b> FraisTableViewController.m:251</div></div>
+<div class="ttc" id="interface_frais_html"><div class="ttname"><a href="interface_frais.html">Frais</a></div><div class="ttdef"><b>Definition:</b> Frais.h:14</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html"><div class="ttname"><a href="interface_frais_table_view_controller.html">FraisTableViewController</a></div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:23</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a31481e8ca9a4d1390a8c7958dbd92e66"><div class="ttname"><a href="interface_frais_table_view_controller.html#a31481e8ca9a4d1390a8c7958dbd92e66">FraisTableViewController::listeExpenseDef</a></div><div class="ttdeci">NSArray * listeExpenseDef</div><div class="ttdoc">Un tableau qui va contenir la liste des expense-def récupérée depuis la BD. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:63</div></div>
+<div class="ttc" id="interface_app_delegate_html"><div class="ttname"><a href="interface_app_delegate.html">AppDelegate</a></div><div class="ttdef"><b>Definition:</b> AppDelegate.h:14</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a4678c45c6f34c58900f35ccb2f60f6e5"><div class="ttname"><a href="interface_frais_table_view_controller.html#a4678c45c6f34c58900f35ccb2f60f6e5">-[FraisTableViewController compterNotifs]</a></div><div class="ttdeci">void compterNotifs()</div><div class="ttdoc">Cette fonction sert à récupérer le nombre de messages récents afin d&#39;afficher un badge sur les notifi...</div><div class="ttdef"><b>Definition:</b> FraisTableViewController.m:329</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a3497c33fbbbb86a57f718102b926ead0"><div class="ttname"><a href="interface_frais_table_view_controller.html#a3497c33fbbbb86a57f718102b926ead0">FraisTableViewController::fraisChoisi</a></div><div class="ttdeci">Frais * fraisChoisi</div><div class="ttdoc">Le frais qui va être créé ou modifié. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:53</div></div>
+<div class="ttc" id="interface_frais_table_view_controller_html_a42b5274fc3e34b65e3a20ed1786d192c"><div class="ttname"><a href="interface_frais_table_view_controller.html#a42b5274fc3e34b65e3a20ed1786d192c">FraisTableViewController::utilisateur</a></div><div class="ttdeci">User * utilisateur</div><div class="ttdoc">L&#39;utilisateur connecté. </div><div class="ttdef"><b>Definition:</b> FraisTableViewController.h:58</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

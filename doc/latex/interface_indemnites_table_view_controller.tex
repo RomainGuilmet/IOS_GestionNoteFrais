@@ -1,0 +1,77 @@
+\hypertarget{interface_indemnites_table_view_controller}{}\section{Référence de la classe Indemnites\+Table\+View\+Controller}
+\label{interface_indemnites_table_view_controller}\index{Indemnites\+Table\+View\+Controller@{Indemnites\+Table\+View\+Controller}}
+Graphe d\textquotesingle{}héritage de Indemnites\+Table\+View\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_indemnites_table_view_controller}
+\end{center}
+\end{figure}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_indemnites_table_view_controller_a5062cc3a031c84c40a9f16a173572557}{}(I\+B\+Action) -\/ \hyperlink{interface_indemnites_table_view_controller_a5062cc3a031c84c40a9f16a173572557}{choisir\+Puissance\+:}\label{interface_indemnites_table_view_controller_a5062cc3a031c84c40a9f16a173572557}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de lancer une alerte au clic sur le bouton choisir\+Cylindree pour choisir le nombre de C\+V du véhicule. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a2a2f76a0074ed3bb89673fb3acaa0d8a}{}(I\+B\+Action) -\/ \hyperlink{interface_indemnites_table_view_controller_a2a2f76a0074ed3bb89673fb3acaa0d8a}{changement\+Type\+Trajet\+:}\label{interface_indemnites_table_view_controller_a2a2f76a0074ed3bb89673fb3acaa0d8a}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de recharger la vue au changement d\textquotesingle{}état du switch pour recalculer directement la disance et le coût de l\textquotesingle{}indemnité. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a1b34033f12d19261c91e2f557ccc58fa}{}(void) -\/ \hyperlink{interface_indemnites_table_view_controller_a1b34033f12d19261c91e2f557ccc58fa}{chargement\+Liste\+Baremes}\label{interface_indemnites_table_view_controller_a1b34033f12d19261c91e2f557ccc58fa}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de charger la liste des barèmes automobiles enregistrés dans le core\+Data. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a7c86d1ddfb0541a430bc0e0043dde81f}{}(void) -\/ \hyperlink{interface_indemnites_table_view_controller_a7c86d1ddfb0541a430bc0e0043dde81f}{calcul\+Distance}\label{interface_indemnites_table_view_controller_a7c86d1ddfb0541a430bc0e0043dde81f}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de calculer la distance entre deux emplacements géographiques. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_ae13cf1fc48417a8ccec916e68ccbecf5}{}(void) -\/ \hyperlink{interface_indemnites_table_view_controller_ae13cf1fc48417a8ccec916e68ccbecf5}{calcul\+Montant}\label{interface_indemnites_table_view_controller_ae13cf1fc48417a8ccec916e68ccbecf5}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de calculer le coût d\textquotesingle{}une indemnité kilométrique en fonction de la cylindrée et de la distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_indemnites_table_view_controller_a661b58c51235b729a5e9e10b2f7d6b9f}{}\hyperlink{interface_app_delegate}{App\+Delegate} $\ast$ {\bfseries app\+Delegate}\label{interface_indemnites_table_view_controller_a661b58c51235b729a5e9e10b2f7d6b9f}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_aa1db71c0b4aee77256bc3963cccf8b19}{}N\+S\+Managed\+Object\+Context $\ast$ {\bfseries context}\label{interface_indemnites_table_view_controller_aa1db71c0b4aee77256bc3963cccf8b19}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_a84aae1becbefe67f2fa143dbc66737bc}{}N\+S\+Array $\ast$ {\bfseries resultat}\label{interface_indemnites_table_view_controller_a84aae1becbefe67f2fa143dbc66737bc}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_ac4295cc503e091aa8af96d6b5d718a85}{}N\+S\+Mutable\+String $\ast$ \hyperlink{interface_indemnites_table_view_controller_ac4295cc503e091aa8af96d6b5d718a85}{montant}\label{interface_indemnites_table_view_controller_ac4295cc503e091aa8af96d6b5d718a85}
+
+\begin{DoxyCompactList}\small\item\em Une chaîne de caractère contenant le montant du frais. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a6a1a3affbcd06a4ff8a18b686ff02231}{}\hyperlink{interface_indemnite_k}{Indemnite\+K} $\ast$ \hyperlink{interface_indemnites_table_view_controller_a6a1a3affbcd06a4ff8a18b686ff02231}{indemnite\+K}\label{interface_indemnites_table_view_controller_a6a1a3affbcd06a4ff8a18b686ff02231}
+
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}indemnité kilomètrique du frais. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a17b467389213aa5bbfb1a4c3ce88d906}{}\hyperlink{interface_bareme_auto}{Bareme\+Auto} $\ast$ \hyperlink{interface_indemnites_table_view_controller_a17b467389213aa5bbfb1a4c3ce88d906}{ba}\label{interface_indemnites_table_view_controller_a17b467389213aa5bbfb1a4c3ce88d906}
+
+\begin{DoxyCompactList}\small\item\em Le barème automobile associé à ce frais. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_ab55017774d4178794b419e79c418cf7c}{}N\+S\+Mutable\+Array $\ast$ \hyperlink{interface_indemnites_table_view_controller_ab55017774d4178794b419e79c418cf7c}{depart}\label{interface_indemnites_table_view_controller_ab55017774d4178794b419e79c418cf7c}
+
+\begin{DoxyCompactList}\small\item\em Un tableau contenant la liste des villes possibles répondant à la recherche pour celle de départ. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a0733c994aacd00be9dde210fea70e142}{}N\+S\+Mutable\+Array $\ast$ \hyperlink{interface_indemnites_table_view_controller_a0733c994aacd00be9dde210fea70e142}{arrivee}\label{interface_indemnites_table_view_controller_a0733c994aacd00be9dde210fea70e142}
+
+\begin{DoxyCompactList}\small\item\em Un tableau contenant la liste des villes possibles répondant à la recherche pour celle d\textquotesingle{}arrivée. \end{DoxyCompactList}\item 
+\hypertarget{interface_indemnites_table_view_controller_a865e847e5f48aadb5ecaec6285365555}{}I\+B\+Outlet U\+I\+Table\+View\+Cell $\ast$ {\bfseries depart\+Cell}\label{interface_indemnites_table_view_controller_a865e847e5f48aadb5ecaec6285365555}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_ae3b1588cb19734982157fc64dd45f2c8}{}I\+B\+Outlet U\+I\+Table\+View\+Cell $\ast$ {\bfseries arrivee\+Cell}\label{interface_indemnites_table_view_controller_ae3b1588cb19734982157fc64dd45f2c8}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_a96aea48974d4d211440bf634a0f7a554}{}I\+B\+Outlet U\+I\+Text\+Field $\ast$ {\bfseries distance\+Text\+Field}\label{interface_indemnites_table_view_controller_a96aea48974d4d211440bf634a0f7a554}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_abf8a2c9eadaace04844fa90a3718c2b2}{}I\+B\+Outlet U\+I\+Button $\ast$ {\bfseries cv\+Button}\label{interface_indemnites_table_view_controller_abf8a2c9eadaace04844fa90a3718c2b2}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_adac071ef2da7b55297b42ed23d3c5715}{}I\+B\+Outlet U\+I\+Switch $\ast$ {\bfseries ar\+Switch}\label{interface_indemnites_table_view_controller_adac071ef2da7b55297b42ed23d3c5715}
+
+\item 
+\hypertarget{interface_indemnites_table_view_controller_af448edad169ce7ffc0058a21c72fbd3e}{}I\+B\+Outlet U\+I\+Text\+Field $\ast$ {\bfseries montant\+Text\+Field}\label{interface_indemnites_table_view_controller_af448edad169ce7ffc0058a21c72fbd3e}
+
+\end{DoxyCompactItemize}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Indemnites\+Table\+View\+Controller.\+h\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/Indemnites\+Table\+View\+Controller.\+m\end{DoxyCompactItemize}

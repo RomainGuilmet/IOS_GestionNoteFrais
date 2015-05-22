@@ -1,0 +1,73 @@
+\hypertarget{interface_app_delegate}{}\section{Référence de la classe App\+Delegate}
+\label{interface_app_delegate}\index{App\+Delegate@{App\+Delegate}}
+Graphe d\textquotesingle{}héritage de App\+Delegate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_app_delegate}
+\end{center}
+\end{figure}
+\subsection*{Méthodes d\textquotesingle{}instance}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_app_delegate_affcb482ed45b506b0659be7277e805f9}{}(void) -\/ {\bfseries save\+Context}\label{interface_app_delegate_affcb482ed45b506b0659be7277e805f9}
+
+\item 
+\hypertarget{interface_app_delegate_a09e82eab31a341400477030e8b474b13}{}(N\+S\+U\+R\+L $\ast$) -\/ {\bfseries application\+Documents\+Directory}\label{interface_app_delegate_a09e82eab31a341400477030e8b474b13}
+
+\item 
+(B\+O\+O\+L) -\/ \hyperlink{interface_app_delegate_ad29ed8d846df7f5488924c05248e57f9}{est\+Connecte}
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de savoir si un utilisateur est déjà connecté. \end{DoxyCompactList}\item 
+(\hyperlink{interface_user}{User} $\ast$) -\/ \hyperlink{interface_app_delegate_ad86b0c4b9f376e1702c9e2f7336c9eb9}{charger\+Utilisateur}
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de charger les informations concernant l\textquotesingle{}utilisateur connecté. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Propriétés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_app_delegate_acf48ac24125e688cac1a85445cd7fac2}{}U\+I\+Window $\ast$ {\bfseries window}\label{interface_app_delegate_acf48ac24125e688cac1a85445cd7fac2}
+
+\item 
+\hypertarget{interface_app_delegate_a1fa650ded1ca9bb0eecda69d1f41cc1f}{}N\+S\+Managed\+Object\+Context $\ast$ {\bfseries managed\+Object\+Context}\label{interface_app_delegate_a1fa650ded1ca9bb0eecda69d1f41cc1f}
+
+\item 
+\hypertarget{interface_app_delegate_a9f3cb4e87e96ee48a07e2b72cf3f6d13}{}N\+S\+Managed\+Object\+Model $\ast$ {\bfseries managed\+Object\+Model}\label{interface_app_delegate_a9f3cb4e87e96ee48a07e2b72cf3f6d13}
+
+\item 
+\hypertarget{interface_app_delegate_a4169fdb1085cc13479280e10d44c039a}{}N\+S\+Persistent\+Store\+Coordinator $\ast$ {\bfseries persistent\+Store\+Coordinator}\label{interface_app_delegate_a4169fdb1085cc13479280e10d44c039a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des méthodes}
+\hypertarget{interface_app_delegate_ad86b0c4b9f376e1702c9e2f7336c9eb9}{}\index{App\+Delegate@{App\+Delegate}!charger\+Utilisateur@{charger\+Utilisateur}}
+\index{charger\+Utilisateur@{charger\+Utilisateur}!App\+Delegate@{App\+Delegate}}
+\subsubsection[{charger\+Utilisateur()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ ({\bf User} $\ast$) charger\+Utilisateur 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_app_delegate_ad86b0c4b9f376e1702c9e2f7336c9eb9}
+
+
+Cette fonction permet de charger les informations concernant l\textquotesingle{}utilisateur connecté. 
+
+\begin{DoxyReturn}{Renvoie}
+l\textquotesingle{}utilisateur connecté 
+\end{DoxyReturn}
+\hypertarget{interface_app_delegate_ad29ed8d846df7f5488924c05248e57f9}{}\index{App\+Delegate@{App\+Delegate}!est\+Connecte@{est\+Connecte}}
+\index{est\+Connecte@{est\+Connecte}!App\+Delegate@{App\+Delegate}}
+\subsubsection[{est\+Connecte()}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (B\+O\+O\+L) est\+Connecte 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_app_delegate_ad29ed8d846df7f5488924c05248e57f9}
+
+
+Cette fonction permet de savoir si un utilisateur est déjà connecté. 
+
+Si un utilisateur est sauvé en local alors nous considérons qu\textquotesingle{}il est connecté et l\textquotesingle{}application passera la page de connexion. \begin{DoxyReturn}{Renvoie}
+true si un utilisateur existe, false sinon. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/App\+Delegate.\+h\item 
+Projet\+Indus/\+Phileas\+\_\+\+Gestion/App\+Delegate.\+m\end{DoxyCompactItemize}
